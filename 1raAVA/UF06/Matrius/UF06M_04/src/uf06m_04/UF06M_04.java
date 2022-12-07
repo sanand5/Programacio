@@ -29,7 +29,8 @@ public class UF06M_04 {
 
                 if (V[i][j] < min) {
                     min = V[i][j];
-                } else if (V[i][j] > max) {
+                } 
+                if (V[i][j] > max) {
                     max = V[i][j];
                 }
                 suma += V[i][j];

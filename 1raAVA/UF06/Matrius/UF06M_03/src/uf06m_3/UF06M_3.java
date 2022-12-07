@@ -28,7 +28,7 @@ public class UF06M_3 {
         for (int i = 0; i < V.length; i++) {
             for (int j = 0; j < V[i].length; j++) {
                 System.out.print("num en "+i+","+j+" = ");
-                V[i][j] = sc.nextInt();;
+                V[i][j] = sc.nextInt();
                 if (V[i][j]>0) {
                     majors++;
                 } else {
