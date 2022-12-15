@@ -17,10 +17,12 @@ public class ExtraUF06C7_Estaturas {
         // TODO code application logic here
         String P[] = {"España", "Rusia", "Japón", "Australia"};
         int V[][] = new int[4][10];
-        //probar
+        System.out.print("         ");
+        for (int i = 0; i < V[0].length; i++) {
+            System.out.print("      ");
             
-            System.out.println("\n\t\t\t\t\t\t\t\t\t   MED  MÍN  MAX");
-        //fin probar
+        }
+        System.out.println("      MID  MAX  MED");
         for (int i = 0; i < V.length; i++) {
             int M[] = {0, 240, 0};
 
