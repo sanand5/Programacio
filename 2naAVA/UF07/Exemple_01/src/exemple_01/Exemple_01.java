@@ -17,9 +17,13 @@ public class Exemple_01 {
         } else {
             System.out.println("impar");
         }
+    a++;
+    a++;
     }
     
     public static void main(String[] args) {
+        int h=0;
+        h++;
         System.out.println(suma(2, 3));
         par(3);
     }
