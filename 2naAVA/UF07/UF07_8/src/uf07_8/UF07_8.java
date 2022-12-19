@@ -20,8 +20,9 @@ public class UF07_8 {
     public static int mul(int x) {
         int i=1;
         int prod=1;
-        while (i<x) {
+        while (i<=x) {
             prod*=i;
+            i++;
         }
         return prod;
     }
