@@ -17,7 +17,7 @@ public class UF07_15 {
         return j;
     }
     public static double mitjana(int []V) {
-        return suma(V)/V.length;
+        return (double) suma(V)/V.length;
     }
     public static void main(String[] args) {
         int V[] = new int[100];
@@ -25,7 +25,7 @@ public class UF07_15 {
             V[i] = i+1;
         }
         System.out.println("Suma: "+suma(V)+"\n"+
-                           "Mitjana: "+(double) mitjana(V));
+                           "Mitjana: "+mitjana(V));
     }
 
 }
