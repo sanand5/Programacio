@@ -58,7 +58,7 @@ public class Activitat_Qualificable_UF07 {
         return (int) lletra-65;
     }
     
-    public static void compcoord(int lletra, int num, char[][] tab, int trobat) {
+    public static int compcoord(int lletra, int num, char[][] tab, int trobat) {
         if (tab[lletra][num]=='-'){ 
             tab[lletra][num]='A';
         }
@@ -66,6 +66,7 @@ public class Activitat_Qualificable_UF07 {
             tab[lletra][num]='X';
             trobat++;
         } 
+        return trobat;
     }
     public static void win(char[][] tab) {
         System.out.println("""
@@ -100,6 +101,7 @@ public class Activitat_Qualificable_UF07 {
     
     public static void main(String[] args) {
         int filas=10, columnas=10, tirades=50, trobat = 0;
+        int variables[] = new int[2];
         char tab[][] = new char[filas][columnas];
         rellenar(tab);
         for (int i = 0; i < tirades; i++) {
