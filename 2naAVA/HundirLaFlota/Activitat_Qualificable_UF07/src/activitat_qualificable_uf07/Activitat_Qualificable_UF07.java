@@ -26,22 +26,22 @@ public class Activitat_Qualificable_UF07 {
         System.out.println("Tirades = "+variables[2]+"\tTrobat = "+variables[3]);
     }
     
-    public static char[][] rellenar(char[][] tab) {
+    public static void rellenar(char[][] tab) {
         for (int i = 0; i < tab.length; i++) {
             Arrays.fill(tab[i], '-');
         }
-        
-        for (int i = 0; i < tab.length; i++) {
+    }
+    public static void barcos(char [][] tabsol) {
+        for (int i = 0; i < tabsol.length; i++) {
             int fila=(int) (Math.random()*9+1),columna=(int) (Math.random()*9+1);
-            if (tab[fila][columna]=='-') 
-                tab[fila][columna]='L';
+            if (tabsol[fila][columna]=='-') 
+                tabsol[fila][columna]='L';
             else i--;
             
         }
-        return tab;
     }
     
-    public static void preguntar(char[][] tab, int []variables) {
+    public static void preguntar(char[][] tab, int []variables, char[][] tabsol) {
         Scanner sc = new Scanner(System.in);
         
         System.out.print("Coordenades: ");
@@ -49,8 +49,8 @@ public class Activitat_Qualificable_UF07 {
         int lletra=transcoord(coord);
         if (lletra>variables[1] || lletra<0 || (int) coord.charAt(1)-48>variables[0] || (int) coord.charAt(1)-48<0 ) {
             System.err.println("La cordenada es incorrecta");
-            preguntar(tab, variables);
-        }else marcar(lletra,(int) coord.charAt(1)-48, tab, variables);
+            preguntar(tab, variables, tabsol);
+        }else marcar(lletra,(int) coord.charAt(1)-48, tab, tabsol, variables);
         
     }
     
@@ -60,9 +60,9 @@ public class Activitat_Qualificable_UF07 {
         return (int) lletra-65;
     }
     
-    public static void marcar(int lletra, int num, char[][] tab, int []variables) {
+    public static void marcar(int lletra, int num, char[][] tab, char [][] tabsol, int []variables) {
         variables[2]--;
-        switch (tab[lletra][num]) {
+        switch (tabsol[lletra][num]) {
             case '-':
                 tab[lletra][num]='A';
                 break;
@@ -75,33 +75,40 @@ public class Activitat_Qualificable_UF07 {
                 break;
         }
     }
-    public static void win(char[][] tab) {
+    public static void win(char[][] tabsol, int[] variables) {
         System.out.println("""
+                           
                            ////////////////////
                            //////VICTORIA//////
-                           ////////////////////""");
-        solucio(tab);
+                           ////////////////////
+                           
+                           Has trobat tots els vaixells.
+                           
+                           """);
+        solucio(tabsol);
+        mostrarvariables(variables);
     }
-    public static void lose(char[][] tab) {
+    public static void lose(char[][] tabsol, int[] variables) {
         System.out.println("""
                            ////////////////////
                            /////HAS PERDUT/////
                            ////////////////////
                             
                            LA SOLUCIUÓ ERA:""");
-        solucio(tab);
+        solucio(tabsol);
+        mostrarvariables(variables);
     }
-    public static void solucio(char[][] tab) {
+    public static void solucio(char[][] tabsol) {
         System.out.print(" ");
-        for (int i = 0; i < tab.length; i++) {
+        for (int i = 0; i < tabsol.length; i++) {
             System.out.printf("%3d",i);
         }
         System.out.println();
         
-        for (int i = 0; i < tab.length; i++) {
+        for (int i = 0; i < tabsol.length; i++) {
                System.out.print((char)(65+i));
-            for (int j = 0; j < tab[i].length; j++) {
-                System.out.printf("%3s",tab[i][j]);
+            for (int j = 0; j < tabsol[i].length; j++) {
+                System.out.printf("%3s",tabsol[i][j]);
             }
             System.out.println();
         }
@@ -115,17 +122,22 @@ public class Activitat_Qualificable_UF07 {
         variables[1]=columnas;
         variables[2]=tirades;
         variables[3]=trobat;
+        char tabsol[][] = new char[filas][columnas];
+        rellenar(tabsol);
+        barcos(tabsol);
         char tab[][] = new char[filas][columnas];
         rellenar(tab);
-        char[][] tabsol = Arrays.stream(tab).map(char[]::clone).toArray(char[][]::new);
+        
+        
         System.out.println("Introdueix les coordenades de la seguenta manera; FilaColumna");
         for (int i = 0; i < tirades; i++) {
+            solucio(tabsol);
             mostrartablero(tab, columnas, variables);
-            preguntar(tab,variables);
+            preguntar(tab,variables, tabsol);
             if(variables[3]==10) break;
         }
         if (variables[3]==10) {
-            win(tabsol);
-        }else lose(tabsol);        
+            win(tabsol, variables);
+        }else lose(tabsol, variables);        
     }
 }
