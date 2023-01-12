@@ -6,14 +6,13 @@ import java.util.Arrays;
 import java.util.Scanner;
 
 public class Activitat_Qualificable_UF07 {
-    public static void mostrartablero(char[][] tab, int column, int tirades) {
+    public static void mostrartablero(char[][] tab, int column, int []variables) {
         
         System.out.print(" ");
         for (int i = 0; i < column; i++) {
             System.out.printf("%3d",i);
         }
         System.out.println();
-        
         for (int i = 0; i < tab.length; i++) {
                System.out.print((char)(65+i));
             for (int j = 0; j < tab[i].length; j++) {
@@ -21,13 +20,10 @@ public class Activitat_Qualificable_UF07 {
             }
             System.out.println();
         }
-        
-//        mostrarvariables(tirades);
-        
+        mostrarvariables(variables);
     }
-    public static void mostrarvariables(int tirades, int trobat) {
-        System.out.println("Tirades = "+tirades);
-        System.out.println("Trobat = "+trobat);
+    public static void mostrarvariables(int []variables) {
+        System.out.println("Tirades = "+variables[2]+"\tTrobat = "+variables[3]);
     }
     
     public static char[][] rellenar(char[][] tab) {
@@ -45,11 +41,17 @@ public class Activitat_Qualificable_UF07 {
         return tab;
     }
     
-    public static void preguntar(char[][] tab, int tirades, int trobat) {
+    public static void preguntar(char[][] tab, int []variables) {
         Scanner sc = new Scanner(System.in);
+        
         System.out.print("Coordenades: ");
         String coord = sc.nextLine();
-        compcoord(transcoord(coord),(int) coord.charAt(1)-48, tab, trobat);
+        int lletra=transcoord(coord);
+        if (lletra>variables[1] || lletra<0 || (int) coord.charAt(1)-48>variables[0] || (int) coord.charAt(1)-48<0 ) {
+            System.err.println("La cordenada es incorrecta");
+            preguntar(tab, variables);
+        }else marcar(lletra,(int) coord.charAt(1)-48, tab, variables);
+        
     }
     
     public static int transcoord(String coord) {
@@ -58,15 +60,20 @@ public class Activitat_Qualificable_UF07 {
         return (int) lletra-65;
     }
     
-    public static int compcoord(int lletra, int num, char[][] tab, int trobat) {
-        if (tab[lletra][num]=='-'){ 
-            tab[lletra][num]='A';
+    public static void marcar(int lletra, int num, char[][] tab, int []variables) {
+        variables[2]--;
+        switch (tab[lletra][num]) {
+            case '-':
+                tab[lletra][num]='A';
+                break;
+            case 'A': case 'X':
+                System.out.println("Ja habies marcat esta casella pero et conte una tirada, jeje :)");
+                break;
+            default:
+                tab[lletra][num]='X';
+                variables[3]++;
+                break;
         }
-        else {
-            tab[lletra][num]='X';
-            trobat++;
-        } 
-        return trobat;
     }
     public static void win(char[][] tab) {
         System.out.println("""
@@ -79,7 +86,9 @@ public class Activitat_Qualificable_UF07 {
         System.out.println("""
                            ////////////////////
                            /////HAS PERDUT/////
-                           ////////////////////""");
+                           ////////////////////
+                            
+                           LA SOLUCIUÓ ERA:""");
         solucio(tab);
     }
     public static void solucio(char[][] tab) {
@@ -100,22 +109,23 @@ public class Activitat_Qualificable_UF07 {
     }
     
     public static void main(String[] args) {
-        int filas=10, columnas=10, tirades=50, trobat = 0;
-        int variables[] = new int[2];
+        int filas=10, columnas=10, tirades=5, trobat = 0;
+        int variables[] = new int[4];
+        variables[0]=filas;
+        variables[1]=columnas;
+        variables[2]=tirades;
+        variables[3]=trobat;
         char tab[][] = new char[filas][columnas];
         rellenar(tab);
+        char[][] tabsol = Arrays.stream(tab).map(char[]::clone).toArray(char[][]::new);
+        System.out.println("Introdueix les coordenades de la seguenta manera; FilaColumna");
         for (int i = 0; i < tirades; i++) {
-            mostrartablero(tab, columnas, tirades);
-            preguntar(tab,tirades, trobat);
-            mostrarvariables(tirades, trobat);
-            if(trobat==10) break;
+            mostrartablero(tab, columnas, variables);
+            preguntar(tab,variables);
+            if(variables[3]==10) break;
         }
-        if (trobat==10) {
-            win(tab);
-        }else lose(tab);
-        
-        
-        
+        if (variables[3]==10) {
+            win(tabsol);
+        }else lose(tabsol);        
     }
-
 }
