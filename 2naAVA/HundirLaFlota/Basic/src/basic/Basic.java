@@ -1,11 +1,11 @@
-package activitat_qualificable_uf07;
+package basic;
 
 // Andreu Sanz Sanz
 
 import java.util.Arrays;
 import java.util.Scanner;
 
-public class Activitat_Qualificable_UF07 {
+public class Basic {
     public static void mostrartablero(char[][] tab, int column, int []variables) {
         
         System.out.print(" ");
@@ -32,45 +32,12 @@ public class Activitat_Qualificable_UF07 {
         }
     }
     public static void barcos(char [][] tabsol) {
-        for (int i = 0; i < 5; i++) {
-            int fila=(int) (Math.random()*10), columna=(int) (Math.random()*10);
+        for (int i = 0; i < tabsol.length; i++) {
+            int fila=(int) (Math.random()*9+1),columna=(int) (Math.random()*9+1);
             if (tabsol[fila][columna]=='-') 
                 tabsol[fila][columna]='L';
             else i--;
-        }
-        
-        for (int i = 0; i < 1; i++) {
-            int fila=(int) (Math.random()*10), columna=(int) (Math.random()*9)+1;
-            if (tabsol[fila][columna]=='-' && tabsol[fila][columna-1]=='-' && tabsol[fila][columna+1]=='-') {
-                tabsol[fila][columna]='B';
-                tabsol[fila][columna-1]='B';
-                tabsol[fila][columna+1]='B';
-            }else{
-                i--;
-            }
-        }
-        for (int i = 0; i < 1; i++) {
-            int fila=(int) (Math.random()*10), columna=(int) (Math.random()*8+1);
-            if (tabsol[fila][columna-1]=='-' && tabsol[fila][columna]=='-' && tabsol[fila][columna+1]=='-' && tabsol[fila][columna+2]=='-') {
-                tabsol[fila][columna-1]='Z';
-                tabsol[fila][columna]='Z';
-                tabsol[fila][columna+1]='Z';
-                tabsol[fila][columna+2]='Z';
-            }else{
-                i--;
-            }
-        }
-        for (int i = 0; i < 1; i++) {
-            int fila=(int) (Math.random()*8+2), columna=(int) (Math.random()*10);
-            if (tabsol[fila][columna]=='-' && tabsol[fila-1][columna]=='-' && tabsol[fila-2][columna]=='-' && tabsol[fila+1][columna]=='-' && tabsol[fila+2][columna]=='-') {
-                tabsol[fila-1][columna]='P';
-                tabsol[fila-2][columna]='P';
-                tabsol[fila][columna]='P';
-                tabsol[fila+1][columna]='P';
-                tabsol[fila+2][columna]='P';
-            }else{
-                i--;
-            }
+            
         }
     }
     
