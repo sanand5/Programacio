@@ -40,7 +40,7 @@ public class Activitat_Qualificable_UF07 {
         }
         
         for (int i = 0; i < 1; i++) {
-            int fila=(int) (Math.random()*10), columna=(int) (Math.random()*9)+1;
+            int fila=(int) (Math.random()*10), columna=(int) (Math.random()*8)+1;
             if (tabsol[fila][columna]=='-' && tabsol[fila][columna-1]=='-' && tabsol[fila][columna+1]=='-') {
                 tabsol[fila][columna]='B';
                 tabsol[fila][columna-1]='B';
@@ -50,7 +50,7 @@ public class Activitat_Qualificable_UF07 {
             }
         }
         for (int i = 0; i < 1; i++) {
-            int fila=(int) (Math.random()*10), columna=(int) (Math.random()*8+1);
+            int fila=(int) (Math.random()*10), columna=(int) (Math.random()*7)+1;
             if (tabsol[fila][columna-1]=='-' && tabsol[fila][columna]=='-' && tabsol[fila][columna+1]=='-' && tabsol[fila][columna+2]=='-') {
                 tabsol[fila][columna-1]='Z';
                 tabsol[fila][columna]='Z';
@@ -61,7 +61,7 @@ public class Activitat_Qualificable_UF07 {
             }
         }
         for (int i = 0; i < 1; i++) {
-            int fila=(int) (Math.random()*8+2), columna=(int) (Math.random()*10);
+            int fila=(int) (Math.random()*6)+2, columna=(int) (Math.random()*10);
             if (tabsol[fila][columna]=='-' && tabsol[fila-1][columna]=='-' && tabsol[fila-2][columna]=='-' && tabsol[fila+1][columna]=='-' && tabsol[fila+2][columna]=='-') {
                 tabsol[fila-1][columna]='P';
                 tabsol[fila-2][columna]='P';
