@@ -78,12 +78,15 @@ public class Activitat_Qualificable_UF07 {
         Scanner sc = new Scanner(System.in);
         String nomvaixells[] = {"Les files","Les columnes","","Les llanxes","Els vaixells","Els cuirassats","Els portaavions","Les tirades"};
         int total=0;
-        System.out.println("Recorda que el minim de files i columnes es 10");
+        System.out.println("Recorda que les files tenen que estar entre 5-26");
         for (int i = 0; i < 8; i++) { 
             System.out.printf("Nombre de %s: ",nomvaixells[i].substring(4));
             variables[i] = sc.nextInt();
-            if (i<2 && variables[i]<10) {
-                System.err.printf("%s han de ser majors o iguals a 10\n",nomvaixells[i]);
+            if (i<1 && variables[i]<5) {
+                System.err.printf("%s han de ser majors o iguals a 5\n",nomvaixells[i]);
+                i--;
+            }else if (i==1 && variables[i]<=0) {
+                System.err.printf("%s han de ser majors a 0\n",nomvaixells[i]);
                 i--;
             }else if (i==1) {
                 i++;
