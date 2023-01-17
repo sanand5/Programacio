@@ -22,6 +22,83 @@ public class Activitat_Qualificable_UF07 {
         System.out.print("? ");
         return sc.nextInt();
     }
+    public static void nivell(int[] variables) {
+                                            /*
+                                            variables[0]=filas;
+                                            variables[1]=columnas;
+                                            variables[2]=enfonsats; 
+                                            variables[3]=llanxes; 
+                                            variables[4]=vaixells; 
+                                            variables[5]=cuirassats; 
+                                            variables[6]=portaavions; 
+                                            variables[7]=tirades; 
+                                            */
+        String nivell="";
+        boolean menu=false;
+        do {
+            menu=false;
+            switch (menu()) {
+                case 1 -> {
+                    nivell="fàcil";
+                    variables[3]=5;
+                    variables[4]=3;
+                    variables[5]=1;
+                    variables[6]=1;
+                    variables[7]=50;
+                }
+                case 2 -> {
+                    nivell="mitja";
+                    variables[3]=2;
+                    variables[4]=1;
+                    variables[5]=1;
+                    variables[6]=1;
+                    variables[7]=30;
+                }
+                case 3 -> {
+                    nivell="difícil";
+                    variables[3]=1;
+                    variables[4]=1;
+                    variables[5]=0;
+                    variables[6]=0;
+                    variables[7]=10;
+                }
+                case 4 -> {
+                    nivell="personalitzat";
+                    personalitzat(variables);
+                }
+                default -> {
+                    System.err.println("No reconec aqueta ordre");    
+                    menu = true;
+                }
+            }
+        } while (menu);
+        System.out.printf("Has seleccionat el nivell %s. \nTens: \n\t%d tirades \n\t%d llanxes \n\t%d vaixells \n\t%d cuirassats \n\t%d portaavions\n\n",nivell,variables[7],variables[3],variables[4],variables[5],variables[6]);
+    }
+    public static void personalitzat(int[] variables) {
+        Scanner sc = new Scanner(System.in);
+        String nomvaixells[] = {"Les files","Les columnes","","Les llanxes","Els vaixells","Els cuirassats","Els portaavions","Les tirades"};
+        int total=0;
+        System.out.println("Recorda que el minim de files i columnes es 10");
+        for (int i = 0; i < 8; i++) { 
+            System.out.printf("Nombre de %s: ",nomvaixells[i].substring(4));
+            variables[i] = sc.nextInt();
+            if (i<2 && variables[i]<10) {
+                System.err.printf("%s han de ser majors o iguals a 10\n",nomvaixells[i]);
+                i--;
+            }else if (i==1) {
+                i++;
+            }else if (i>2 && variables[i]<0 && i<7) {
+                System.err.printf("%s han de ser majors o iguals a 0\n",nomvaixells[i]);
+                i--;
+            }else if (i==6) {
+                total=variables[3]+variables[4]*3+variables[5]*4+variables[6]*5;
+            }else if (i==7 && variables[7]<total) {
+                System.err.printf("%s han de ser majors o iguals a %s\n",nomvaixells[7],total);
+                i--;
+            }
+
+        }
+    }
     public static void mostrartablero(char[][] tab, int []variables) {
         
         System.out.print(" ");
@@ -39,7 +116,7 @@ public class Activitat_Qualificable_UF07 {
         mostrarvariables(variables);
     }
     public static void mostrarvariables(int []variables) {
-        System.out.println("Tirades = "+variables[7]+"\tTrobat = "+variables[2]);
+        System.out.println("\tTirades = "+variables[7]+"\tTrobat = "+variables[2]);
     }
     
     public static void rellenar(char[][] tab) {
@@ -165,93 +242,13 @@ public class Activitat_Qualificable_UF07 {
     
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
-        int filas=10, columnas=10, enfonsats = 0, total= 0;
+        int filas=10, columnas=10, enfonsats = 0;
         int variables[] = new int[8];
-        String nivell="";
         variables[0]=filas;
         variables[1]=columnas;
-        variables[3]=enfonsats; 
-                                            /*
-                                            variables[0]=filas;
-                                            variables[1]=columnas;
-                                            variables[2]=tirades; 
-                                            variables[3]=enfonsats; 
-                                            variables[4]=llanxes; 
-                                            variables[5]=vaixells; 
-                                            variables[6]=cuirassats; 
-                                            variables[7]=portaavions; 
-                                            */
-                                            
-                                            /*
-                                            variables[0]=filas;
-                                            variables[1]=columnas;
-                                            variables[2]=enfonsats; 
-                                            variables[3]=llanxes; 
-                                            variables[4]=vaixells; 
-                                            variables[5]=cuirassats; 
-                                            variables[6]=portaavions; 
-                                            variables[7]=tirades; 
-                                            */
-        boolean menu=false;
-        do {
-            menu=false;
-            switch (menu()) {
-                case 1 -> {
-                    nivell="fàcil";
-                    variables[3]=5;
-                    variables[4]=3;
-                    variables[5]=1;
-                    variables[6]=1;
-                    variables[7]=50;
-                }
-                case 2 -> {
-                    nivell="mitja";
-                    variables[3]=2;
-                    variables[4]=1;
-                    variables[5]=1;
-                    variables[6]=1;
-                    variables[7]=30;
-                }
-                case 3 -> {
-                    nivell="difícil";
-                    variables[3]=1;
-                    variables[4]=1;
-                    variables[5]=0;
-                    variables[6]=0;
-                    variables[7]=10;
-                }
-                case 4 -> {
-                    nivell="personalitzat";
-                    String nomvaixells[] = {"files","columnes","","llanxes","vaixells","cuirassats","portaavions","tirades"};
-                    System.out.println("Recorda que el minim de files i columnes es 10");
-                    for (int i = 0; i < 8; i++) { 
-                        System.out.printf("Nombre de %s: ",nomvaixells[i]);
-                        variables[i] = sc.nextInt();
-                        if (i<2 && variables[i]<1) {
-                            System.err.printf("Les %s han de ser majors o iguals a 1\n",nomvaixells[i]);
-                            i--;
-                        }else if (i==1) {
-                            i++;
-                        }else if (i>2 && variables[i]<0 && i<7) {
-                            System.err.printf("Les %s han de ser majors o iguals a 0\n",nomvaixells[i]);
-                            i--;
-                        }else if (i==6) {
-                            total=variables[3]+variables[4]*3+variables[5]*4+variables[6]*5;
-                        }else if (i==7 && variables[7]<total) {
-                            System.err.printf("Les %s han de ser majors o iguals a %s\n",nomvaixells[7],total);
-                            i--;
-                        }
-                        
-                    }
-                }
-                default -> {
-                    System.err.println("No reconec aqueta ordre");    
-                    menu = true;
-                }
-            }
-        } while (menu);
-        System.out.printf("Has seleccionat el nivell %s. \nTens: \n\t%d tirades \n\t%d llanxes \n\t%d vaixells \n\t%d cuirassats \n\t%d portaavions\n\n",nivell,variables[2],variables[4],variables[5],variables[6],variables[7]);
-        total=variables[3]+variables[4]*3+variables[5]*4+variables[6]*5;
+        variables[3]=enfonsats;   
+        nivell(variables);
+        int total=variables[3]+variables[4]*3+variables[5]*4+variables[6]*5;
         char tabsol[][] = new char[variables[0]][variables[1]];
         rellenar(tabsol);
         barcos(tabsol, variables);
