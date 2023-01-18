@@ -6,9 +6,7 @@ import java.util.Scanner;
 
 
 public class UTF08_A2 {
-    public static void fun(int num) {
-        
-    }
+ 
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
         persona p1=new persona();

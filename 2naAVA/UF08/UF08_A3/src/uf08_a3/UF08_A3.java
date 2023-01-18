@@ -14,14 +14,14 @@ public class UF08_A3 {
         int altura=Math.abs(r1.y1-r1.y2);
         int perimetre=(base+altura)*2;
         int area=base*altura;
-        System.err.printf("Coordenades r1: (%d,%d)/(%d,%d)\n",r1.x1,r1.y1,r1.x2,r1.y2);
+        System.out.printf("Coordenades r1: (%d,%d)/(%d,%d)\n",r1.x1,r1.y1,r1.x2,r1.y2);
         System.out.printf("Perimetre=%d\nArea=%d\n",perimetre,area);
         System.out.println();
         base=Math.abs(r2.x1-r2.x2);
         altura=Math.abs(r2.y1-r2.y2);
         perimetre=(base+altura)*2;
         area=base*altura;
-        System.err.printf("Coordenades r2: (%d,%d)/(%d,%d)\n",r2.x1,r2.y1,r2.x2,r2.y2);
+        System.out.printf("Coordenades r2: (%d,%d)/(%d,%d)\n",r2.x1,r2.y1,r2.x2,r2.y2);
         System.out.printf("Perimetre=%d\nArea=%d;",perimetre,area);
         
     }
