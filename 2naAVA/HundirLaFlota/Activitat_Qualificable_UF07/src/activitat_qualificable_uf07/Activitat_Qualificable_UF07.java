@@ -77,16 +77,19 @@ public class Activitat_Qualificable_UF07 {
     public static void personalitzat(int[] variables) {
         Scanner sc = new Scanner(System.in);
         String nomvaixells[] = {"Les files","Les columnes","","Les llanxes","Els vaixells","Els cuirassats","Els portaavions","Les tirades"};
-        int total=0;
-        System.out.println("Recorda que les files tenen que estar entre 5-26");
+        int total=0, posicions=0;
+        System.out.println("Recorda que les files tenen que estar entre 5-26 i les columnes entre 5-100");
         for (int i = 0; i < 8; i++) { 
+            if (i==3) {
+                System.out.printf("%s tenene com a maxim %d\n",nomvaixells[i], posicions);
+            }else if (i>3 && i<7) System.out.printf("%s tenene com a maxim %d\n",nomvaixells[i], posicions/(i-1));
             System.out.printf("Nombre de %s: ",nomvaixells[i].substring(4));
             variables[i] = sc.nextInt();
-            if (i<1 && variables[i]<5) {
-                System.err.printf("%s han de ser majors o iguals a 5\n",nomvaixells[i]);
+            if (i==0 && variables[i]<5 || variables[i]>26) {
+                System.err.printf("%s han de ser majors o iguals a 5 i menors que 26\n",nomvaixells[i]);
                 i--;
-            }else if (i==1 && variables[i]<=0) {
-                System.err.printf("%s han de ser majors a 0\n",nomvaixells[i]);
+            }else if (i==1 && variables[i]<=0 || variables[i]>100) {
+                System.err.printf("%s han de ser majors a 0 i menors que 100\n",nomvaixells[i]);
                 i--;
             }else if (i==1) {
                 i++;
@@ -96,8 +99,24 @@ public class Activitat_Qualificable_UF07 {
             }else if (i==6) {
                 total=variables[3]+variables[4]*3+variables[5]*4+variables[6]*5;
             }else if (i==7 && variables[7]<total) {
-                System.err.printf("%s han de ser majors o iguals a %s\n",nomvaixells[7],total);
+                System.err.printf("%s han de ser majors o iguals a %d\n",nomvaixells[7],total);
                 i--;
+            }
+            if (i<=1) {
+                posicions=variables[0]*variables[1];
+            } else {
+                posicions-=variables[i];
+            }
+            switch (i) {
+                case 1:
+                    posicions=variables[0]*variables[1];
+                    break;
+                case 3:
+                    posicions-=variables[3];
+                    break;
+                case 4: case 5: case 6: case 7:
+                    posicions-=variables[i]*(i-1);
+                    break;
             }
 
         }
