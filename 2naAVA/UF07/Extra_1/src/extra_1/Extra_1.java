@@ -23,7 +23,7 @@ public class Extra_1 {
     }
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
-        System.out.print("? ");
+        System.out.print("Numero: ");
         String numero= sc.nextLine();
         System.out.printf("El nombre de dígits del %s és %d i la suma dels seus dígits és %d", numero, contar(numero), suma(numero));
         
