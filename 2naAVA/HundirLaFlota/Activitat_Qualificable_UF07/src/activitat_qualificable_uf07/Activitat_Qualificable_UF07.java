@@ -22,6 +22,7 @@ public class Activitat_Qualificable_UF07 {
         System.out.print("? ");
         return sc.nextInt();
     }
+    
     public static void nivell(int[] variables) {
                                             /*
                                             variables[0]=filas;
@@ -67,28 +68,25 @@ public class Activitat_Qualificable_UF07 {
                     personalitzat(variables);
                 }
                 default -> {
-                    System.err.println("No reconec aqueta ordre");    
+                    System.out.println("***No reconec aqueta ordre***");    
                     menu = true;
                 }
             }
         } while (menu);
-        System.out.printf("Has seleccionat el nivell %s. \nTens: \n\t%d tirades \n\t%d llanxes \n\t%d vaixells \n\t%d cuirassats \n\t%d portaavions\n\n",nivell,variables[7],variables[3],variables[4],variables[5],variables[6]);
     }
+    
     public static void personalitzat(int[] variables) {
         Scanner sc = new Scanner(System.in);
         String nomvaixells[] = {"Les files","Les columnes","","Les llanxes","Els vaixells","Els cuirassats","Els portaavions","Les tirades"};
-        int total=0, posicions=0;
+        int total=0;
         System.out.println("Recorda que les files tenen que estar entre 5-26 i les columnes entre 5-100");
-        for (int i = 0; i < 8; i++) { 
-            if (i==3) {
-                System.out.printf("%s tenene com a maxim %d\n",nomvaixells[i], posicions);
-            }else if (i>3 && i<7) System.out.printf("%s tenene com a maxim %d\n",nomvaixells[i], posicions/(i-1));
+        for (int i = 0; i < 8; i++) {
             System.out.printf("Nombre de %s: ",nomvaixells[i].substring(4));
             variables[i] = sc.nextInt();
-            if (i==0 && variables[i]<5 || variables[i]>26) {
+            if (i==0 && (variables[i]<5 || variables[i]>26)) {
                 System.err.printf("%s han de ser majors o iguals a 5 i menors que 26\n",nomvaixells[i]);
                 i--;
-            }else if (i==1 && variables[i]<=0 || variables[i]>100) {
+            }else if (i==1 && (variables[i]<=0 || variables[i]>100)) {
                 System.err.printf("%s han de ser majors a 0 i menors que 100\n",nomvaixells[i]);
                 i--;
             }else if (i==1) {
@@ -102,25 +100,9 @@ public class Activitat_Qualificable_UF07 {
                 System.err.printf("%s han de ser majors o iguals a %d\n",nomvaixells[7],total);
                 i--;
             }
-            if (i<=1) {
-                posicions=variables[0]*variables[1];
-            } else {
-                posicions-=variables[i];
-            }
-            switch (i) {
-                case 1:
-                    posicions=variables[0]*variables[1];
-                    break;
-                case 3:
-                    posicions-=variables[3];
-                    break;
-                case 4: case 5: case 6: case 7:
-                    posicions-=variables[i]*(i-1);
-                    break;
-            }
-
         }
     }
+    
     public static void mostrartablero(char[][] tab, int []variables) {
         
         System.out.print(" ");
@@ -137,6 +119,7 @@ public class Activitat_Qualificable_UF07 {
         }
         mostrarvariables(variables);
     }
+    
     public static void mostrarvariables(int []variables) {
         System.out.println("\tTirades = "+variables[7]+"\tTrobat = "+variables[2]);
     }
@@ -146,9 +129,13 @@ public class Activitat_Qualificable_UF07 {
             Arrays.fill(tab[i], '-');
         }
     }
-    public static void barcos(char [][] tabsol, int[] variables) {
+    
+    public static boolean barcos(char [][] tabsol, int[] variables) {
+        int cont=0;
+        int min=2, max=variables[1]-3;
         for (int i = 0; i < variables[6]; i++) {
-            int fila=(int) (Math.random()*6+2), columna=(int) (Math.random()*10);
+            cont++;
+            int fila=(int) (Math.random()*(max-min+1)+min), columna=(int) (Math.random()*variables[1]);
             if (tabsol[fila][columna]=='-' && tabsol[fila-1][columna]=='-' && tabsol[fila-2][columna]=='-' && tabsol[fila+1][columna]=='-' && tabsol[fila+2][columna]=='-') {
                 tabsol[fila-1][columna]='P';
                 tabsol[fila-2][columna]='P';
@@ -158,9 +145,13 @@ public class Activitat_Qualificable_UF07 {
             }else{
                 i--;
             }
+            if (cont>=1000) return false;
         }
+        cont=0;
+        min=1;
         for (int i = 0; i < variables[5]; i++) {
-            int fila=(int) (Math.random()*10), columna=(int) (Math.random()*8+1);
+            cont++;
+            int fila=(int) (Math.random()*variables[0]), columna=(int) (Math.random()*(max-min+1)+min);
             if (tabsol[fila][columna-1]=='-' && tabsol[fila][columna]=='-' && tabsol[fila][columna+1]=='-' && tabsol[fila][columna+2]=='-') {
                 tabsol[fila][columna-1]='Z';
                 tabsol[fila][columna]='Z';
@@ -169,9 +160,14 @@ public class Activitat_Qualificable_UF07 {
             }else{
                 i--;
             }
+            if (cont>=1000) return false;
+            
         }
+        cont=0;
+        max=variables[1]-2;
         for (int i = 0; i < variables[4]; i++) {
-            int fila=(int) (Math.random()*10), columna=(int) (Math.random()*8)+1;
+            cont++;
+            int fila=(int) (Math.random()*variables[0]), columna=(int) (Math.random()*(max-min+1)+min);
             if (tabsol[fila][columna]=='-' && tabsol[fila][columna-1]=='-' && tabsol[fila][columna+1]=='-') {
                 tabsol[fila][columna]='B';
                 tabsol[fila][columna-1]='B';
@@ -179,13 +175,19 @@ public class Activitat_Qualificable_UF07 {
             }else{
                 i--;
             }
+            if (cont>=1000) return false;
+            
         }
+        cont=0;
         for (int i = 0; i < variables[3]; i++) {
-            int fila=(int) (Math.random()*10), columna=(int) (Math.random()*10);
+            cont++;
+            int fila=(int) (Math.random()*variables[0]), columna=(int) (Math.random()*variables[1]);
             if (tabsol[fila][columna]=='-') 
                 tabsol[fila][columna]='L';
             else i--;
+            if (cont>=1000) return false;
         }
+        return true;
     }
     
     public static void preguntar(char[][] tab, int []variables, char[][] tabsol) {
@@ -222,6 +224,7 @@ public class Activitat_Qualificable_UF07 {
                 break;
         }
     }
+    
     public static void win(char[][] tabsol, int[] variables) {
         System.out.println("""
                            
@@ -235,6 +238,7 @@ public class Activitat_Qualificable_UF07 {
         solucio(tabsol);
         mostrarvariables(variables);
     }
+    
     public static void lose(char[][] tabsol, int[] variables) {
         System.out.println("""
                            ////////////////////
@@ -245,6 +249,7 @@ public class Activitat_Qualificable_UF07 {
         solucio(tabsol);
         mostrarvariables(variables);
     }
+    
     public static void solucio(char[][] tabsol) {
         System.out.print(" ");
         for (int i = 0; i < tabsol.length; i++) {
@@ -268,16 +273,20 @@ public class Activitat_Qualificable_UF07 {
         int variables[] = new int[8];
         variables[0]=filas;
         variables[1]=columnas;
-        variables[3]=enfonsats;   
+        variables[3]=enfonsats;
         nivell(variables);
-        int total=variables[3]+variables[4]*3+variables[5]*4+variables[6]*5;
         char tabsol[][] = new char[variables[0]][variables[1]];
-        rellenar(tabsol);
-        barcos(tabsol, variables);
         char tab[][] = new char[variables[0]][variables[1]];
+        rellenar(tabsol);
+        while (!barcos(tabsol, variables)) {
+            System.out.println("***No puc crear aquesta combinació***");
+            personalitzat(variables);
+            barcos(tabsol, variables);
+        }
         rellenar(tab);
         
         
+        int total=variables[3]+variables[4]*3+variables[5]*4+variables[6]*5;
         System.out.println("Introdueix les coordenades de la seguenta manera; FilaColumna");
         for (int i = 0; i < variables[7]; i++) {
             solucio(tabsol);
