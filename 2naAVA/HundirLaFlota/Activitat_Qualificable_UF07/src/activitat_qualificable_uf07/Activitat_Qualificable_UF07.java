@@ -133,7 +133,7 @@ public class Activitat_Qualificable_UF07 {
     public static boolean barcos(char [][] tabsol, int[] variables) {
         int cont=0;
         int min=2, max=variables[1]-3;
-        for (int i = 0; i <= variables[6]; i++) {
+        for (int i = 0; i < variables[6]; i++) {
             cont++;
             int fila=(int) (Math.random()*(max-min+1)+min), columna=(int) (Math.random()*variables[1]);
             if (tabsol[fila][columna]=='-' && tabsol[fila-1][columna]=='-' && tabsol[fila-2][columna]=='-' && tabsol[fila+1][columna]=='-' && tabsol[fila+2][columna]=='-') {
@@ -149,7 +149,7 @@ public class Activitat_Qualificable_UF07 {
         }
         cont=0;
         min=1;
-        for (int i = 0; i <= variables[5]; i++) {
+        for (int i = 0; i < variables[5]; i++) {
             cont++;
             int fila=(int) (Math.random()*variables[0]), columna=(int) (Math.random()*(max-min+1)+min);
             if (tabsol[fila][columna-1]=='-' && tabsol[fila][columna]=='-' && tabsol[fila][columna+1]=='-' && tabsol[fila][columna+2]=='-') {
@@ -165,7 +165,7 @@ public class Activitat_Qualificable_UF07 {
         }
         cont=0;
         max=variables[1]-2;
-        for (int i = 0; i <= variables[4]; i++) {
+        for (int i = 0; i < variables[4]; i++) {
             cont++;
             int fila=(int) (Math.random()*variables[0]), columna=(int) (Math.random()*(max-min+1)+min);
             if (tabsol[fila][columna]=='-' && tabsol[fila][columna-1]=='-' && tabsol[fila][columna+1]=='-') {
@@ -179,7 +179,7 @@ public class Activitat_Qualificable_UF07 {
             
         }
         cont=0;
-        for (int i = 0; i <= variables[3]; i++) {
+        for (int i = 0; i < variables[3]; i++) {
             cont++;
             int fila=(int) (Math.random()*variables[0]), columna=(int) (Math.random()*variables[1]);
             if (tabsol[fila][columna]=='-') 
