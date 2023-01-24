@@ -9,14 +9,25 @@ package exemplesclases;
  * @author sanand
  */
 public class Article {
-    String cod, titol, format;
-    double preu_lloguer;
+    private String cod, titol, format;
     
-    Article(String cod, String titol, String format, double preu_lloguer){
+    private double preu_lloguer;
+    
+    public static final double IVA=0.16;
+    
+    final String id;
+    
+    private static int num;
+    
+    
+    //setter
+    
+    Article(String cod, String titol, String format, double preu_lloguer, String id){
         this.cod=cod;
         this.titol=titol;
         this.format=format;
         this.preu_lloguer=preu_lloguer;
+        this.id=id;
     }
     
     
@@ -30,6 +41,27 @@ public class Article {
     }
     double preusemana() {
         return (preu_lloguer*5);
+    }
+    
+    //getters
+    public String getCod() {
+        return this.cod;
+    }
+    public String getFormat() {
+        return this.format;
+    }
+    public String getTitol() {
+        return this.titol;
+    }
+    public double getPreu_lloguer() {
+        return this.preu_lloguer;
+    }
+    
+    public void modificarTots(String cod, String titol, String format, double preu_lloguer) {
+        this.cod=cod;
+        this.titol=titol;
+        this.format=format;
+        this.preu_lloguer=preu_lloguer;
     }
     
 }

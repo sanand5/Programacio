@@ -21,10 +21,13 @@ public class ExemplesClases {
         
         //*--Article--
         
-        Article p1=new Article("367sfdg43g", "Avatar", "CD", 5);
-        Article p2=new Article("54aser318", "El Gato Con Botas", "CD", 3);
-        System.out.printf("El alquiler de la pelicula %s es de un dia: %.2f€, de dos %.2f€ i de una semana %.2f€.\nAltres dades: \n\tCOD: %s \n\tFORMAT: %s\n\n",p1.titol,p1.preudia(),p1.preudos(),p1.preusemana(),p1.cod,p1.format);
-        System.out.printf("El alquiler de la pelicula %s es de un dia: %.2f€, de dos %.2f€ i de una semana %.2f€.\nAltres dades: \n\tCOD: %s \n\tFORMAT: %s",p2.titol,p2.preudia(),p2.preudos(),p2.preusemana(),p2.cod,p2.format);
+        Article p1=new Article("367sfdg43g", "Avatar", "CD", 5,"dsdfsdf");
+        //Article p2=new Article("54aser318", "El Gato Con Botas", "CD", 3,"sdfr");
+        System.out.printf("El alquiler de la pelicula %s es de un dia: %.2f€, de dos %.2f€ i de una semana %.2f€.\nAltres dades: \n\tCOD: %s \n\tFORMAT: %s\n\n",p1.getTitol(),p1.preudia(),p1.preudos(),p1.preusemana(),p1.getCod(),p1.getFormat());
+        p1.modificarTots("777", "JEJEEJEJE", "HAHAHAAAA", 0);
+        System.out.printf("El alquiler de la pelicula %s es de un dia: %.2f€, de dos %.2f€ i de una semana %.2f€.\nAltres dades: \n\tCOD: %s \n\tFORMAT: %s\n\n",p1.getTitol(),p1.preudia(),p1.preudos(),p1.preusemana(),p1.getCod(),p1.getFormat());
+        //System.out.printf("El alquiler de la pelicula %s es de un dia: %.2f€, de dos %.2f€ i de una semana %.2f€.\nAltres dades: \n\tCOD: %s \n\tFORMAT: %s",p2.getTitol(),p2.preudia(),p2.preudos(),p2.preusemana(),p2.getCod(),p2.getFormat());
+        
         //*/
         
         /*Quandrat
@@ -42,6 +45,7 @@ public class ExemplesClases {
         
         System.out.printf("Dades segon rectangle\nLa diagonal es: %.2f\nEl perimetre es: %.2f\nL'area es: %.2f\n",q2.diagonal(), q2.perimetre(q2.diagonal()), q2.area(q2.diagonal()));
         */
+        
     }
 
 }
