@@ -8,7 +8,7 @@ package uf08_a3;
  *
  * @author sanand
  */
-public class rectangle {
+public class rectangle_a {
     int x1,x2,y1,y2;
     
 }

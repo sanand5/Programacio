@@ -1,12 +1,12 @@
-package uf08_c1;
+package uf08_d1;
 
 // Andreu Sanz Sanz
 
-public class UF08_C1 {
+public class UF08_D1 {
     public static void main(String[] args) {
-        Punt_c llanxa=new Punt_c(5,0);
-        Punt_c vaixell=new Punt_c(10,10);
-        Punt_c barco=new Punt_c(-3,7);
+        Punt_d llanxa=new Punt_d(5,0);
+        Punt_d vaixell=new Punt_d(10,10);
+        Punt_d barco=new Punt_d(-3,7);
         
         System.out.printf("|%d,%d|\n|%d,%d|\n|%d,%d|\n",llanxa.getX(),llanxa.getY(),vaixell.getX(),vaixell.getY(),barco.getX(),barco.getY());
         System.out.println();

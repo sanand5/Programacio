@@ -8,10 +8,10 @@ package uf08_b3;
  *
  * @author sanand
  */
-public class Rectangle {
+public class Rectangle_b {
     int x1,x2,y1,y2;
     
-    public Rectangle (int x1, int x2, int y1, int y2){
+    public Rectangle_b (int x1, int x2, int y1, int y2){
         if (x1>=x2 || y1>=y2) System.out.println(".zsd,h we5n8rxzmthiupwe4v9umERRORdfntbq9c8wh7f3nv8eawrñ,mtv i8bw4ytcpdsny9tñcfrx8s fnyerhhhhhhrjsdtbnoiñ  9eprylisldxubthpirdyht sen896ev òej5py695ewry uh4ryv+jṕ5eouitf96pcu4jtñio5rytpyev54yefc0w43oivthw4e859phtoiwe4oytvehir");
         else {
             this.x1=x1;

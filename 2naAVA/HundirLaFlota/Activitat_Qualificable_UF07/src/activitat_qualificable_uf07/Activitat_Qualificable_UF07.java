@@ -121,7 +121,7 @@ public class Activitat_Qualificable_UF07 {
     }
     
     public static void mostrarvariables(int []variables) {
-        System.out.println("\tTirades = "+variables[7]+"\tTrobat = "+variables[2]);
+        System.out.println("\tTirades = "+variables[7]+"\tTocats = "+variables[2]);
     }
     
     public static void rellenar(char[][] tab) {
@@ -210,7 +210,7 @@ public class Activitat_Qualificable_UF07 {
     }
     
     public static void marcar(int lletra, int num, char[][] tab, char [][] tabsol, int []variables) {
-        variables[2]--;
+        variables[7]--;
         switch (tabsol[lletra][num]) {
             case '-':
                 tab[lletra][num]='A';
@@ -232,7 +232,7 @@ public class Activitat_Qualificable_UF07 {
                            //////VICTORIA//////
                            ////////////////////
                            
-                           Has trobat tots els vaixells.
+                           Has enfonsat tots els vaixells.
                            
                            """);
         solucio(tabsol);
@@ -278,14 +278,8 @@ public class Activitat_Qualificable_UF07 {
         char tabsol[][] = new char[variables[0]][variables[1]];
         char tab[][] = new char[variables[0]][variables[1]];
         rellenar(tabsol);
-        while (!barcos(tabsol, variables)) {
-            System.out.println("***No puc crear aquesta combinació***");
-            personalitzat(variables);
-            System.out.println(barcos(tabsol, variables));
-        }
+        barcos(tabsol, variables);
         rellenar(tab);
-        
-        
         int total=variables[3]+variables[4]*3+variables[5]*4+variables[6]*5;
         System.out.println("Introdueix les coordenades de la seguenta manera; FilaColumna");
         for (int i = 0; i < variables[7]; i++) {

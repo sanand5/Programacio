@@ -1,11 +1,11 @@
-package utf08_b2;
+package utf08_d2;
 
 // Andreu Sanz Sanz
 
 import java.util.Scanner;
 
 
-public class UTF08_B2 {
+public class UTF08_D2 {
  
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
@@ -18,10 +18,10 @@ public class UTF08_B2 {
         String dni = sc.nextLine();
         System.out.print("Edat: ");
         int edat = sc.nextInt();
-        persona_b p1=new persona_b(nom, cognoms, dni, edat);
+        persona_d p1=new persona_d(nom, cognoms, dni, edat);
         sc.nextLine();
-        if (p1.edat>=18)    System.out.printf("%s %s amb dni %s es major de edat",p1.nom,p1.cognoms,p1.dni);
-        else    System.out.printf("%s %s amb dni %s no es major de edat",p1.nom,p1.cognoms,p1.dni);
+        if (p1.getEdat()>=18)    System.out.printf("%s %s amb dni %s es major de edat",p1.getNom(),p1.getCognom(),p1.getDni());
+        else    System.out.printf("%s %s amb dni %s no es major de edat",p1.getNom(),p1.getCognom(),p1.getDni());
         System.out.println();
         
         

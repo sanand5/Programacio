@@ -4,9 +4,9 @@ package uf08_a1;
 
 public class UF08_A1 {
     public static void main(String[] args) {
-        punt llanxa=new punt();
-        punt vaixell=new punt();
-        punt barco=new punt();
+        punt_a llanxa=new punt_a();
+        punt_a vaixell=new punt_a();
+        punt_a barco=new punt_a();
         llanxa.x=5; llanxa.y=0;
         vaixell.x=10; vaixell.y=10;
         barco.x=-3;barco.y=7;

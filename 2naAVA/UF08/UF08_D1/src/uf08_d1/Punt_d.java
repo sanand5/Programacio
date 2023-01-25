@@ -1,10 +1,10 @@
-package uf08_c1;
+package uf08_d1;
 // Andreu Sanz Sanz
-public class Punt {
+public class Punt_d {
     private int x;
     private int y;
     
-    public Punt(int x, int y) {
+    public Punt_d(int x, int y) {
         this.x = x;
         this.y = y;
     }

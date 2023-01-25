@@ -4,10 +4,10 @@ package uf08_a3;
 
 public class UF08_A3 {
     public static void main(String[] args) {
-        rectangle r1=new rectangle();
+        rectangle_a r1=new rectangle_a();
         r1.x1=0; r1.y1=0;
         r1.x2=5; r1.y2=5;
-        rectangle r2=new rectangle();
+        rectangle_a r2=new rectangle_a();
         r2.x1=7; r2.y1=9;
         r2.x2=2; r2.y2=3;
         int base=Math.abs(r1.x1-r1.x2);

@@ -9,7 +9,7 @@ public class UTF08_A2 {
  
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
-        persona p1=new persona();
+        persona_a p1=new persona_a();
         System.out.println("Dades persona 1");
         System.out.print("Nom: ");
         p1.nom = sc.nextLine();
@@ -20,7 +20,7 @@ public class UTF08_A2 {
         System.out.print("Edat: ");
         p1.edat = sc.nextInt();
         sc.nextLine();
-        persona p2=new persona();
+        persona_a p2=new persona_a();
         System.out.println("Dades persona 2");
         System.out.print("Nom: ");
         p2.nom = sc.nextLine();
