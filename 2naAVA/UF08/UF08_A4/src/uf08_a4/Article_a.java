@@ -2,16 +2,14 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
  */
-package utf08_a2;
+package uf08_a4;
 
 /**
  *
- * @author sanand
+ * @author sanzs
  */
-public class persona_a {
+public class Article_a {
     String nom;
-    String cognoms;
-    String dni;
-    int edat;
-    
+    double preu, iva;
+    int quantsQueden;
 }

@@ -1,11 +1,11 @@
-package utf08_a2;
+package uf08_a2;
 
 // Andreu Sanz Sanz
 
 import java.util.Scanner;
 
 
-public class UTF08_A2 {
+public class UF08_A2 {
  
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
