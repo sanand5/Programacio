@@ -37,17 +37,17 @@ public class Article_c {
        this.nom=nom;
     }
     public void setpreu(double preu) {
-        if (this.preu<=0) {
+        if (preu<=0) {
             System.out.println("El valor ha de ser major que 0");
         }else this.preu=preu;
     }
     public void setiva(double iva) {
-        if (this.iva<0) {
+        if (iva<0) {
             System.out.println("El valor no pot ser menor a 0");
         }else this.iva=iva;
     }
     public void setquantsQueden(int quantsQueden) {
-        if (this.quantsQueden<0) {
+        if (quantsQueden<0) {
             System.out.println("Rl vslor no pot ser menor que 0");
         }else this.quantsQueden=quantsQueden;
     }

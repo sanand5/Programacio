@@ -4,15 +4,11 @@ package proves2;
 
 public class Proves {
     public static void main(String[] args) {
-        String jeje="false";
-        int z=0;
-        for (int i = 0; i < 100; i++) {
-            z= (int) (Math.random()*6+2);
-            System.out.println(z);
-        if (z==8) {
-            jeje="true";
+        String pal="A22";
+        if (pal.length()==3) {
+            System.out.println((pal.charAt(1)-48)*10+(pal.charAt(2)-48));
         }
-        }
-        System.out.println(jeje);
+        
+        
     }
 }

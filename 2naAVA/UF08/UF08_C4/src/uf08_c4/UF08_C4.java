@@ -10,10 +10,10 @@ package uf08_c4;
 public class UF08_C4 {
     public static void main(String[] args) {
         Article_c A1 = new Article_c("Pijama", 10, 21, 0);
-        System.out.printf("%s - Preu:  %.0f€ - IVA: %.0f%% - PVP: %.2f€",A1.getnom(),A1.getpreu(),A1.getiva(),(A1.getpreu()+(A1.getpreu()*A1.getiva())/100));
+        System.out.printf("%s - Preu:  %.0f€ - IVA: %.0f%% - PVP: %.2f€\n",A1.getnom(),A1.getpreu(),A1.getiva(),(A1.getpreu()+(A1.getpreu()*A1.getiva())/100));
         A1.setpreu(-1);
         System.out.println();
-        System.out.printf("%s - Preu:  %.0f€ - IVA: %.0f%% - PVP: %.2f€",A1.getnom(),A1.getpreu(),A1.getiva(),(A1.getpreu()+(A1.getpreu()*A1.getiva())/100));
+        System.out.printf("%s - Preu:  %.0f€ - IVA: %.0f%% - PVP: %.2f€\n",A1.getnom(),A1.getpreu(),A1.getiva(),(A1.getpreu()+(A1.getpreu()*A1.getiva())/100));
     }
 
 }
