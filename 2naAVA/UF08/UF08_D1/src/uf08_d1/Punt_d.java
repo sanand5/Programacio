@@ -8,16 +8,55 @@ public class Punt_d {
         this.x = x;
         this.y = y;
     }
-    public int getX(){
-        return this.x;
+
+    public void imprimeix() {
+        System.out.printf("(%d/%d)",x,y);
     }
-    public int getY(){
-        return this.y;
-    }
-    public void setX(int x){
+    public void setxy(int x, int y) {
         this.x=x;
-    }
-    public void setY(int y){
         this.y=y;
     }
+    public void mou(int dx, int dy) {
+        this.x+=dx;
+        this.y+=dy;
+    }
+    public int disancia() {
+        return Math.sqrt(Math.pow(this.x-p.x,2)+Math.pow(this.y-p.y, 2))
+    }
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    public int getX() {
+        return x;
+    }
+
+    public int getY() {
+        return y;
+    }
+
+    public void setX(int x) {
+        this.x = x;
+    }
+
+    public void setY(int y) {
+        this.y = y;
+    }
+
+    
 }

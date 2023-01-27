@@ -398,11 +398,6 @@ Falta:
     Comentaris
     Coordenades mes grans per a nueros de dos xifres
     Gestionar barcos en personalitzat
-    Preguntar si ni ha un minim de files i columnes en el personalitzat
-
-
-
-
-
-
+    Preguntar si ni ha un minim de files i columnes en el personalitzat(si, 5x5)
+    Mesaje de si has ja marcat ixa coordenada
 */

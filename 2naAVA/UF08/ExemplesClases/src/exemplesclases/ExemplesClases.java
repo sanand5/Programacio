@@ -19,7 +19,7 @@ public class ExemplesClases {
         Roger1rC.setCognom("Joze Lui");
         System.out.println(Roger1rC.toString());*/
         
-        //*--Article--
+        /*--Article--
         
         Article p1=new Article("367sfdg43g", "Avatar", "CD", 5,"dsdfsdf");
         //Article p2=new Article("54aser318", "El Gato Con Botas", "CD", 3,"sdfr");
@@ -28,9 +28,9 @@ public class ExemplesClases {
         System.out.printf("El alquiler de la pelicula %s es de un dia: %.2f€, de dos %.2f€ i de una semana %.2f€.\nAltres dades: \n\tCOD: %s \n\tFORMAT: %s\n\n",p1.getTitol(),p1.preudia(),p1.preudos(),p1.preusemana(),p1.getCod(),p1.getFormat());
         //System.out.printf("El alquiler de la pelicula %s es de un dia: %.2f€, de dos %.2f€ i de una semana %.2f€.\nAltres dades: \n\tCOD: %s \n\tFORMAT: %s",p2.getTitol(),p2.preudia(),p2.preudos(),p2.preusemana(),p2.getCod(),p2.getFormat());
         
-        //*/
+        */
         
-        /*Quandrat
+        /*--Quandrat--
         Quadrat q1=new Quadrat();
         Quadrat q2=new Quadrat();
         q1.x1=2; q1.x2=20;
@@ -46,7 +46,23 @@ public class ExemplesClases {
         System.out.printf("Dades segon rectangle\nLa diagonal es: %.2f\nEl perimetre es: %.2f\nL'area es: %.2f\n",q2.diagonal(), q2.perimetre(q2.diagonal()), q2.area(q2.diagonal()));
         */
         
+        /*--Arrays--
+        ArticleArray pelis[]=new ArticleArray[10];
+        for (int i = 0; i < 10; i++) {
+            pelis[i]=new ArticleArray("000","Avatar 1", "DVD", (double) Math.random()*10+1, "0");
+        }
+        for (ArticleArray peli : pelis) {
+            System.out.printf("""
+                              Titol: %s
+                              Preu dia: %.2f€
+                              Preu 2 dies: %.2f€
+                              Preu semana: %.2f€
+                              Codic: %s
+                              Format: %s
+                              
+                              """,peli.getTitol(), peli.preudia(), peli.preudos(), peli.preusemana(), peli.getCod(), peli.getFormat());
+        }
+        */
     }
-
 }
 
