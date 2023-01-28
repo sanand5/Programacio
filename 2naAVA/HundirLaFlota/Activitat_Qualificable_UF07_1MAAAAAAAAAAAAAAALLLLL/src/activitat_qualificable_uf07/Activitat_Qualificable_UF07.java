@@ -272,31 +272,24 @@ public class Activitat_Qualificable_UF07 {
 
     public static void preguntar(char[][] tab, int[] variables, char[][] tabsol) {
         Scanner sc = new Scanner(System.in);
-        boolean preguntar = true;
-        do {
-            preguntar = false;
-            System.out.print("Coordenades: ");
-            String coord = sc.nextLine();
-            int lletra = translletra(coord), num = 0;
-            switch (coord.length()) {
-                case 2 ->
-                    num = (coord.charAt(1) - 48);
-                case 3 ->
-                    num = (coord.charAt(1) - 48) * 10 + (coord.charAt(2) - 48);
-                default -> {
-                    System.out.println("***La coordenada no esta en el tauler***");
-                    preguntar = true;
-                }
+        System.out.print("Coordenades: ");
+        String coord = sc.nextLine();
+        int lletra = translletra(coord), num = 0;
+        switch (coord.length()) {
+            case 2 -> num = (coord.charAt(1) - 48);
+            case 3 -> num = (coord.charAt(1) - 48) * 10 + (coord.charAt(2) - 48);
+            default -> {
+                System.out.println("***La coordenada no esta en el tauler***");
+                preguntar(tab, variables, tabsol);
             }
-            if (!preguntar) {
-                if (lletra >= variables[0] || lletra < 0 || num >= variables[1] || num < 0) {
-                    System.out.println("***La coordenada no esta en el tauler***");
-                    preguntar = true;
-                } else {
-                    marcar(lletra, num, tab, tabsol, variables);
-                }
-            }
-        } while (preguntar);
+        }
+        if (lletra >= variables[0] || lletra < 0 || num >= variables[1] || num < 0) {
+            System.out.println("***La coordenada no esta en el tauler***");
+            preguntar(tab, variables, tabsol);
+        } else {
+            marcar(lletra, num, tab, tabsol, variables);
+        }
+
     }
 
     public static int translletra(String coord) {
@@ -310,7 +303,7 @@ public class Activitat_Qualificable_UF07 {
             System.out.println("Ja habies marcat esta casella pero et conte una tirada, jeje :)");
         } else if (tabsol[lletra][num] == '-') {
             tab[lletra][num] = 'A';
-        } else {
+        } else  {
             tab[lletra][num] = 'X';
             variables[2]++;
         }
@@ -361,11 +354,12 @@ public class Activitat_Qualificable_UF07 {
             mostrarvariables(variables);
             preguntar(tab, variables, tabsol);
             if (variables[2] == total) {
-                win(tabsol, variables);
                 break;
             }
         }
-        if (variables[7]==0) {
+        if (variables[2] == total) {
+            win(tabsol, variables);
+        } else {
             lose(tabsol, variables);
         }
     }
@@ -373,6 +367,9 @@ public class Activitat_Qualificable_UF07 {
 /*
 Falta:
     Comentaris
+    Coordenades mes grans per a nueros de dos xifres
     Gestionar barcos en personalitzat
+    Mesaje de si has ja marcat ixa coordenada
     Cuan tirades =5 acaba i ns perque
+    Preguntar si ni ha un minim de files i columnes en el personalitzat(si, 5x5)
  */

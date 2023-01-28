@@ -20,6 +20,31 @@ public class persona_d {
         this.cognoms=cognom;
         this.edat=edat;
     }
+    public void imprimeix() {
+        System.out.printf("""
+                          Nom: %s %s
+                          DNI: %s
+                          Edat: %d
+                          """,this.nom,this.cognoms,this.dni,this.edat);
+        
+    }
+    public boolean esMajorEdat() {
+        if (this.edat>=18) {
+            return true;
+        } else {
+            return false;
+        }
+    }
+    public boolean esJubilat() {
+        if (this.edat>=65) {
+            return true;
+        } else {
+            return false;
+        }
+    }
+    public int diferencia(persona_d p1, persona_d p2) {
+        return Math.abs(p1.edat-p2.edat);
+    }
     
     public String getNom() {
         return this.nom;
