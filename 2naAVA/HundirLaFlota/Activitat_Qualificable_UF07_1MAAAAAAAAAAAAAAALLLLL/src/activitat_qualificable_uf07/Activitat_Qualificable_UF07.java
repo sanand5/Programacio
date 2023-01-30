@@ -301,6 +301,7 @@ public class Activitat_Qualificable_UF07 {
     public static void marcar(int lletra, int num, char[][] tab, char[][] tabsol, int[] variables) {
         if (tab[lletra][num] != '-') {
             System.out.println("Ja habies marcat esta casella pero et conte una tirada, jeje :)");
+            variables[8]=0;
         } else if (tabsol[lletra][num] == '-') {
             tab[lletra][num] = 'A';
         } else  {
@@ -335,10 +336,11 @@ public class Activitat_Qualificable_UF07 {
 
     public static void main(String[] args) {
         int filas = 10, columnas = 10, enfonsats = 0;
-        int variables[] = new int[8];
+        int variables[] = new int[9];
         variables[0] = filas;
         variables[1] = columnas;
         variables[3] = enfonsats;
+        variables[8]=1;
         menu();
         nivell(variables);
         char tabsol[][] = new char[variables[0]][variables[1]];
@@ -349,13 +351,16 @@ public class Activitat_Qualificable_UF07 {
         int total = variables[3] + variables[4] * 3 + variables[5] * 4 + variables[6] * 5;
         System.out.println("Introdueix les coordenades de la seguenta manera; FilaColumna");
         for (int i = 0; i < variables[7]; i++) {
-            mostrartablero(tabsol, variables); //Mostra la solucio, la eliminare pa entregar
-            mostrartablero(tab, variables);
+            if (variables[8]==1) {
+                mostrartablero(tabsol, variables); //Mostra la solucio, la eliminare pa entregar
+                mostrartablero(tab, variables);
+            }
             mostrarvariables(variables);
             preguntar(tab, variables, tabsol);
             if (variables[2] == total) {
                 break;
             }
+            variables[8]=1;
         }
         if (variables[2] == total) {
             win(tabsol, variables);
@@ -371,5 +376,7 @@ Falta:
     Gestionar barcos en personalitzat
     Mesaje de si has ja marcat ixa coordenada
     Cuan tirades =5 acaba i ns perque
+
+
     Preguntar si ni ha un minim de files i columnes en el personalitzat(si, 5x5)
  */

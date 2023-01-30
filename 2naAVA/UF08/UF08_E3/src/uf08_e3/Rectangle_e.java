@@ -2,16 +2,16 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
  */
-package uf08_d3;
+package uf08_e3;
 
 /**
  *
  * @author sanand
  */
-public class Rectangle_d {
+public class Rectangle_e {
     private int x1,x2,y1,y2;
     
-    public Rectangle_d (int x1, int x2, int y1, int y2){
+    public Rectangle_e (int x1, int x2, int y1, int y2){
         if (x1>=x2 || y1>=y2) System.out.println(".zsd,h we5n8òej5py695ewry oytvehir");
         else {
             this.x1=x1;
@@ -39,41 +39,24 @@ public class Rectangle_d {
     public void setX1(int x1) {
         if (x1>=getX2()) {
             System.out.println("***Error, el valor ha de ser >0, el valor per defecte sera el anterior***");
-        }else this.x1=x1;
+        }else this.setX1(x1);
     }
     public void setX2(int x2) {
         if (x2<=getX1()) {
             System.out.println("***Error, el valor ha de ser >0, el valor per defecte sera el anterior***");
-        }else this.x2=x2;
+        }else this.setX2(x2);
         
     }
     public void setY1(int y1) {
         if (y1>=getY2()) {
             System.out.println("***Error, el valor ha de ser >0, el valor per defecte sera el anterior***");
-        }else this.y1=y1;
+        }else this.setY1(y1);
     }
     public void setY2(int y2) {
         if (y2<=getY1()) {
             System.out.println("***Error, el valor ha de ser >0, el valor per defecte sera el anterior***");
-        }else this.y1=y1;
+        }else this.setY2(y2);
     }
-    public void setX1Y1 (int x1, int y1) {
-        setX1(x1);
-        setY1(y1);
-    }
-    public void setX2Y2 (int x1, int y1) {
-        setX2(x2);
-        setY2(y2);
-    }
-    public void setAll(int x1, int y1, int x2, int y2) {
-        if (x2>x1 && y2>y1) {
-            setX1(x1);
-            setY1(y1);
-            setX2(x2);
-            setY2(y2);
-        }
-    }
-   
     public int getX1() {
         return this.x1;
     }

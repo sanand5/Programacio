@@ -1,12 +1,12 @@
-package uf08_d1;
+package uf08_e1;
 
 // Andreu Sanz Sanz
 
-public class UF08_D1 {
+public class UF08_E1 {
     public static void main(String[] args) {
-        Punt_d llanxa=new Punt_d(5,0);
-        Punt_d vaixell=new Punt_d(10,10);
-        Punt_d barco=new Punt_d(-3,7);
+        Punt_e llanxa=new Punt_e(5,0);
+        Punt_e vaixell=new Punt_e(10,10);
+        Punt_e barco=new Punt_e(-3,7);
         llanxa.imprimeix();
         llanxa.setxy(2, 3);
         llanxa.imprimeix();

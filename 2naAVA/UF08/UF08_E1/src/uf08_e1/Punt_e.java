@@ -1,10 +1,10 @@
-package uf08_d1;
+package uf08_e1;
 // Andreu Sanz Sanz
-public class Punt_d {
+public class Punt_e {
     private int x;
     private int y;
     
-    public Punt_d(int x, int y) {
+    public Punt_e(int x, int y) {
         this.x = x;
         this.y = y;
     }
@@ -20,7 +20,7 @@ public class Punt_d {
         this.setX(this.getX() + dx);
         this.setY(this.getY() + dy);
     }
-    public double distancia(Punt_d p) {
+    public double distancia(Punt_e p) {
         return Math.sqrt(Math.pow(this.getX()-p.getX(),2)+Math.pow(this.getY()-p.getY(), 2));
     }
     
