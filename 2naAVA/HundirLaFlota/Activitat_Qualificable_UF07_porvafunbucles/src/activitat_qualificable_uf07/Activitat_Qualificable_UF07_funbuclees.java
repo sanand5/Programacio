@@ -4,7 +4,7 @@ package activitat_qualificable_uf07;
 import java.util.Arrays;
 import java.util.Scanner;
 
-public class Activitat_Qualificable_UF07 {
+public class Activitat_Qualificable_UF07_funbuclees {
 
     public static void menu() {
         System.out.print("""
@@ -106,7 +106,7 @@ public class Activitat_Qualificable_UF07 {
         boolean menu = false;
         do {
             menu = false;
-            switch (/*sc.nextInt()*/3) {
+            switch (sc.nextInt()) {
                 case 1 -> {
                     nivell = "fàcil";
                     variables[3] = 5;
@@ -272,11 +272,14 @@ public class Activitat_Qualificable_UF07 {
         return true;
     }
 
+    public static void bucle(boolean x) {
+        do {
+        } while (x);
+    }
+
     public static void preguntar(char[][] tab, int[] variables, char[][] tabsol) {
         Scanner sc = new Scanner(System.in);
-        boolean preguntar = true;
         do {
-            preguntar = false;
             System.out.print("Coordenades: ");
             String coord = sc.nextLine();
             int lletra = translletra(coord), num = 0;
@@ -287,18 +290,14 @@ public class Activitat_Qualificable_UF07 {
                     num = (coord.charAt(1) - 48) * 10 + (coord.charAt(2) - 48);
                 default -> {
                     System.out.println("***La coordenada no esta en el tauler***");
-                    preguntar = true;
+                    continue;
                 }
             }
-            if (!preguntar) {
-                if (lletra >= variables[0] || lletra < 0 || num >= variables[1] || num < 0) {
-                    System.out.println("***La coordenada no esta en el tauler***");
-                    preguntar = true;
-                } else {
-                    marcar(lletra, num, tab, tabsol, variables);
-                }
-            }
-        } while (preguntar);
+            if (lletra >= variables[0] || lletra < 0 || num >= variables[1] || num < 0) 
+                System.out.println("***La coordenada no esta en el tauler***");
+            else 
+                marcar(lletra, num, tab, tabsol, variables);
+        } while (false);
     }
 
     public static int translletra(String coord) {
@@ -310,14 +309,18 @@ public class Activitat_Qualificable_UF07 {
     public static void marcar(int lletra, int num, char[][] tab, char[][] tabsol, int[] variables) {
         if (tab[lletra][num] != '-') {
             System.out.println("Ja habies marcat esta casella pero et conte una tirada, jeje :)");
-            mostrarvariables(variables);
-        } else if (tabsol[lletra][num] == '-') {
+            variables[7]--;
+        } else{ 
+            if (tabsol[lletra][num] == '-') {
             tab[lletra][num] = 'A';
-        } else {
-            tab[lletra][num] = 'X';
-            variables[2]++;
+            } else {
+                tab[lletra][num] = 'X';
+                variables[2]++;
+            }
+            mostrartablero(tabsol, variables); //Mostra la solucio, la eliminare pa entregar
+            mostrartablero(tab, variables);
+            variables[7]--;
         }
-        variables[7]--;
     }
 
     public static void win(char[][] tabsol, int[] variables) {
@@ -345,10 +348,11 @@ public class Activitat_Qualificable_UF07 {
 
     public static void main(String[] args) {
         int filas = 10, columnas = 10, enfonsats = 0;
-        int variables[] = new int[8];
+        int variables[] = new int[9];
         variables[0] = filas;
         variables[1] = columnas;
         variables[3] = enfonsats;
+        variables[8] = 1;
         menu();
         int tiradesfixes = nivell(variables);
         char tabsol[][] = new char[variables[0]][variables[1]];
@@ -358,9 +362,9 @@ public class Activitat_Qualificable_UF07 {
         rellenar(tab);
         int total = variables[3] + variables[4] * 3 + variables[5] * 4 + variables[6] * 5;
         System.out.println("Introdueix les coordenades de la seguenta manera; FilaColumna");
+        mostrartablero(tabsol, variables); //Mostra la solucio, la eliminare pa entregar
+        mostrartablero(tab, variables);
         for (int i = 0; i < tiradesfixes; i++) {
-            mostrartablero(tabsol, variables); //Mostra la solucio, la eliminare pa entregar
-            mostrartablero(tab, variables);
             mostrarvariables(variables);
             preguntar(tab, variables, tabsol);
             if (variables[2] == total) {
@@ -377,5 +381,4 @@ public class Activitat_Qualificable_UF07 {
 Falta:
     Comentaris
     Gestionar barcos en personalitzat
-No acaba el joc quan tirades=0
  */

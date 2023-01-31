@@ -12,5 +12,6 @@ public class UF08_B3 {
         System.out.printf("Coordenades r2: (%d,%d)/(%d,%d)\n",r2.x1,r2.y1,r2.x2,r2.y2);
         System.out.printf("Perimetre=%.2f\nArea=%.2f\n",r2.perimetre(),r2.area());
         System.out.println();
+        
     }
 }
