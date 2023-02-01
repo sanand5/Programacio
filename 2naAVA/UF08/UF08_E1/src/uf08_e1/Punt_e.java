@@ -24,8 +24,7 @@ public class Punt_e {
         return Math.sqrt(Math.pow(this.getX()-p.getX(),2)+Math.pow(this.getY()-p.getY(), 2));
     }
     public static Punt_e crearpuntaleatori() {
-        Punt_e p =new Punt_e((int) (Math.random() * (100 - (-100) + 1) + (-100)),(int) (Math.random() * (100 - (-100) + 1) + (-100)));
-        return p;
+        return new Punt_e((int) (Math.random() * (100 - (-100) + 1) + (-100)),(int) (Math.random() * (100 - (-100) + 1) + (-100)));
     }
     
     public int getX() {
