@@ -274,6 +274,7 @@ public class Activitat_Qualificable_UF07_funbuclees {
 
     public static void bucle(boolean x) {
         do {
+            fuhdg
         } while (x);
     }
 
@@ -285,7 +286,7 @@ public class Activitat_Qualificable_UF07_funbuclees {
             int lletra = translletra(coord), num = 0;
             switch (coord.length()) {
                 case 2 ->
-                    num = (coord.charAt(1) - 48);
+                    num = (coord.charAt(1) - 48);                    
                 case 3 ->
                     num = (coord.charAt(1) - 48) * 10 + (coord.charAt(2) - 48);
                 default -> {

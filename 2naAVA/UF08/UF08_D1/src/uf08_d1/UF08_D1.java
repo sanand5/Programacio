@@ -13,10 +13,6 @@ public class UF08_D1 {
         llanxa.mou(1, 1);
         llanxa.imprimeix();
         System.out.printf("%.2f",llanxa.distancia(vaixell));
-        
-        
-        
-        
     }
 
 }
