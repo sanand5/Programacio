@@ -369,10 +369,10 @@ public class Activitat_Qualificable_UF07 {
         }
     }
 
-    public static boolean barcos(char[][] tabsol, int[] variables) {
+    public static void barcos(char[][] tabsol, int[] variables) {
         int cont = 0;
-        int min = 2, max = variables[1] - 3;
-        for (int i = 0; i < variables[6]; i++) {
+        int min = 2, max = variables[0] - 3;
+        for (int i = 1; i <= variables[6]; i++) {
             cont++;
             int fila = (int) (Math.random() * (max - min + 1) + min), columna = (int) (Math.random() * variables[1]);
             if (tabsol[fila][columna] == '-' && tabsol[fila - 1][columna] == '-' && tabsol[fila - 2][columna] == '-' && tabsol[fila + 1][columna] == '-' && tabsol[fila + 2][columna] == '-') {
@@ -384,13 +384,15 @@ public class Activitat_Qualificable_UF07 {
             } else {
                 i--;
             }
-            if (cont >= 1000) {
-                return false;
+            if (cont >= 10000) {
+                if (i==0) System.out.println("No he pogut ficar-te cap portaavio");
+                else System.out.printf("# No he pogut ficar tots els portaavions, pero n'he ficat %d #%n",i);
+                break;
             }
         }
         cont = 0;
-        min = 1;
-        for (int i = 0; i < variables[5]; i++) {
+        min = 1; max= variables[1]-3;
+        for (int i = 1; i <= variables[5]; i++) {
             cont++;
             int fila = (int) (Math.random() * variables[0]), columna = (int) (Math.random() * (max - min + 1) + min);
             if (tabsol[fila][columna - 1] == '-' && tabsol[fila][columna] == '-' && tabsol[fila][columna + 1] == '-' && tabsol[fila][columna + 2] == '-') {
@@ -401,30 +403,34 @@ public class Activitat_Qualificable_UF07 {
             } else {
                 i--;
             }
-            if (cont >= 1000) {
-                return false;
+            if (cont >= 10000) {
+                if (i==0) System.out.println("No he pogut ficar-te cap cruissat");
+                else System.out.printf("# No he pogut ficar tots els cruissats, pero n'he ficat %d #%n",i);
+                break;
             }
 
         }
         cont = 0;
         max = variables[1] - 2;
-        for (int i = 0; i < variables[4]; i++) {
+        for (int i = 1; i <= variables[4]; i++) {
             cont++;
             int fila = (int) (Math.random() * variables[0]), columna = (int) (Math.random() * (max - min + 1) + min);
             if (tabsol[fila][columna] == '-' && tabsol[fila][columna - 1] == '-' && tabsol[fila][columna + 1] == '-') {
-                tabsol[fila][columna] = 'B';
                 tabsol[fila][columna - 1] = 'B';
+                tabsol[fila][columna] = 'B';
                 tabsol[fila][columna + 1] = 'B';
             } else {
                 i--;
             }
-            if (cont >= 1000) {
-                return false;
+            if (cont >= 10000) {
+                if (i==0) System.out.println("No he pogut ficar-te cap vaixell");
+                else System.out.printf("# No he pogut ficar tots els vaixells, pero n'he ficat %d #%n",i);
+                break;
             }
 
         }
         cont = 0;
-        for (int i = 0; i < variables[3]; i++) {
+        for (int i = 1; i <= variables[3]; i++) {
             cont++;
             int fila = (int) (Math.random() * variables[0]), columna = (int) (Math.random() * variables[1]);
             if (tabsol[fila][columna] == '-') {
@@ -432,11 +438,12 @@ public class Activitat_Qualificable_UF07 {
             } else {
                 i--;
             }
-            if (cont >= 1000) {
-                return false;
+            if (cont >= 10000) {
+                if (i==0) System.out.println("No he pogut ficar-te cap llanxa");
+                else System.out.printf("# No he pogut ficar totes les llanxes, pero n'he ficat %d #%n",i);
+                break;
             }
         }
-        return true;
     }
 
     public static void preguntar(char[][] tab, int[] variables, char[][] tabsol) {
@@ -614,4 +621,6 @@ Falta:
     Gestionar barcos en personalitzat
     Ficar ascii de lose
     foto per a lo de el autor
+    con personalitzat i guañes enseña el tauler i tambe lo de que has perdut
+    mirar que les tirades han de ser com a maxim el numero que cap en el tauler
  */
