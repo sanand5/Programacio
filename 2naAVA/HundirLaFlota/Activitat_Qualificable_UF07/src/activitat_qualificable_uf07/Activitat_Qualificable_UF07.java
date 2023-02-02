@@ -41,8 +41,11 @@ public class Activitat_Qualificable_UF07 {
                 case "1" -> {
                     System.out.print("""
                                         Bé, per comensar millor saber un poc com podem jugar.
-                                        Cuan vagues a seleccionar les coordenades, asegurat que les has escrit adecuadament (FilaColumna), del contrari no entendre res.
-                                        Recorda que si escrius una coordenada fora de el tauler tampoc ho antendre, en canvi si escrius una coordenada ja marcada et restare una tirada.
+                                        Per comenzar, cuan vagues a seleccionar les coordenades, asegurat que les has escrit adecuadament (FilaColumna), del contrari no entendre res i t'ho tornare a preguntar.
+                                        Recorda que si el teu tauler es de 10x10 les cordenades fora de rang no les entendre ,en canvi en els taulers de mes de 10x10 si que et marcare si estas fora de rang i si escrius una casella ja marcada et restare una tirada..
+                                        Sempre que vegues un "?" es perque estare esperant la teua resposta.
+                                        Els misatges entre ## son mistges d'error i auras de tornar a introduir un valor o un caracter.
+                                        Si vols saber mes informació de com jugar escriu 2.
                                         ?""");
                     info(variables);
                 }
@@ -212,13 +215,7 @@ public class Activitat_Qualificable_UF07 {
                                        &&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&@@@@&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&@@@@&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&%&&&&&&&&&&&&&&&&&&&&&&&&&
                                        &&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&@@&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&@@@&&&&&&&&&&&&&&&&&&&&&&&&&&&&&%&%%&&&&&&&&&&&&&&%&&&&&&&&&&
                                        &&&&&&&&&&&@&&&&&&&&&&&&&&&&&&&&&&&&@@@@&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&@@@&&&&&&&&&&&&&&&&&&&&&&&&&%%%%%%%%%%&&&&&&&&&&&&&&&%&&&&&&&&
-                                       ┈┈┈┈┈╭╲╲╲╲╮┈┈┈┈┈
-                                       ┈┈┈┈╭╋┳━┳┳┻┓┈┈┈┈
-                                       ┈┈┈┈┃┓╰━╯╲┳╯┈┈┈┈
-                                       ┈┈┈┈╰┓╰╯╱▔┃┈┈┈┈┈
-                                       ┈┈┈┈┈┃┃┊▔▔┃┈┈┈┈┈
-                                       ┈┈┈┈╱╲╰━━━╯╲┈┈┈┈
-                                       ┈╱▔▔╲┈╲▁▁╱┈╱▔▔╲
+                                       
                                      
                                         ?""");
                     info(variables);
@@ -229,7 +226,7 @@ public class Activitat_Qualificable_UF07 {
                     nivell(variables);
                 }
                 default -> {
-                    System.out.println("***No reconec aquesta ordre***");
+                    System.out.println("# No reconec aquesta ordre #");
                     preguntar = true;
                     menuinfo();
                 }
@@ -289,12 +286,12 @@ public class Activitat_Qualificable_UF07 {
                     info(variables);
                 }
                 default -> {
-                    System.out.println("***No reconec aqueta ordre***");
+                    System.out.println("# No reconec aqueta ordre #");
                     menu = true;
                 }
             }
         } while (menu);
-        infonivell(nivell, variables);
+        if (nivell!="personalitzat") infonivell(nivell, variables);
         return variables[7];
     }
     
@@ -327,20 +324,20 @@ public class Activitat_Qualificable_UF07 {
             System.out.printf("Nombre de %s: ", nomvaixells[i].substring(4));
             variables[i] = sc.nextInt();
             if (i == 0 && (variables[i] < 5 || variables[i] > 26)) {
-                System.err.printf("%s han de ser majors o iguals a 5 i menors que 26\n", nomvaixells[i]);
+                System.out.printf("# %s han de ser majors o iguals a 5 i menors que 26 #\n", nomvaixells[i]);
                 i--;
             } else if (i == 1 && (variables[i] <= 0 || variables[i] > 100)) {
-                System.err.printf("%s han de ser majors a 0 i menors que 100\n", nomvaixells[i]);
+                System.out.printf("# %s han de ser majors a 0 i menors que 100 #\n", nomvaixells[i]);
                 i--;
             } else if (i == 1) {
                 i++;
             } else if (i > 2 && variables[i] < 0 && i < 7) {
-                System.err.printf("%s han de ser majors o iguals a 0\n", nomvaixells[i]);
+                System.out.printf("# %s han de ser majors o iguals a 0 #\n", nomvaixells[i]);
                 i--;
             } else if (i == 6) {
                 total = variables[3] + variables[4] * 3 + variables[5] * 4 + variables[6] * 5;
             } else if (i == 7 && variables[7] < total) {
-                System.err.printf("%s han de ser majors o iguals a %d\n", nomvaixells[7], total);
+                System.out.printf("# %s han de ser majors o iguals a %d #\n", nomvaixells[7], total);
                 i--;
             }
         }
@@ -364,7 +361,7 @@ public class Activitat_Qualificable_UF07 {
 
     public static void mostrarvariables(int[] variables) {
         System.out.println("\tTirades = " + variables[7] + "\tTocats = " + variables[2]);
-    } //es podria borrar
+    } 
 
     public static void rellenar(char[][] tab) {
         for (char[] tab1 : tab) {
@@ -456,14 +453,14 @@ public class Activitat_Qualificable_UF07 {
                 case 3 ->
                     num = (coord.charAt(1) - 48) * 10 + (coord.charAt(2) - 48);
                 default -> {
-                    System.out.println("***La coordenada no esta en el tauler***");
+                    System.out.println("# La coordenada no esta en el tauler #");
                     continue;
                 }
             }
                 if (lletra >= variables[0] || lletra < 0 || num >= variables[1] || num < 0) {
-                    System.out.println("***La coordenada no esta en el tauler***");
+                    System.out.println("# La coordenada no esta en el tauler #");
                 } else if (tab[lletra][num] != '-') {
-                    System.out.println("***Ja habies marcat esta casella pero et conte una tirada, jeje :)***");
+                    System.out.println("# Ja habies marcat esta casella pero et conte una tirada, jeje :) #");
                     variables[7]--;
                     mostrarvariables(variables);
                 } else {
@@ -615,4 +612,6 @@ public class Activitat_Qualificable_UF07 {
 Falta:
     Comentaris
     Gestionar barcos en personalitzat
+    Ficar ascii de lose
+    foto per a lo de el autor
  */
