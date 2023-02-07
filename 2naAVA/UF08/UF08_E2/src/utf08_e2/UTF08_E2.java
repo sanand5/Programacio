@@ -19,7 +19,11 @@ public class UTF08_E2 {
         System.out.println((p2.esMajorEdat()) ? p2.getNom()+" es major de edat":p2.getNom()+" no es major de edat");
         System.out.println(p2.esJubilat()?p2.getNom()+" esta jubilat":p2.getNom()+" no esta jubilat");
         System.out.println("Diferencia dos persones: "+p1.diferencia(p1, p2));
-        
+        System.out.print("dni: ");
+        while (!persona_e.validarDNI(sc.nextLine())) {
+            System.out.println("dni incorrecte");
+            System.out.print("dni: ");
+        }
         
         
     }

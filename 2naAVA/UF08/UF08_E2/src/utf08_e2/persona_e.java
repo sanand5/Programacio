@@ -4,36 +4,49 @@
  */
 package utf08_e2;
 
+import java.util.Scanner;
+
 /**
  *
  * @author sanand
  */
 public class persona_e {
+    private final String DNI;
     private String nom;
     private String cognoms;
-    private String dni;
     private int edat;
+    static final int majoriaEdat=18;    
     
-    public persona_e(String nom, String cognom, String dni, int edat){
-        this.dni=dni;
-        this.nom=nom;
-        this.cognoms=cognom;
-        this.edat=edat;
+    public persona_e(String nom, String cognoms, String DNI, int edat){
+        this.cognoms = cognoms;
+        this.edat = edat;
+        this.nom = nom;
+        String chekdni = DNI;
+        Scanner sc = new Scanner(System.in);
+        
+        while(!validarDNI(chekdni)){
+            System.out.print("DNI: ");
+            chekdni = sc.nextLine();            
+        }
+        this.DNI = chekdni;
     }
     public void imprimeix() {
         System.out.printf("""
                           Nom: %s %s
                           DNI: %s
                           Edat: %d
-                          """,this.nom,this.cognoms,this.dni,this.edat);
+                          """,this.nom,this.cognoms,this.DNI,this.edat);
         
     }
     public boolean esMajorEdat() {
-        if (this.edat>=18) {
+        if (this.edat>=majoriaEdat) {
             return true;
         } else {
             return false;
         }
+    }
+    public static boolean validarDNI(String dni) {
+        return dni.matches("^\\d{8}[A-Za-z]$");
     }
     public boolean esJubilat() {
         if (this.edat>=65) {
@@ -52,9 +65,6 @@ public class persona_e {
     public String getCognom() {
         return this.cognoms;
     }
-    public String getDni() {
-        return this.dni;
-    }
     public int getEdat() {
         return this.edat;
     }
@@ -64,9 +74,6 @@ public class persona_e {
     }
     public void setCognom(String cognom) {
         this.cognoms=cognom;
-    }
-    public void setDni(String dni) {
-        this.dni=dni;
     }
     public void setEdat(int edat) {
         this.edat=edat;
