@@ -21,4 +21,7 @@ public class Persona {
     boolean esMajorEdat() {
         return (edat>=18);
     }
+    public String toString() {
+        return "Nom: "+nom+", Edat: "+edat;
+    }
 }

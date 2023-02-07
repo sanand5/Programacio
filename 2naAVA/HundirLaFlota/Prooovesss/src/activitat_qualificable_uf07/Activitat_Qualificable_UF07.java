@@ -5,7 +5,7 @@ import java.util.Arrays;
 import java.util.Scanner;
 
 public class Activitat_Qualificable_UF07 {
-    
+
     // Aquesta funció mostra el menú principal de selecció de nivell de joc
     // *No retorna res
     // *No te parametres de entrada
@@ -24,7 +24,7 @@ public class Activitat_Qualificable_UF07 {
                          
                            ?""");
     }
-    
+
     // Aquesta funció mostra el menú d'informació del joc
     // *No retorna res
     // *No te parametres de entrada
@@ -230,8 +230,8 @@ public class Activitat_Qualificable_UF07 {
                 i--;
             } else if (i == 6) { // gestiona el minim de tirades
                 total = variables[3] + variables[4] * 3 + variables[5] * 4 + variables[6] * 5;
-                if (total>variables[0]*variables[1]) {
-                    total=variables[0]*variables[1];
+                if (total > variables[0] * variables[1]) {
+                    total = variables[0] * variables[1];
                 }
             } else if (i == 7 && variables[7] < total) { // tirades
                 System.out.printf("# %s han de ser majors o iguals a %d #\n", nomvaixells[7], total);
@@ -287,6 +287,7 @@ public class Activitat_Qualificable_UF07 {
     public static void barcos(char[][] tabsol, int[] variables) {
         int cont = 0;
         int min = 2, max = variables[0] - 3;
+        int Pficats = 0, Zficats = 0, Bficats = 0;
         for (int i = 1; i <= variables[6]; i++) {
             cont++;
             int fila = (int) (Math.random() * (max - min + 1) + min), columna = (int) (Math.random() * variables[1]); //fila(entre 2-(files-3), columna (entre 0-columnes))
@@ -296,6 +297,7 @@ public class Activitat_Qualificable_UF07 {
                 tabsol[fila][columna] = 'P';
                 tabsol[fila + 1][columna] = 'P';
                 tabsol[fila + 2][columna] = 'P';
+                Pficats++;
             } else {
                 i--;
             }
@@ -314,11 +316,12 @@ public class Activitat_Qualificable_UF07 {
         for (int i = 1; i <= variables[5]; i++) {
             cont++;
             int fila = (int) (Math.random() * variables[0]), columna = (int) (Math.random() * (max - min + 1) + min); //fila(entre 0-files), columna (entre 1-(columnes-3)))
-            if (tabsol[fila][columna - 1] == '-' && tabsol[fila][columna] == '-' && tabsol[fila][columna + 1] == '-' && tabsol[fila][columna + 2] == '-') { 
+            if (tabsol[fila][columna - 1] == '-' && tabsol[fila][columna] == '-' && tabsol[fila][columna + 1] == '-' && tabsol[fila][columna + 2] == '-') {
                 tabsol[fila][columna - 1] = 'Z';
                 tabsol[fila][columna] = 'Z';
                 tabsol[fila][columna + 1] = 'Z';
                 tabsol[fila][columna + 2] = 'Z';
+                Zficats++;
             } else {
                 i--;
             }
@@ -337,10 +340,11 @@ public class Activitat_Qualificable_UF07 {
         for (int i = 1; i <= variables[4]; i++) {
             cont++;
             int fila = (int) (Math.random() * variables[0]), columna = (int) (Math.random() * (max - min + 1) + min);//fila(entre 0-files), columna (entre 1-(columnes-2))
-            if (tabsol[fila][columna] == '-' && tabsol[fila][columna - 1] == '-' && tabsol[fila][columna + 1] == '-') { 
+            if (tabsol[fila][columna] == '-' && tabsol[fila][columna - 1] == '-' && tabsol[fila][columna + 1] == '-') {
                 tabsol[fila][columna - 1] = 'B';
                 tabsol[fila][columna] = 'B';
                 tabsol[fila][columna + 1] = 'B';
+                Bficats++;
             } else {
                 i--;
             }
@@ -355,21 +359,24 @@ public class Activitat_Qualificable_UF07 {
 
         }
         cont = 0;
-        for (int i = 1; i <= variables[3]; i++) {
-            cont++;
+        int posicionsRestants = (variables[0] * variables[1]) - (Bficats * 3 + Zficats * 4 + Pficats * 5);
+        if (posicionsRestants==0) {
+            System.out.println("# No he pogut ficar-te cap llanxa #");
+        } else if (posicionsRestants < variables[3]) {
+            System.out.printf("# No he pogut ficar totes les llanxes, pero n'he ficat %d #%n", posicionsRestants);
+        }
+//        while (posicionsRestants > 0 || variables[3]==0) {
+//            int fila = (int) (Math.random() * variables[0]), columna = (int) (Math.random() * variables[1]);//fila(entre 0-files), columna (entre 0-columnes)
+//            if (tabsol[fila][columna] == '-') {
+//                tabsol[fila][columna] = 'L';
+//                posicionsRestants--;
+//            }
+//        }
+        for (int i = 0; i < variables[3] && posicionsRestants > 0; i++) {
             int fila = (int) (Math.random() * variables[0]), columna = (int) (Math.random() * variables[1]);//fila(entre 0-files), columna (entre 0-columnes)
             if (tabsol[fila][columna] == '-') {
                 tabsol[fila][columna] = 'L';
-            } else {
-                i--;
-            }
-            if (cont >= 10000) {
-                if (i == 0) {
-                    System.out.println("# No he pogut ficar-te cap llanxa #");
-                } else {
-                    System.out.printf("# No he pogut ficar totes les llanxes, pero n'he ficat %d #%n", i);
-                }
-                break;
+                posicionsRestants--;
             }
         }
     }
@@ -430,7 +437,7 @@ public class Activitat_Qualificable_UF07 {
         char lletra = coord.charAt(0);
         return (int) lletra - 65;
     }
-    
+
     // Aquesta funció marca amb una A o una X la posició seleccionada i informa si has tocat un vaixell
     // *No retorna res
     // *Paràmetres d'entrada:
@@ -544,7 +551,7 @@ public class Activitat_Qualificable_UF07 {
     public static void jugar() {
         int files = 10, columnes = 10, enfonsats = 0;
         boolean guanyat = false;
-        int variables[] = new int[9];
+        int variables[] = new int[8];
         variables[0] = files;
         variables[1] = columnes;
         variables[3] = enfonsats;
@@ -573,7 +580,7 @@ public class Activitat_Qualificable_UF07 {
             gameOver(tabsol, variables);
         }
     }
-    
+
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
         boolean jugar;
@@ -588,7 +595,3 @@ public class Activitat_Qualificable_UF07 {
         } while (true);
     }
 }
-
-/*
-Enorabna
-*/

@@ -13,7 +13,7 @@ public class Article {
     private String nom;
     private double preu, iva;
     private int quantsQueden;
-    
+
     //Aquesta funció es el constructor de la clase
     //*No retorna res
     //*Parámetres de entrada:
@@ -41,8 +41,8 @@ public class Article {
     //*Parámetres de entrada:
     //      - int x: Cantitat de producte que es vol vendre
     public boolean vendre(int x) {
-        if (quantsQueden >= x) {
-            quantsQueden -= x;
+        if (this.quantsQueden >= x) {
+            this.quantsQueden -= x;
             return true;
         } else {
             return false;
@@ -54,14 +54,14 @@ public class Article {
     //*Parámetres de entrada:
     //      - int x: Cantitat de producte que es vol almacenar
     public boolean emmagatzema(int x) {
-        if (quantsQueden + x >= 0) {
-            quantsQueden += x;
+        if (this.quantsQueden + x >= 0) {
+            this.quantsQueden += x;
             return true;
         } else {
             return false;
         }
     }
-    
+
     //Aquesta funció imprimeix la informació del producte
     //*No retorna res
     //*No te parámetres de entrada
@@ -69,39 +69,30 @@ public class Article {
         System.out.printf("%s - Preu: %.1f€ - IVA: %.1f%% - PVP: %.1f€ (queden  %d articles)%n", this.nom, this.preu, this.iva, getPVP(), this.quantsQueden);
     }
 
-    
     public String getNom() {
         return this.nom;
     }
 
-    
     public double getPreu() {
         return this.preu;
     }
 
-    
     public double getIva() {
         return this.iva;
     }
 
-    
     public int getQuantsQueden() {
         return this.quantsQueden;
     }
 
-    //Aquesta funció retorna el PVP (es podria eliminar)
     public double getPVP() {
         return this.preu + (this.preu * ((double) this.iva / 100));
     }
 
-    //Aquesta funció retorna el PVP aplicant-li un descompte
-    //*Parámetres de entrada:
-    //      - int descompte: el percentatge de descompte que se li vol aplicar
     public double getPVPDescompte(int descompte) {
         return getPVP() - (getPVP() * ((double) descompte / 100));
     }
 
-    
     public void setNom(String nom) {
         this.nom = nom;
     }

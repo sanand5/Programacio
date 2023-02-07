@@ -2,15 +2,25 @@ package exemplesclases;
 
 // Andreu Sanz Sanz
 
+import java.util.ArrayList;
+
+
 public class ExemplesClases {
     public static void main(String[] args) {
-        /*
-        --PERSONA--
+        //*--PERSONA--
         Persona raquel=new Persona();
         raquel.edat=18;
         raquel.nom="Raquel";
         System.out.println(raquel.nom+" va a morir con "+raquel.edat+" años");
-        System.out.println("Raquel es major de edat. "+raquel.esMajorEdat());*/
+        System.out.println("Raquel es major de edat. "+raquel.esMajorEdat());//*/
+        ArrayList llista = new ArrayList();
+        llista.add(-25);
+        llista.add(3.14);
+        llista.add('a');
+        llista.add(raquel);
+        for (int i = 0; i < llista.size(); i++) {
+            System.out.println(llista.get(i));
+        }
         
         /*--ALUMNE--
         Alumne Roger1rC=new Alumne();
@@ -63,6 +73,7 @@ public class ExemplesClases {
                               """,peli.getTitol(), peli.preudia(), peli.preudos(), peli.preusemana(), peli.getCod(), peli.getFormat());
         }
         */
+        
     }
 }
 
