@@ -1,23 +1,23 @@
-package activitat_qualificable_uf07;
+package prova;
 
 // Andreu Sanz Sanz
 import java.util.Arrays;
 import java.util.Scanner;
 
-public class Activitat_Qualificable_UF07 {
+public class provadasdesa {
 
     // Aquesta funció mostra el menú principal de selecció de nivell de joc
     // *No retorna res
-    // *No te parametres de entrada
+    // *No te paràmetres d'entrada
     public static void menu() {
         System.out.print("""
                              ¡Selecciona el nivell!
                            //////////////////////////
                            ///////////MENU///////////
                            //////////////////////////
-                           ///   1. Facil         ///
+                           ///   1. Fàcil         ///
                            ///   2. Mitja         ///
-                           ///   3. Difiçil       ///
+                           ///   3. Difícil       ///
                            ///   4. Personalitzat ///
                            ///   5. Informació    ///
                            //////////////////////////
@@ -27,7 +27,7 @@ public class Activitat_Qualificable_UF07 {
 
     // Aquesta funció mostra el menú d'informació del joc
     // *No retorna res
-    // *No te parametres de entrada
+    // *No te paràmetres d'entrada
     public static void menuInfo() {
         System.out.print("""
                            1. Controls
@@ -37,7 +37,7 @@ public class Activitat_Qualificable_UF07 {
                            ?""");
     }
 
-    // Aquesta funció mostra informació sobre el joc, les seves controls, explicació, crèdits i eixir
+    // Aquesta funció mostra informació sobre el joc, el seu control, explicació, crèdits i eixir
     // *No retorna res
     // * Parámetres d'entrada:
     //      - int[] variables: Referència a la matriu de variables per a obtenir les dades del joc
@@ -49,24 +49,23 @@ public class Activitat_Qualificable_UF07 {
             switch (sc.nextLine()) {
                 case "1" -> {
                     System.out.print("""
-                                        Bé, per comensar millor saber un poc com podem jugar.
-                                        Per comenzar, cuan vagues a seleccionar les coordenades, asegurat que les has escrit adecuadament (FilaColumna), del contrari no entendre res i t'ho tornare a preguntar.
-                                        Recorda que si el teu tauler es de 10x10 les cordenades fora de rang no les entendre ,en canvi en els taulers de mes de 10x10 si que et marcare si estas fora de rang i si escrius una casella ja marcada et restare una tirada..
-                                        Sempre que vegues un "?" es perque estare esperant la teua resposta.
-                                        Els misatges entre ## son mistges d'error i auras de tornar a introduir un valor o un caracter.
+                                        Ací tens l'explicació de com has de jugar:
+                                        Per començar, quan vagues a seleccionar les coordenades, assegurat que les has escrit adequadament (FilaColumna), en cas contrari no entendre res i t'ho tornaré a preguntar.
+                                        Recorda que si el teu tauler és de 10x10 les coordenades fora de rang no les entendre, en canvi, en els taulers de més de 10x10 sí que et marcaré si estàs fora de rang i si escrius una casella ja marcada, et restaré una tirada.
+                                        Sempre que vegues un "?" és perquè estaré esperant la teua resposta.
+                                        Els missatges entre ## són missatges d'error i caldrà tornar a introduir un valor o un caràcter.
+                                        En el nivell personalitzat si escrius més vaixells que el que càpien el ficaré sols els que puga, prioritzant primer els de major volum a més
                                         En el moment que et canses de jugar escriu "esc" per acabar la partida.
-                                        Si vols saber mes informació de com jugar escriu 2.
-                                     
-                                        1.Controls | 2.Explicació joc | 3.Credits | 4.Eixir
-                                        
+                                        Si vols saber més informació de com jugar escriu 2.
+
                                         ?""");
                     info(variables);
                 }
                 case "2" -> {
                     System.out.print("""
-                                        Bé, per comensar millor saber un poc com funciona el jugar. Per jugar existeixen 4 modes de joc.
+                                        Bé, per començar millor saber un poc com funciona el joc. Per jugar existeixen 4 modes de joc.
                                                                     Façil | Mitja | Difiçil | Personalitçat
-                                        El nivell façil compta amb:
+                                        El nivell fàcil compta amb:
                                                                 Tauler de 10x10
                                                                 5  llanxes
                                                                 3  vaixells
@@ -80,14 +79,14 @@ public class Activitat_Qualificable_UF07 {
                                                                 1  cuirassat
                                                                 1  portaavio
                                                                 30 tirades
-                                        El nivell difiçil compta amb:
+                                        El nivell difícil compta amb:
                                                                 Tauler de 10x10
                                                                 1  llanxa
                                                                 1  vaixell
                                                                 0  cuirassats
                                                                 0  portaavions
                                                                 10 tirades
-                                        Ademes en el nivell personalitzat aquestes dades les pots triar al teu gust
+                                        A més en el nivell personalitzat aquestes dades les pots triar al teu gust
                                         1.Controls | 2.Explicació joc | 3.Credits | 4.Eixir
                                         
                                         ?""");
@@ -170,7 +169,7 @@ public class Activitat_Qualificable_UF07 {
         return variables[7];
     }
 
-    // Aquesta funció mostra informació sobre la selecció de nivell al joc, incloent les dades del tauler, les tipus i quantitats de vaixells, i les tirades disponibles
+    // Aquesta funció mostra informació sobre la selecció de nivell al joc, incloent les dades del tauler, els tipus i quantitat de vaixells, i les tirades disponibles
     // *No retorna res
     // *Paràmetres d'entrada:
     //      - String nivell: Nom del nivell seleccionat
@@ -205,7 +204,7 @@ public class Activitat_Qualificable_UF07 {
                           """, nivell, variables[3], nomBarcos[0], variables[4], nomBarcos[1], variables[5], nomBarcos[2], variables[6], nomBarcos[3], variables[7]);
     }
 
-    // Aquesta funció personalitza els paràmetres per al joc, incloent les dades del tauler, les tipus i quantitats de vaixells, i les tirades disponibles
+    // Aquesta funció personalitza els paràmetres per al joc, incloent les dades del tauler, els tipus i quantitat de vaixells, i les tirades disponibles
     // *No retorna res
     // *Paràmetres d'entrada:
     //      - int[] variables: Referència a la matriu variables per a emmagatzemar les dades personalitzades
@@ -287,7 +286,7 @@ public class Activitat_Qualificable_UF07 {
     public static void barcos(char[][] tabsol, int[] variables) {
         int cont = 0;
         int min = 2, max = variables[0] - 3;
-        int Pficats = 0, Zficats = 0, Bficats = 0;
+        int Pficats = 0, Zficats = 0, Bficats = 0; //Portaavions, cruissats i vaixells ficats
         for (int i = 1; i <= variables[6]; i++) {
             cont++;
             int fila = (int) (Math.random() * (max - min + 1) + min), columna = (int) (Math.random() * variables[1]); //fila(entre 2-(files-3), columna (entre 0-columnes))
@@ -301,7 +300,7 @@ public class Activitat_Qualificable_UF07 {
             } else {
                 i--;
             }
-            if (cont >= 10000) {
+            if (cont >= 10000) { // evita bucle infinit i informa al jugador
                 if (i == 0) {
                     System.out.println("# No he pogut ficar-te cap portaavio #");
                 } else {
@@ -360,29 +359,24 @@ public class Activitat_Qualificable_UF07 {
         }
         cont = 0;
         int posicionsRestants = (variables[0] * variables[1]) - (Bficats * 3 + Zficats * 4 + Pficats * 5);
-        if (posicionsRestants==0) {
+        if (posicionsRestants == 0) {
             System.out.println("# No he pogut ficar-te cap llanxa #");
         } else if (posicionsRestants < variables[3]) {
             System.out.printf("# No he pogut ficar totes les llanxes, pero n'he ficat %d #%n", posicionsRestants);
         }
-//        while (posicionsRestants > 0 || variables[3]==0) {
-//            int fila = (int) (Math.random() * variables[0]), columna = (int) (Math.random() * variables[1]);//fila(entre 0-files), columna (entre 0-columnes)
-//            if (tabsol[fila][columna] == '-') {
-//                tabsol[fila][columna] = 'L';
-//                posicionsRestants--;
-//            }
-//        }
         for (int i = 0; i < variables[3] && posicionsRestants > 0; i++) {
             int fila = (int) (Math.random() * variables[0]), columna = (int) (Math.random() * variables[1]);//fila(entre 0-files), columna (entre 0-columnes)
             if (tabsol[fila][columna] == '-') {
                 tabsol[fila][columna] = 'L';
                 posicionsRestants--;
+            } else {
+                i--;
             }
         }
     }
 
-    // Aquesta funció pregunta la coordebada i gestiona errors que puga escriure el usuari per a les coordenades, també mostra el tauler i les variables
-    // *Retorna: boolean per saber si el rendixes al escriure "esc"
+    // Aquesta funció pregunta la coordenada i gestiona errors que puga escriure l'usuari per a les coordenades, també mostra el tauler i les variables
+    // *Retorna: boolean per saber si el rendeixes a l'escriure "esc"
     // *Paràmetres d'entrada:
     //      - char[][] tab: Referència a la matriu del tauler del jugador
     //      - int[] variables: Referència a la matriu de variables per a obtenir les dades del joc
@@ -395,8 +389,8 @@ public class Activitat_Qualificable_UF07 {
                 break;
             }
             System.out.print("Coordenades: ");
-            String coord = sc.nextLine();
-            if ("esc".equals(coord)) {
+            String coord = sc.nextLine().toUpperCase();
+            if ("ESC".equals(coord)) {
                 return true;
             }
             int lletra = translletra(coord), num;
@@ -428,12 +422,11 @@ public class Activitat_Qualificable_UF07 {
         return false;
     }
 
-    // Aquesta funció transforma la lletra de la coordenada en un numero per ha poder apunta a eixa posicio de la fila.
-    // *Retorna: int la posicio de la fila seleccionada
+    // Aquesta funció transforma la lletra de la coordenada en un número per a poder apuntar a eixa posició de la fila.
+    // *Retorna: int la posició de la fila seleccionada
     // *Paràmetres d'entrada:
     //      - String coord: Referència a la coordenada seleccionada
     public static int translletra(String coord) {
-        coord = coord.toUpperCase();
         char lletra = coord.charAt(0);
         return (int) lletra - 65;
     }
@@ -441,7 +434,7 @@ public class Activitat_Qualificable_UF07 {
     // Aquesta funció marca amb una A o una X la posició seleccionada i informa si has tocat un vaixell
     // *No retorna res
     // *Paràmetres d'entrada:
-    //      - int lletra: Referència a la fila ha marcar
+    //      - int lletra: Referència a la fila a marcar
     //      - int num: Referència a la columna a marcar
     //      - char[][] tab: Referència a la matriu del tauler del jugador
     //      - char[][] tabsol: Referència a la matriu del tauler amb les solucions
@@ -461,8 +454,8 @@ public class Activitat_Qualificable_UF07 {
         variables[7]--;
     }
 
-    // Aquesta funció mostra un misatge de victoria i el tauler amb les solucions
-    // *Retorna: boolean per ha saber que el judor ja ha guanyat
+    // Aquesta funció mostra un missatge de victòria i el tauler amb les solucions
+    // *Retorna: boolean per a saber que el jugador ja ha guanyat
     // *Paràmetres d'entrada:
     //      - char[][] tabsol: Referència a la matriu del tauler amb les solucions
     //      - int[] variables: Referència a la matriu de variables per a obtenir les dades del joc
@@ -470,44 +463,46 @@ public class Activitat_Qualificable_UF07 {
         System.out.println("""
                                                                                                            
                                                                                                            
-                                                                              .     #@@@@                  
-                                                         ,%%%#              %##   @@@@@@@@@%               
-                                                         ,%%%%%%         .##% #&@@@@ *@@@@@@@@             
-                                                    ,*      %%%%%%(    %##, %@@@@@@.  @@@@@@@@@            
-                                                  %%%%%#      ,%%%%%%##%,,&@@@@   #@@@@@@@@@@@@            
-                                                    %%%%%%/      ####, #@@@@@@@@@@@@@@@@@@@@@@@            
-                                                      /%%%%%%  .##% ,&@@@@@   &@@@@@@@@@@@@@@,             
-                                                         %%%%#### #@@@@/,@@@@@@@@@@@@@@@@@@                
-                                                          .##% (&@@@@@@   @@@@@@@@@@@@@@,                  
-                                                        %##. #@@@@@@@@@@@@@@@@@@@@@@@@                     
-                                                      ##% .@@@@@@@@@@@@@@@@@@@@@@@@.                       
-                                                   %##  #@@@@@@@@@@@@@@@@@@@@@@@@                          
-                           ,      .             .##% .@@(@@@@@@@@@@@@@@@@@@@@@.      (      .              
-                           **/  ****/  ,***/.  /***#@@#%%%#@@&%%%#@@&%%%%&@@/*/*,  (/**/  ,*/*/. .//**,  //
-                           *********************/#%%%%%%%%%%%%%%%%%%%%%%%/*********************************
-                           ********************%%%%%%%%%%%%%%%%%%%%%%%%************************************
-                           *****************#%%%%%%%%%%%%%%%%%%%%%%%/**************************************
-                           ***************%%%%%%%%%%%%%%%%%%%%%%%%*****************************************
-                           *****************%%%%%%%%%%%%%%%%%%%/*******************************************
-                           *******************(%%%%%%%%%%%%%%**********************************************
-                           *********************/#%%%%%%%%*************************************************
-                           ********************************************************************************
+                                                                                            .     #@@@@                  
+                                                                       ,%%%#              %##   @@@@@@@@@%               
+                                                                       ,%%%%%%         .##% #&@@@@ *@@@@@@@@             
+                                                                  ,*      %%%%%%(    %##, %@@@@@@.  @@@@@@@@@            
+                                                                %%%%%#      ,%%%%%%##%,,&@@@@   #@@@@@@@@@@@@            
+                                                                  %%%%%%/      ####, #@@@@@@@@@@@@@@@@@@@@@@@            
+                                                                    /%%%%%%  .##% ,&@@@@@   &@@@@@@@@@@@@@@,             
+                                                                       %%%%#### #@@@@/,@@@@@@@@@@@@@@@@@@                
+                                                                        .##% (&@@@@@@   @@@@@@@@@@@@@@,                  
+                                                                      %##. #@@@@@@@@@@@@@@@@@@@@@@@@                     
+                                                                    ##% .@@@@@@@@@@@@@@@@@@@@@@@@.                       
+                                                                 %##  #@@@@@@@@@@@@@@@@@@@@@@@@                          
+                                         ,      .             .##% .@@(@@@@@@@@@@@@@@@@@@@@@.      (      .              
+                                         **/  ****/  ,***/.  /***#@@#%%%#@@&%%%#@@&%%%%&@@/*/*,  (/**/  ,*/*/. .//**,  //
+                                         *********************/#%%%%%%%%%%%%%%%%%%%%%%%/*********************************
+                                         ********************%%%%%%%%%%%%%%%%%%%%%%%%************************************
+                                         *****************#%%%%%%%%%%%%%%%%%%%%%%%/**************************************
+                                         ***************%%%%%%%%%%%%%%%%%%%%%%%%*****************************************
+                                         *****************%%%%%%%%%%%%%%%%%%%/*******************************************
+                                         *******************(%%%%%%%%%%%%%%**********************************************
+                                         *********************/#%%%%%%%%*************************************************
+                                         ********************************************************************************
                            
-                           d88888b d8b   db  .d88b.  d8888b.  .d8b.  d8888b.  .d88b.  d8b   db  .d8b.  
-                           88'     888o  88 .8P  Y8. 88  `8D d8' `8b 88  `8D .8P  Y8. 888o  88 d8' `8b 
-                           88ooooo 88V8o 88 88    88 88oobY' 88ooo88 88oooY' 88    88 88V8o 88 88ooo88 
-                           88~~~~~ 88 V8o88 88    88 88`8b   88~~~88 88~~~b. 88    88 88 V8o88 88~~~88 
-                           88.     88  V888 `8b  d8' 88 `88. 88   88 88   8D `8b  d8' 88  V888 88   88 
-                           Y88888P VP   V8P  `Y88P'  88   YD YP   YP Y8888P'  `Y88P'  VP   V8P YP   YP     
+                            ******** ****     ** **      **   *******   *******       **     ******     *******   ****     **     **    
+                           /**///// /**/**   /**/**     /**  **/////** /**////**     ****   /*////**   **/////** /**/**   /**    ****   
+                           /**      /**//**  /**/**     /** **     //**/**   /**    **//**  /*   /**  **     //**/**//**  /**   **//**  
+                           /******* /** //** /**/**********/**      /**/*******    **  //** /******  /**      /**/** //** /**  **  //** 
+                           /**////  /**  //**/**/**//////**/**      /**/**///**   **********/*//// **/**      /**/**  //**/** **********
+                           /**      /**   //****/**     /**//**     ** /**  //** /**//////**/*    /**//**     ** /**   //****/**//////**
+                           /********/**    //***/**     /** //*******  /**   //**/**     /**/*******  //*******  /**    //***/**     /**
+                           //////// //      /// //      //   ///////   //     // //      // ///////    ///////   //      /// //      //      
                                                                                                                                                                                                                               
-                                                Has enfonsat tots els vaixells.
+                                                                 Has enfonsat tots els vaixells.
                            
                            """);
         mostrarTauler(tabsol, variables);
         return true;
     }
 
-    // Aquesta funció mostra un misatge de derrota i el tauler amb les solucions
+    // Aquesta funció mostra un missatge de derrota i el tauler amb les solucions
     // *No retorna res
     // *Paràmetres d'entrada:
     //      - char[][] tabsol: Referència a la matriu del tauler amb les solucions
@@ -545,13 +540,13 @@ public class Activitat_Qualificable_UF07 {
         mostrarTauler(tabsol, variables);
     }
 
-    // Aquesta funció es la que fa la funcio de jugar
+    // Aquesta funció és la que fa la funció de jugar
     // *No retorna res
-    // *No te parametres de entrada
+    // *No té paràmetres d'entrada
     public static void jugar() {
         int files = 10, columnes = 10, enfonsats = 0;
         boolean guanyat = false;
-        int variables[] = new int[8];
+        int variables[] = new int[9];
         variables[0] = files;
         variables[1] = columnes;
         variables[3] = enfonsats;
@@ -583,15 +578,22 @@ public class Activitat_Qualificable_UF07 {
 
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
-        boolean jugar;
+        boolean jugar = true;
         do {
             jugar();
-            System.out.print("""
-                             Vols tornar a jugar?(s/n)
-                             ?""");
-            if ("n".equals(sc.nextLine())) {
-                break;
-            }
-        } while (true);
+            do {
+                System.out.print("Vols tornar a jugar?(s/n)\n?");
+                String repetir = sc.nextLine().toLowerCase();
+                if ("n".equals(repetir)) {
+                    jugar = false;
+                    break;
+                }
+                if ("s".equals(repetir)) {
+                    jugar = true;
+                    break;
+                }
+
+            } while (true);
+        } while (jugar);
     }
 }
