@@ -87,7 +87,8 @@ public class Activitat_Qualificable_UF07 {
                                                                 0  portaavions
                                                                 10 tirades
                                         A més en el nivell personalitzat aquestes dades les pots triar al teu gust
-                                        1.Controls | 2.Explicació joc | 3.Credits | 4.Eixir
+                                     
+                                        1.Controls | 2.Explicació joc | 3.Eixir
                                         
                                         ?""");
                     info(variables);
@@ -412,7 +413,6 @@ public class Activitat_Qualificable_UF07 {
                 mostrarVariables(variables);
             } else {
                 marcar(lletra, num, tab, tabsol, variables);
-                mostrarTauler(tabsol, variables); //Mostra la solucio, la eliminare pa entregar
                 mostrarTauler(tab, variables);
                 mostrarVariables(variables);
                 preguntar = false;
@@ -559,7 +559,6 @@ public class Activitat_Qualificable_UF07 {
         replenarTauler(tab);
         int total = variables[3] + variables[4] * 3 + variables[5] * 4 + variables[6] * 5; //total vaixells que necesites tocar per a guanyar
         System.out.println("Introdueix les coordenades de la seguenta manera; FilaColumna");
-        mostrarTauler(tabsol, variables); //Mostra la solucio, la eliminare pa entregar
         mostrarTauler(tab, variables);
         mostrarVariables(variables);
         for (int i = 0; i < tiradesfixes; i++) {
