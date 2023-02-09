@@ -1,10 +1,10 @@
-package activitat_qualificable_uf07;
+package taulerascii;
 
 // Andreu Sanz Sanz
 import java.util.Arrays;
 import java.util.Scanner;
 
-public class Activitat_Qualificable_UF07 {
+public class tauñlerascii {
 
     // Aquesta funció mostra el menú principal de selecció de nivell de joc
     // *No retorna res
@@ -296,7 +296,7 @@ public class Activitat_Qualificable_UF07 {
     public static void barcos(char[][] tabsol, int[] variables) {
         int cont = 0;
         int min = 2, max = variables[0] - 3;
-        int Pficats = 0, Zficats = 0, Bficats = 0, Lficats=0; //Portaavions, cruissats, vaixells i llanxes ficades
+        int Pficats = 0, Zficats = 0, Bficats = 0, Lficats = 0; //Portaavions, cruissats, vaixells i llanxes ficades
         for (int i = 1; i <= variables[6]; i++) {
             cont++;
             int fila = (int) (Math.random() * (max - min + 1) + min), columna = (int) (Math.random() * variables[1]); //fila(entre 2-(files-3), columna (entre 0-columnes))
@@ -385,10 +385,10 @@ public class Activitat_Qualificable_UF07 {
             }
         }
         // Total de cada vaixel ficat
-        variables[3]=Lficats;
-        variables[4]=Bficats;
-        variables[5]=Zficats;
-        variables[6]=Pficats;
+        variables[3] = Lficats;
+        variables[4] = Bficats;
+        variables[5] = Zficats;
+        variables[6] = Pficats;
     }
 
     // Aquesta funció pregunta la coordenada i gestiona errors que puga escriure l'usuari per a les coordenades, també mostra el tauler i les variables
@@ -522,7 +522,7 @@ public class Activitat_Qualificable_UF07 {
         return true;
     }
 
-    // Aquesta funció mostra un missatge de derrota i el tauler amb les solucions 
+    // Aquesta funció mostra un missatge de derrota i el tauler amb les solucions
     // *No retorna res
     // *Paràmetres d'entrada:
     //      - char[][] tabsol: Referència a la matriu del tauler amb les solucions
@@ -580,6 +580,7 @@ public class Activitat_Qualificable_UF07 {
         int total = variables[3] + variables[4] * 3 + variables[5] * 4 + variables[6] * 5; //total vaixells que necesites tocar per a guanyar
         System.out.println("Introdueix les coordenades de la seguenta manera; FilaColumna");
         mostrarTauler(tab);
+        mostrarTauler(tabsol); //eliminar
         mostrarVariables(variables);
         for (int i = 0; i < tiradesfixes; i++) {
             if (preguntar(tab, variables, tabsol)) { // acaba al escriure "esc" ja que retornaria true
