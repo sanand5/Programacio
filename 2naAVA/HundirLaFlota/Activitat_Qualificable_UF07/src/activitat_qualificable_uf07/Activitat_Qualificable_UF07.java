@@ -5,7 +5,7 @@ import java.util.Arrays;
 import java.util.Scanner;
 
 public class Activitat_Qualificable_UF07 {
-    
+
     // Aquesta funció mostra el menú principal de selecció de nivell de joc
     // *No retorna res
     // *No te paràmetres d'entrada
@@ -24,7 +24,7 @@ public class Activitat_Qualificable_UF07 {
                          
                            ?""");
     }
-    
+
     // Aquesta funció mostra el menú d'informació del joc
     // *No retorna res
     // *No te paràmetres d'entrada
@@ -94,7 +94,7 @@ public class Activitat_Qualificable_UF07 {
                 }
                 case "3" -> {
                     menu();
-                    nivell(variables);
+                    mode(variables);
                 }
                 default -> {
                     System.out.println("# No reconec aquesta ordre #");
@@ -110,7 +110,7 @@ public class Activitat_Qualificable_UF07 {
     // *Retorna: int nombre de tirades per al nivell seleccionat
     // *Paràmetres d'entrada:
     //      - int[] variables: Referència a la matriu variables per conèixer i modificar les dades del joc
-    public static int nivell(int[] variables) {
+    public static int mode(int[] variables) {
         Scanner sc = new Scanner(System.in);
 //      variables[0] = files;
 //      variables[1] = columnes;
@@ -164,7 +164,7 @@ public class Activitat_Qualificable_UF07 {
             }
         } while (menu);
         if (!"personalitzat".equals(nivell)) {
-            infonivell(nivell, variables);
+            infoNivell(nivell, variables);
         }
         return variables[7];
     }
@@ -174,7 +174,7 @@ public class Activitat_Qualificable_UF07 {
     // *Paràmetres d'entrada:
     //      - String nivell: Nom del nivell seleccionat
     //      - int[] variables: Referència a la matriu de variables per a obtenir les dades del joc
-    public static void infonivell(String nivell, int[] variables) {
+    public static void infoNivell(String nivell, int[] variables) {
         String nomBarcos[] = {"llanx", "vaixell", "cuirassat", "portaavio"};
         //Gestio de el nom si es plural o singular
         if (variables[3] == 0 || variables[3] > 1) {
@@ -214,7 +214,7 @@ public class Activitat_Qualificable_UF07 {
         int total = 0;
         System.out.println("Recorda que les files tenen que estar entre 5-26 i les columnes entre 5-100");
         for (int i = 0; i < 8; i++) {
-            System.out.printf("Nombre de %s: ", nomvaixells[i].substring(4));
+            System.out.printf("Nombre de %s: ", nomvaixells[i].substring(4)); //evita els determinants
             variables[i] = sc.nextInt();
             if (i == 0 && (variables[i] < 5 || variables[i] > 26)) { //files
                 System.out.printf("# %s han de ser majors o iguals a 5 i menors que 26 #\n", nomvaixells[i]);
@@ -229,8 +229,8 @@ public class Activitat_Qualificable_UF07 {
                 i--;
             } else if (i == 6) { // gestiona el minim de tirades
                 total = variables[3] + variables[4] * 3 + variables[5] * 4 + variables[6] * 5;
-                if (total>variables[0]*variables[1]) {
-                    total=variables[0]*variables[1];
+                if (total > variables[0] * variables[1]) {
+                    total = variables[0] * variables[1];
                 }
             } else if (i == 7 && variables[7] < total) { // tirades
                 System.out.printf("# %s han de ser majors o iguals a %d #\n", nomvaixells[7], total);
@@ -359,7 +359,7 @@ public class Activitat_Qualificable_UF07 {
         }
         cont = 0;
         int posicionsRestants = (variables[0] * variables[1]) - (Bficats * 3 + Zficats * 4 + Pficats * 5);
-        if (posicionsRestants==0) {
+        if (posicionsRestants == 0) {
             System.out.println("# No he pogut ficar-te cap llanxa #");
         } else if (posicionsRestants < variables[3]) {
             System.out.printf("# No he pogut ficar totes les llanxes, pero n'he ficat %d #%n", posicionsRestants);
@@ -369,7 +369,9 @@ public class Activitat_Qualificable_UF07 {
             if (tabsol[fila][columna] == '-') {
                 tabsol[fila][columna] = 'L';
                 posicionsRestants--;
-            }else i--;
+            } else {
+                i--;
+            }
         }
     }
 
@@ -391,7 +393,7 @@ public class Activitat_Qualificable_UF07 {
             if ("ESC".equals(coord)) {
                 return true;
             }
-            int lletra = translletra(coord), num;
+            int lletra = transformarLletra(coord), num;
             switch (coord.length()) {
                 case 2 ->
                     num = (coord.charAt(1) - 48);
@@ -424,11 +426,11 @@ public class Activitat_Qualificable_UF07 {
     // *Retorna: int la posició de la fila seleccionada
     // *Paràmetres d'entrada:
     //      - String coord: Referència a la coordenada seleccionada
-    public static int translletra(String coord) {
+    public static int transformarLletra(String coord) {
         char lletra = coord.charAt(0);
         return (int) lletra - 65;
     }
-    
+
     // Aquesta funció marca amb una A o una X la posició seleccionada i informa si has tocat un vaixell
     // *No retorna res
     // *Paràmetres d'entrada:
@@ -549,19 +551,19 @@ public class Activitat_Qualificable_UF07 {
         variables[1] = columnes;
         variables[3] = enfonsats;
         menu();
-        int tiradesfixes = nivell(variables);
+        int tiradesfixes = mode(variables);
         char tabsol[][] = new char[variables[0]][variables[1]];
         char tab[][] = new char[variables[0]][variables[1]];
         replenarTauler(tabsol);
         barcos(tabsol, variables);
         replenarTauler(tab);
-        int total = variables[3] + variables[4] * 3 + variables[5] * 4 + variables[6] * 5; //total de vegades tocat
+        int total = variables[3] + variables[4] * 3 + variables[5] * 4 + variables[6] * 5; //total vaixells que necesites tocar per a guanyar
         System.out.println("Introdueix les coordenades de la seguenta manera; FilaColumna");
         mostrarTauler(tabsol, variables); //Mostra la solucio, la eliminare pa entregar
         mostrarTauler(tab, variables);
         mostrarVariables(variables);
         for (int i = 0; i < tiradesfixes; i++) {
-            if (preguntar(tab, variables, tabsol)) { // acaba al escriure esc ja que retornaria true
+            if (preguntar(tab, variables, tabsol)) { // acaba al escriure "esc" ja que retornaria true
                 break;
             }
             if (variables[2] == total) { // compara si has tocat tots els vaixells per si has guañat o no 
@@ -569,11 +571,11 @@ public class Activitat_Qualificable_UF07 {
                 break;
             }
         }
-        if (variables[7] == 0 && guanyat == false) { // la segona comprovació esta creada per ha evitar que quan gunyes en la ultima tirada cride a win i a lose a la vegada
+        if (variables[7] == 0 && guanyat == false) { // la segona comprovació esta creada per ha evitar que quan gunyes en la ultima tirada cride a win i a gameover a la vegada
             gameOver(tabsol, variables);
         }
     }
-    
+
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
         boolean jugar = true;
@@ -582,12 +584,13 @@ public class Activitat_Qualificable_UF07 {
             do {
                 System.out.print("Vols tornar a jugar?(s/n)\n?");
                 String repetir = sc.nextLine().toLowerCase();
-                if ("n".equals(repetir)) {
-                    jugar = false;
-                    break;
-                }
                 if ("s".equals(repetir)) {
                     jugar = true;
+                    break;
+                }
+                if ("n".equals(repetir)) {
+                    jugar = false;
+                    System.out.println(":(");
                     break;
                 }
 
