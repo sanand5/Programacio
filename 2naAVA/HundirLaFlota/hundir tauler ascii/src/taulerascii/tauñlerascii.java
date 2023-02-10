@@ -61,6 +61,7 @@ public class tauñlerascii {
                                         ?""");
                     info(variables);
                 }
+                
                 case "2" -> {
                     System.out.print("""
                                         Bé, per començar millor saber un poc com funciona el joc. Per jugar existeixen 4 modes de joc.
@@ -250,6 +251,7 @@ public class tauñlerascii {
         for (int i = 0; i < tab[0].length; i++) {
             System.out.printf("%4d", i);
         }
+        /*
         System.out.print("\n  ");
         for (int i = 0; i < tab[0].length; i++) {
             System.out.print("+---");
@@ -267,6 +269,13 @@ public class tauñlerascii {
                 System.out.print("+---");
             }
             System.out.print("+\n");
+        }*/
+        System.out.println();
+        for (int i = 0; i < tab.length; i++) {
+            System.out.print((char) (65 + i)); //força a que la ixida siga una lletra per a traure la lletra corresponent
+            for (int j = 0; j < tab[i].length; j++) {
+                System.out.printf("%4s",tab[i][j]);
+            }System.out.println();
         }
     }
 
@@ -296,7 +305,7 @@ public class tauñlerascii {
     public static void barcos(char[][] tabsol, int[] variables) {
         int cont = 0;
         int min = 2, max = variables[0] - 3;
-        int Pficats = 0, Zficats = 0, Bficats = 0, Lficats = 0; //Portaavions, cruissats, vaixells i llanxes ficades
+        int Pficats = 0, Zficats = 0, Bficats = 0, Lficats=0; //Portaavions, cruissats, vaixells i llanxes ficades
         for (int i = 1; i <= variables[6]; i++) {
             cont++;
             int fila = (int) (Math.random() * (max - min + 1) + min), columna = (int) (Math.random() * variables[1]); //fila(entre 2-(files-3), columna (entre 0-columnes))
@@ -385,10 +394,10 @@ public class tauñlerascii {
             }
         }
         // Total de cada vaixel ficat
-        variables[3] = Lficats;
-        variables[4] = Bficats;
-        variables[5] = Zficats;
-        variables[6] = Pficats;
+        variables[3]=Lficats;
+        variables[4]=Bficats;
+        variables[5]=Zficats;
+        variables[6]=Pficats;
     }
 
     // Aquesta funció pregunta la coordenada i gestiona errors que puga escriure l'usuari per a les coordenades, també mostra el tauler i les variables
@@ -409,7 +418,7 @@ public class tauñlerascii {
             if ("ESC".equals(coord)) {
                 return true;
             }
-            int lletra = transformarLletra(coord), num;
+            int num;
             switch (coord.length()) {
                 case 2 ->
                     num = (coord.charAt(1) - 48);
@@ -420,6 +429,7 @@ public class tauñlerascii {
                     continue;
                 }
             }
+            int lletra = transformarLletra(coord);
             if (lletra >= variables[0] || lletra < 0 || num >= variables[1] || num < 0) {
                 System.out.println("# La coordenada no esta en el tauler #");
             } else if (tab[lletra][num] != '-') {
@@ -522,7 +532,7 @@ public class tauñlerascii {
         return true;
     }
 
-    // Aquesta funció mostra un missatge de derrota i el tauler amb les solucions
+    // Aquesta funció mostra un missatge de derrota i el tauler amb les solucions 
     // *No retorna res
     // *Paràmetres d'entrada:
     //      - char[][] tabsol: Referència a la matriu del tauler amb les solucions
@@ -580,7 +590,6 @@ public class tauñlerascii {
         int total = variables[3] + variables[4] * 3 + variables[5] * 4 + variables[6] * 5; //total vaixells que necesites tocar per a guanyar
         System.out.println("Introdueix les coordenades de la seguenta manera; FilaColumna");
         mostrarTauler(tab);
-        mostrarTauler(tabsol); //eliminar
         mostrarVariables(variables);
         for (int i = 0; i < tiradesfixes; i++) {
             if (preguntar(tab, variables, tabsol)) { // acaba al escriure "esc" ja que retornaria true

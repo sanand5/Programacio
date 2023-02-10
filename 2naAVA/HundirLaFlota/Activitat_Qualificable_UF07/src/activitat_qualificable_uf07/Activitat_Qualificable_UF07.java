@@ -268,6 +268,16 @@ public class Activitat_Qualificable_UF07 {
             }
             System.out.print("+\n");
         }
+        
+        /*--FORMA REDUIDA--
+        System.out.println();
+        for (int i = 0; i < tab.length; i++) {
+            System.out.print((char) (65 + i)); //força a que la ixida siga una lletra per a traure la lletra corresponent
+            for (int j = 0; j < tab[i].length; j++) {
+                System.out.printf("%4s",tab[i][j]);
+            }System.out.println();
+        }
+        */
     }
 
     // Aquesta funció mostra les variables actuals del joc, incloent el nombre de tirades disponibles i el nombre de vaixells tocats
@@ -409,7 +419,7 @@ public class Activitat_Qualificable_UF07 {
             if ("ESC".equals(coord)) {
                 return true;
             }
-            int lletra = transformarLletra(coord), num;
+            int num;
             switch (coord.length()) {
                 case 2 ->
                     num = (coord.charAt(1) - 48);
@@ -420,6 +430,7 @@ public class Activitat_Qualificable_UF07 {
                     continue;
                 }
             }
+            int lletra = transformarLletra(coord);
             if (lletra >= variables[0] || lletra < 0 || num >= variables[1] || num < 0) {
                 System.out.println("# La coordenada no esta en el tauler #");
             } else if (tab[lletra][num] != '-') {
