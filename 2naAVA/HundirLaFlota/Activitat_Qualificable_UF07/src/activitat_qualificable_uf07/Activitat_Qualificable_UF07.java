@@ -243,7 +243,6 @@ public class Activitat_Qualificable_UF07 {
     // *No retorna res
     // *Paràmetres d'entrada:
     //      - char[][] tab: Referència a la matriu de caràcters que representa el tauler
-    //      - int[] variables: Referència a la matriu de variables per a obtenir les dades del joc
     public static void mostrarTauler(char[][] tab) {
 
         System.out.print(" ");
@@ -268,7 +267,6 @@ public class Activitat_Qualificable_UF07 {
             }
             System.out.print("+\n");
         }
-        
         /*--FORMA REDUIDA--
         System.out.println();
         for (int i = 0; i < tab.length; i++) {
@@ -306,7 +304,7 @@ public class Activitat_Qualificable_UF07 {
     public static void barcos(char[][] tabsol, int[] variables) {
         int cont = 0;
         int min = 2, max = variables[0] - 3;
-        int Pficats = 0, Zficats = 0, Bficats = 0, Lficats=0; //Portaavions, cruissats, vaixells i llanxes ficades
+        int Pficats = 0, Zficats = 0, Bficats = 0, Lficats = 0; //Portaavions, cruissats, vaixells i llanxes ficades
         for (int i = 1; i <= variables[6]; i++) {
             cont++;
             int fila = (int) (Math.random() * (max - min + 1) + min), columna = (int) (Math.random() * variables[1]); //fila(entre 2-(files-3), columna (entre 0-columnes))
@@ -395,10 +393,10 @@ public class Activitat_Qualificable_UF07 {
             }
         }
         // Total de cada vaixel ficat
-        variables[3]=Lficats;
-        variables[4]=Bficats;
-        variables[5]=Zficats;
-        variables[6]=Pficats;
+        variables[3] = Lficats;
+        variables[4] = Bficats;
+        variables[5] = Zficats;
+        variables[6] = Pficats;
     }
 
     // Aquesta funció pregunta la coordenada i gestiona errors que puga escriure l'usuari per a les coordenades, també mostra el tauler i les variables
