@@ -37,6 +37,14 @@ public class Exemple5 {
         mare2 = filla2;
         mare2.crida();
         
+        System.out.println("crida edat");
+        filla2.crida(18);
+        System.out.println("filla tipo fena");
+        System.out.println();
+        filla2.crida(18, "puta");
+        System.out.println();
+        filla2.crida(18, "puta", 800);
+        
     }
 }
 
@@ -44,7 +52,7 @@ class Filla1 extends Mare {
     @Override
     public void crida() {
         System.out.println("Estic a la classe Filla1");
-    }
+    }      
 }
 
 class Mare {
@@ -58,6 +66,15 @@ class Filla2 extends Mare{
     @Override
     public void crida() {
         System.out.println("Estic a la classe Filla2");
+    }
+    public void crida(int edat) {
+        System.out.println("Estic a la classe Filla2 i tinc "+edat+" anys");
+    }
+    public void crida(int edat, String faenaString) {
+        System.out.println("Estic a la classe Filla2, tinc "+edat+" anys i soc "+ faenaString);
+    }
+    public void crida(int edat, String faenaString, int faena) {
+        System.out.println("Estic a la classe Filla2, tinc "+edat+" anys, soc "+ faenaString+" i cobre "+ faena + "€ al més");
     }
 
 }
