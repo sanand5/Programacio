@@ -19,7 +19,7 @@ public class Exemple7 {
         // TODO code application logic here
         ArrayList<Figura> figuras = new ArrayList();
         //ArrayList figuras = new ArrayList();
-        figuras.add(new Cuadrado(3));
+        figuras.add(new Cuadrado<Integer>(3));
         figuras.add(new Cuadrado(4));
         figuras.add(new Cuadrado(5));
         figuras.add(new Circulo(2));

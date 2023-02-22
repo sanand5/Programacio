@@ -17,7 +17,7 @@ public class UF09_01 {
      * @param args the command line arguments
      */
     
-    public static void iterator(ArrayList aliments) {
+    public static void mostrarConIter(ArrayList aliments) {
         Iterator iter = aliments.iterator();
         while (iter.hasNext()) {
             System.out.println(iter.next());
@@ -39,18 +39,19 @@ public class UF09_01 {
         aliments.add(a5);
         
         System.out.println("--Iterator--");
-        iterator(aliments);
+        mostrarConIter(aliments);
         aliments.remove(4);
         aliments.remove(3);
+        
         Aliment a6 = new Aliment("Crihstian", 2);
         aliments.add(1, a6);
         
         System.out.println("\n--Nou--");
-        iterator(aliments);
+        mostrarConIter(aliments);
         aliments.clear();
         if (aliments.isEmpty()) {
             System.out.println("\nNothing to commit");
-        }
+        }else mostrarConIter(aliments);
         
     }
     
