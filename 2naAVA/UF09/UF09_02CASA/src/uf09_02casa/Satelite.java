@@ -26,6 +26,8 @@ public class Satelite extends Astre{
         this.orbitaPlaneta = orbitaPlaneta;
     }
 
+    
+    
     @Override
     public void mostrar() {
         super.mostrar(); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/OverriddenMethodBody
