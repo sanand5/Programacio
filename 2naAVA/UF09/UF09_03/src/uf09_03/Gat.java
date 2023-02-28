@@ -8,50 +8,41 @@ package uf09_03;
  *
  * @author sanand
  */
-public class Gat extends Mascotas{
-    private String color;
-    private boolean isPelLlarg;
+public class Gat extends Mascotas {
 
-    public Gat(String nom, int edat, String estat, String dataNaixement, String color, boolean isPelLlarg) {
+    private String color;
+    private boolean PelLlarg;
+
+    public Gat(String nom, int edat, String estat, String dataNaixement, String color, boolean PelLlarg) {
         super(nom, edat, estat, dataNaixement);
         this.color = color;
-        this.isPelLlarg = isPelLlarg;
+        this.PelLlarg = PelLlarg;
     }
 
     @Override
     public void mostrar() {
-        super.mostrar(); 
-        System.out.println("Color: "+color);
+        super.mostrar();
+        System.out.println("Color: " + color);
         System.out.print("Tipo de pel: ");
-        if (isPelLlarg) {
+        if (PelLlarg) {
             System.out.println("Llarg");
-        }else System.out.println("Ah");
+        } else {
+            System.out.println("Ah");
+        }
     }
 
     @Override
     public void parla() {
-        super.parla(); 
+        super.parla();
         System.out.println("Miau");
     }
-    
-    
-    
-    
 
     public String getColor() {
         return color;
     }
 
-    public void setColor(String color) {
-        this.color = color;
+    public boolean isPelLlarg() {
+        return PelLlarg;
     }
 
-    public boolean isIsPelLlarg() {
-        return isPelLlarg;
-    }
-
-    public void setIsPelLlarg(boolean isPelLlarg) {
-        this.isPelLlarg = isPelLlarg;
-    }
-    
 }

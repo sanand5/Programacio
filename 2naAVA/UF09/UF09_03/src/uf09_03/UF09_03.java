@@ -4,6 +4,8 @@
  */
 package uf09_03;
 
+import java.util.ArrayList;
+
 /**
  *
  * @author sanand
@@ -14,7 +16,46 @@ public class UF09_03 {
      * @param args the command line arguments
      */
     public static void main(String[] args) {
-        // TODO code application logic here
+        Inventari h = new Inventari();
+        h.insertarMascota(new Gat("Felix", 1, "Saludable", "10/02/2022", "Negro", true));
+        h.insertarMascota(new Gat("Garfield", 4, "Enfermo", "01/12/2017", "Naranja", false));
+        h.insertarMascota(new Gos("Max", 5, "Saludable", "08/09/2016", "Labrador", false));
+        h.insertarMascota(new Gos("Rocky", 3, "Enfermo", "27/03/2019", "Pastor Alemán", true));
+        h.insertarMascota(new Canari("Amarillo", true, "Paco", 2, "Saludable", "01/05/2020", "Pequeño", true));
+        h.insertarMascota(new Canari("Verde", false, "Tico", 1, "Enfermo", "15/02/2022", "Grande", false));
+        h.insertarMascota(new Lloro("Amazonas", true, "Yako", 5, "Saludable", "12/09/2016", "Grande", true));
+        h.insertarMascota(new Lloro("Africa", false, "Kiki", 4, "Enfermo", "10/12/2017", "Mediano", false));
+
+        h.mostrarLlista();
+
+        h.mostrarMascota(2);
+
+        h.mostrarTot();
+
+        for (int i = 0; i < h.getMascotes().size(); i++) {
+            System.out.printf("ID: %02d%n", i);
+            h.getMascotes().get(i).parla();
+            h.getMascotes().get(i).aniversari();
+            System.out.println("");
+        }
+        
+        //No va
+        Aus cast;
+        cast = (Aus) h.getMascotes().get(4);
+        ((Aus)h.getMascotes().)
+        h.mostrarMascota(5);
+        cast.volar();
+        h.mostrarMascota(5);
+        //------------
+        
+        h.eliminarMascota(h.getMascotes().get(0));
+        h.mostrarLlista();
+        
+        h.buidarLlista();
+        h.mostrarLlista();
     }
-    
+    /*
+    Volar
+    */
+
 }

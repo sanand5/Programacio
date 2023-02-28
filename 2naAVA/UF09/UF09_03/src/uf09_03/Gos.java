@@ -8,21 +8,22 @@ package uf09_03;
  *
  * @author sanand
  */
-public class Gos extends Mascotas{
+public class Gos extends Mascotas {
+
     String raca;
-    boolean isPuses;
+    boolean Puses;
 
     public Gos(String nom, int edat, String estat, String dataNaixement, String raca, boolean isPuses) {
         super(nom, edat, estat, dataNaixement);
         this.raca = raca;
-        this.isPuses = isPuses;
+        this.Puses = isPuses;
     }
 
     @Override
     public void mostrar() {
         super.mostrar();
-        System.out.println("Raça: "+raca);
-        if (isPuses) {
+        System.out.println("Raça: " + raca);
+        if (Puses) {
             System.out.println("Te puses");
         }
     }
@@ -32,11 +33,5 @@ public class Gos extends Mascotas{
         super.parla();
         System.out.println("GUAU");
     }
-    
-    
-    
-    
-    
-    
-    
+
 }

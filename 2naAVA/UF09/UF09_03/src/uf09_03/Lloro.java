@@ -8,7 +8,8 @@ package uf09_03;
  *
  * @author sanand
  */
-public class Lloro extends Aus{
+public class Lloro extends Aus {
+
     private String origen;
     private boolean Parla;
 
@@ -21,7 +22,7 @@ public class Lloro extends Aus{
     @Override
     public void mostrar() {
         super.mostrar();
-        System.out.println("Origuen: "+origen);
+        System.out.println("Origuen: " + origen);
     }
 
     @Override
@@ -29,25 +30,13 @@ public class Lloro extends Aus{
         super.parla();
         System.out.println("MAMAUEVO");
     }
-    
-    
 
     public String getOrigen() {
         return origen;
-    }
-
-    public void setOrigen(String origen) {
-        this.origen = origen;
     }
 
     public boolean isParla() {
         return Parla;
     }
 
-    public void setParla(boolean Parla) {
-        this.Parla = Parla;
-    }
-    
-    
-    
 }

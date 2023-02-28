@@ -9,6 +9,7 @@ package uf09_03;
  * @author sanand
  */
 public class Mascotas {
+
     private String nom;
     private int edat;
     private String estat;
@@ -22,54 +23,39 @@ public class Mascotas {
     }
 
     public void mostrar() {
-        System.out.println("Nom: "+nom);
-        System.out.println("Edat: "+ edat);
-        System.out.println("Estat: "+estat);
-        System.out.println("Data de naixement: "+ dataNaixement);
+        System.out.println("Nom: " + nom);
+        System.out.println("Edat: " + edat);
+        System.out.println("Estat: " + estat);
+        System.out.println("Data de naixement: " + dataNaixement);
+
     }
+
     public void parla() {
         System.out.print("L'animal diu: ");
     }
+
     public void aniversari() {
-        System.out.println("La seua data de naixement es: "+dataNaixement);
+        System.out.println("La seua data de aniversari es: " + dataNaixement.substring(0, 5));
     }
-    
+
     public void morir() {
         estat = "Mort";
     }
-    
+
     public String getNom() {
         return nom;
-    }
-
-    public void setNom(String nom) {
-        this.nom = nom;
     }
 
     public int getEdat() {
         return edat;
     }
 
-    public void setEdat(int edat) {
-        this.edat = edat;
-    }
-
     public String getEstat() {
         return estat;
-    }
-
-    public void setEstat(String estat) {
-        this.estat = estat;
     }
 
     public String getDataNaixement() {
         return dataNaixement;
     }
 
-    public void setDataNaixement(String dataNaixement) {
-        this.dataNaixement = dataNaixement;
-    }
-    
-    
-    
 }

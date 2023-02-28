@@ -8,44 +8,40 @@ package uf09_03;
  *
  * @author sanand
  */
-public class Canari extends Aus{
+public class Canari extends Aus {
+
     private String color;
-    private boolean isShakira;
+    private boolean Shakira;
 
     public Canari(String color, boolean isShakira, String nom, int edat, String estat, String dataNaixement, String bec, boolean isVolandoPorElEpacio) {
         super(nom, edat, estat, dataNaixement, bec, isVolandoPorElEpacio);
         this.color = color;
-        this.isShakira = isShakira;
+        this.Shakira = isShakira;
     }
 
     @Override
     public void mostrar() {
         super.mostrar();
-        System.out.println("Color: "+color);
-        if (isShakira) {
+        System.out.println("Color: " + color);
+        if (Shakira) {
             System.out.println("Canta");
-        }else System.out.println("No canta");
+        } else {
+            System.out.println("No canta");
+        }
     }
 
     @Override
     public void parla() {
-        super.parla(); 
+        super.parla();
+        System.out.println("Pio pio");
     }
-    
+
     public String getColor() {
         return color;
     }
 
-    public void setColor(String color) {
-        this.color = color;
+    public boolean isShakira() {
+        return Shakira;
     }
 
-    public boolean isIsShakira() {
-        return isShakira;
-    }
-
-    public void setIsShakira(boolean isShakira) {
-        this.isShakira = isShakira;
-    }
-    
 }
