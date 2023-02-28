@@ -39,14 +39,11 @@ public class UF09_03 {
             System.out.println("");
         }
         
-        //No va
         Aus cast;
-        cast = (Aus) h.getMascotes().get(4);
-        ((Aus)h.getMascotes().)
+        cast = (Aus) h.getMascotes().get(5);        
         h.mostrarMascota(5);
         cast.volar();
         h.mostrarMascota(5);
-        //------------
         
         h.eliminarMascota(h.getMascotes().get(0));
         h.mostrarLlista();

@@ -8,7 +8,7 @@ package uf09_03;
  *
  * @author sanand
  */
-public class Aus extends Mascotas {
+abstract class Aus extends Mascotas {
 
     private String bec;
     private boolean VolandoPorElEpacio;

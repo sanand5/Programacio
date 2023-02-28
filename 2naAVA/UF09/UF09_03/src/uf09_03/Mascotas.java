@@ -8,7 +8,7 @@ package uf09_03;
  *
  * @author sanand
  */
-public class Mascotas {
+abstract class Mascotas {
 
     private String nom;
     private int edat;
