@@ -9,7 +9,7 @@ package uf09_05;
  * @author sanand
  */
 public class Empleat {
-    private final String nom;
+    private final String NOM;
     private final String DNI;
     private String adreca;
     private double brut;
@@ -17,13 +17,13 @@ public class Empleat {
     private int edat;
 
     public Empleat(String nom, String DNI, double brut) {
-        this.nom = nom;
+        this.NOM = nom;
         this.DNI = DNI;
         this.brut = brut;
     }
 
     public Empleat(String nom, String DNI, double brut, String adreca, double tel, int edat) {
-        this.nom = nom;
+        this.NOM = nom;
         this.DNI = DNI;
         this.adreca = adreca;
         this.brut = brut;
@@ -32,7 +32,7 @@ public class Empleat {
     }
     
     public void mostarDades() {
-        System.out.println("Nom\t\t: "+nom);
+        System.out.println("Nom\t\t: "+NOM);
         System.out.println("DNI\t\t: "+DNI);
         System.out.println("Sou brut\t: "+brut);
         System.out.println("Sou net\t\t: "+calcularNet());
@@ -53,8 +53,8 @@ public class Empleat {
         return brut-(brut*((double)irpf/100));
     }
     
-    public String getNom() {
-        return nom;
+    public String getNOM() {
+        return NOM;
     }
 
     public String getDNI() {

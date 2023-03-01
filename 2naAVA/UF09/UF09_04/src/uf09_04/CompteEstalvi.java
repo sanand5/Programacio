@@ -16,14 +16,14 @@ public class CompteEstalvi extends CompteBancari{
     }
 
     @Override
-    double calcularInteressos() {
+    void calcularInteressos() {
         return 0;
     }
 
     @Override
     void mostrarDades() {
-        System.out.println("IBAN\t: "+IBAN);
-        System.out.println("Saldo\t: "+saldo);
+        System.out.println("IBAN\t: "+getIBAN());
+        System.out.println("Saldo\t: "+getSaldo());
     }
     
     

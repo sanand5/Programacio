@@ -9,19 +9,16 @@ package uf09_04;
  * @author sanand
  */
  abstract class CompteBancari {
-    String IBAN;
-    double saldo;
-    final double INTERESANUALBASIC=2.5;
-    final double VALORFIXE=30000;
+    private String IBAN;
+    private double saldo;
+    private final double INTERESANUALBASIC=2.5;
+    private final double VALORFIXE=30000;
 
     public CompteBancari(String IBAN, double saldo) {
         this.IBAN = IBAN;
         this.saldo = saldo;
     }
     
-    public void consultarAtributs() {
-        
-    }
     //  Aquesta funció modifica el saldo tant positivament com negativament y comprova si la cantitat es major al llimit
     // *No retorna res
     // *Parametres de entrada
@@ -62,22 +59,45 @@ package uf09_04;
     public void traspassar(CompteBancari compte, double cant) {
         if (saldo>=cant) {
             modificarSaldo(cant);
-            c.modificarSaldo(-cant);
+            compte.modificarSaldo(-cant);
         }else System.out.println("### Cantiatat insuficient ###");
     }
     
     
-    abstract double calcularInteressos();
+    abstract void calcularInteressos();
     
     //  Aquesta funció mostra les dades del compte
     // *No retorna res
     // *No te parametres de entrada
     //
     abstract void mostrarDades();
+
+    public String getIBAN() {
+        return IBAN;
+    }
+
+    public void setIBAN(String IBAN) {
+        this.IBAN = IBAN;
+    }
+
+    public double getSaldo() {
+        return saldo;
+    }
+
+    public void setSaldo(double saldo) {
+        this.saldo = saldo;
+    }
+
+    public double getINTERESANUALBASIC() {
+        return INTERESANUALBASIC;
+    }
+
+    public double getVALORFIXE() {
+        return VALORFIXE;
+    }
+    
     
 }
 /*
-ns que tinc que fer en consultarAtributs
-Com he de calcular els interesos
-si la clase es abstract no fa falta ficarli private als atributs, anoser q vuiques q soles a parega en eixa clase
+Com he de calcular els interesos saldo = saldo*2.5
 */

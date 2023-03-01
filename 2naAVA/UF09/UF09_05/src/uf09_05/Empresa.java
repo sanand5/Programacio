@@ -12,11 +12,11 @@ import java.util.ArrayList;
  */
 public class Empresa {
 
-    final String nom;
-    final String CIF;
-    double tel;
-    String adreca;
-    ArrayList<Empleat> Empleats = new ArrayList<>();
+    private final String nom;
+    private final String CIF;
+    private double tel;
+    private String adreca;
+    private ArrayList<Empleat> Empleats = new ArrayList<>();
 
     public Empresa(String nom, String CIF, double tel, String adreca) {
         this.nom = nom;
