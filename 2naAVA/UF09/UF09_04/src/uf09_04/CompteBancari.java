@@ -19,10 +19,10 @@ package uf09_04;
         this.saldo = saldo;
     }
     
-    //  Aquesta funció modifica el saldo tant positivament com negativament y comprova si la cantitat es major al llimit
+    // Aquesta funció modifica el saldo tant positivament com negativament i comprova si la quantitat és major al límit
     // *No retorna res
-    // *Parametres de entrada
-    //      double cant : cantitat de diners que es volen modificar en el saldo
+    // *Paràmetres d'entrada
+    // double cant : quantitat de diners que es volen modificar en el saldo
     //
     public void modificarSaldo(double cant) {
         if (Math.abs(cant)>=VALORFIXE) {
@@ -30,19 +30,19 @@ package uf09_04;
         }else saldo += cant;
     }
     
-    //  Aquesta funció ingresa una cantitat en el saldo
+    // Aquesta funció ingressa una quantitat en el saldo
     // *No retorna res
-    // *Parametres de entrada
-    //      double cant : cantitat de diners que es volen ingresar al saldo
-    //
+    // *Paràmetres d'entrada
+    // double cant : quantitat de diners que es volen ingressar al saldo
+//
     public void ingressar(double cant) {
         modificarSaldo(cant);
     }
     
-    //  Aquesta funció retira una cantitat en el saldo y comprova si es posible
+    // Aquesta funció retira una quantitat en el saldo i comprova si és possible
     // *No retorna res
-    // *Parametres de entrada
-    //      double cant : cantitat de diners que es volen retirar del saldo
+    // *Paràmetres d'entrada
+    // double cant : quantitat de diners que es volen retirar del saldo
     //
     public void retirar(double cant) {
         if (saldo>=Math.abs(cant)) {
@@ -50,11 +50,11 @@ package uf09_04;
         }else System.out.println("### Cantiatat insuficient ###");
     }
     
-    //  Aquesta funció transpassa una cantitat de un compte a un altre y comprova si es posible
+    // Aquesta funció traspassa una quantitat d'un compte a un altre i comprova si és possible
     // *No retorna res
-    // *Parametres de entrada
-    //      CompteBancari compte : compte on es volen transpassar el diners
-    //      double cant : cantitat de diners que es volen transpassar
+    // *Paràmetres d'entrada
+    // CompteBancari compte : compte on es volen traspassar els diners
+    // double cant : quantitat de diners que es volen traspassar
     //
     public void traspassar(CompteBancari compte, double cant) {
         if (saldo>=cant) {
@@ -63,35 +63,33 @@ package uf09_04;
         }else System.out.println("### Cantiatat insuficient ###");
     }
     
-    
+    // Aquesta funció calcula i aplica els interessos al saldo
+    // *No retorna res
+    // *No té paràmetres d'entrada
+    //
     abstract void calcularInteressos();
     
     //  Aquesta funció mostra les dades del compte
     // *No retorna res
-    // *No te parametres de entrada
+    // *No té paràmetres d'entrada
     //
     abstract void mostrarDades();
 
     public String getIBAN() {
         return IBAN;
     }
-
     public void setIBAN(String IBAN) {
         this.IBAN = IBAN;
     }
-
     public double getSaldo() {
         return saldo;
     }
-
     public void setSaldo(double saldo) {
         this.saldo = saldo;
     }
-
     public double getINTERESANUALBASIC() {
         return INTERESANUALBASIC;
     }
-
     public double getVALORFIXE() {
         return VALORFIXE;
     }
@@ -99,5 +97,6 @@ package uf09_04;
     
 }
 /*
-Com he de calcular els interesos saldo = saldo*2.5
+ELS METODES ABSTRACTES ELS HE DE TORNAR A COMENTAR
+CALCULAR INTERESOS EN COMPTE ESTALVI
 */

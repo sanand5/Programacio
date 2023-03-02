@@ -20,7 +20,7 @@ public class Terrestres extends Vehicles{
 
     @Override
     public void comprovarMatricula() {
-        if (!getMATRICULA().matches("^[0-9]{4}[A-Za-z]{3}$")) {
+        if (!getMATRICULA().matches("^\\d{4}[a-zA-Z]{3}$")) {
             System.out.println("### No s'ha pogut gradar la matricula del vehicle "+this.getClass().getSimpleName()+" i model "+getMODEL()+" ###" );
         }
     }

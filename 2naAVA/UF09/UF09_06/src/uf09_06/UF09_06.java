@@ -44,6 +44,12 @@ public class UF09_06 {
             lista.get(i).imprimir();
         }
         
+        System.out.println("");
+        System.out.println("-- MAL CREATS --");
+        Terrestres Mal1 = new Terrestres("1234ABCD", "4x4", 4);
+        Aeris Mal2 = new Aeris(023, "ABCDE123456", "A2");
+        Aquatics Mal3 = new Aquatics(23, "1234ABCDEFGHIJ", "V1");
+        
     }
     
 }

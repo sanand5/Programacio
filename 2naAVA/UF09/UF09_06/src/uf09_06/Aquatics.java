@@ -19,7 +19,7 @@ public class Aquatics extends Vehicles {
 
     @Override
     public void comprovarMatricula() {
-        if (!getMATRICULA().matches("^[A-Za-z]{3,10}$")) {
+        if (!getMATRICULA().matches("^\\d{3}[a-zA-Z]{10}$")) {
             System.out.println("### No s'ha pogut gradar la matricula del vehicle "+this.getClass().getSimpleName()+" i model "+getMODEL()+" ###" );
         }
     }

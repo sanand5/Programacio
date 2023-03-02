@@ -17,7 +17,12 @@ public class CompteEstalvi extends CompteBancari{
 
     @Override
     void calcularInteressos() {
-        return 0;
+        if (getSaldo()<SALDOMINIM) {
+            setSaldo(getSaldo()*((double)2.5/2));
+        }else if (getSaldo()>SALDOMINIM){
+            setSaldo(getSaldo()*((double)2.5*2));
+        }
+        //si es igual he de fer algo
     }
 
     @Override

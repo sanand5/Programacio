@@ -19,7 +19,7 @@ public class Aeris extends Vehicles{
 
     @Override
     public void comprovarMatricula() {
-        if (!getMATRICULA().matches("^[A-Za-z]{4}[0-9]{6}$")) {
+        if (!getMATRICULA().matches("^[a-zA-Z]{4}\\d{6}$")) {
             System.out.println("### No s'ha pogut gradar la matricula del vehicle "+this.getClass().getSimpleName()+" i model "+getMODEL()+" ###" );
         }
     }
