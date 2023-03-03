@@ -14,15 +14,14 @@ public class CompteEstalvi extends CompteBancari{
     public CompteEstalvi(String IBAN, double saldo) {
         super(IBAN, saldo);
     }
-
+        //setSaldo(getSaldo()*(getINTERES_ANUAL_BASIC() / 10));
     @Override
     void calcularInteressos() {
         if (getSaldo()<SALDOMINIM) {
-            setSaldo(getSaldo()*((double)2.5/2));
-        }else if (getSaldo()>SALDOMINIM){
-            setSaldo(getSaldo()*((double)2.5*2));
+            setSaldo(getSaldo()*((double)getINTERESANUALBASIC()/2));
+        }else if (getSaldo()>=SALDOMINIM){
+            setSaldo(getSaldo()*((double)getINTERESANUALBASIC()*2));
         }
-        //si es igual he de fer algo
     }
 
     @Override

@@ -9,7 +9,7 @@ package uf09_06;
  * @author sanand
  */
 abstract class Vehicles {
-    protected final String MATRICULA;
+    private final String MATRICULA;
     private final String MODEL;
 
     public Vehicles(String MATRICULA, String MODEL) {
