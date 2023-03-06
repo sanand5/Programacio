@@ -25,7 +25,7 @@ package uf09_04;
     // double cant : quantitat de diners que es volen modificar en el saldo
     //
     public void modificarSaldo(double cant) {
-        if (Math.abs(cant)>=VALORFIXE) {
+        if (Math.abs(cant)>VALORFIXE) {
             System.out.println("### El valor no pot superar els 30000 ###");
         }else saldo += cant;
     }
@@ -78,13 +78,10 @@ package uf09_04;
     public String getIBAN() {
         return IBAN;
     }
-    public void setIBAN(String IBAN) {
-        this.IBAN = IBAN;
-    }
     public double getSaldo() {
         return saldo;
     }
-    public void setSaldo(double saldo) {
+    protected void setSaldo(double saldo) {
         this.saldo = saldo;
     }
     public double getINTERESANUALBASIC() {
@@ -97,3 +94,5 @@ package uf09_04;
     
 }
 
+//El IBAN seria final?
+//calcular interesos
