@@ -18,7 +18,7 @@ public class UF09_07 {
     public static void main(String[] args) {
         // TODO code application logic here
         
-        ArrayList<IFigura2D> list = new ArrayList<>();
+        ArrayList<IFigura2D> list = new ArrayList<IFigura2D>();
         list.add(new Quadrat(2));
         list.add(new Rectangle(2, 3));
         list.add(new Cercle(3));
@@ -28,12 +28,12 @@ public class UF09_07 {
         System.out.println("   -- Llista normal --");
         for (int i = 0; i < list.size(); i++) {
             list.get(i).imprimir();
-            list.get(i).equals(2);
+            list.get(i).escala(2);
         }
         System.out.println("   -- Llista x2 --");
         for (int i = 0; i < list.size(); i++) {
             list.get(i).imprimir();
-            list.get(i).equals(0.5);
+            list.get(i).escala(0.5);
         }
         System.out.println("   -- Llista x0.5 --");
         for (int i = 0; i < list.size(); i++) {

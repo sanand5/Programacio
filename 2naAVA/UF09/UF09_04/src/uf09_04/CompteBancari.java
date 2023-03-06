@@ -8,28 +8,31 @@ package uf09_04;
  *
  * @author sanand
  */
- abstract class CompteBancari {
-    private String IBAN;
+abstract class CompteBancari {
+
+    private final String IBAN;
     private double saldo;
-    private final double INTERESANUALBASIC=2.5;
-    private final double VALORFIXE=30000;
+    private final double INTERESANUALBASIC = 2.5;
+    private final double VALORFIXE = 30000;
 
     public CompteBancari(String IBAN, double saldo) {
         this.IBAN = IBAN;
         this.saldo = saldo;
     }
-    
+
     // Aquesta funció modifica el saldo tant positivament com negativament i comprova si la quantitat és major al límit
     // *No retorna res
     // *Paràmetres d'entrada
     // double cant : quantitat de diners que es volen modificar en el saldo
     //
     public void modificarSaldo(double cant) {
-        if (Math.abs(cant)>VALORFIXE) {
+        if (Math.abs(cant) > VALORFIXE) {
             System.out.println("### El valor no pot superar els 30000 ###");
-        }else saldo += cant;
+        } else {
+            saldo += cant;
+        }
     }
-    
+
     // Aquesta funció ingressa una quantitat en el saldo
     // *No retorna res
     // *Paràmetres d'entrada
@@ -38,18 +41,20 @@ package uf09_04;
     public void ingressar(double cant) {
         modificarSaldo(cant);
     }
-    
+
     // Aquesta funció retira una quantitat en el saldo i comprova si és possible
     // *No retorna res
     // *Paràmetres d'entrada
     // double cant : quantitat de diners que es volen retirar del saldo
     //
     public void retirar(double cant) {
-        if (saldo>=Math.abs(cant)) {
+        if (saldo >= Math.abs(cant)) {
             modificarSaldo(cant);
-        }else System.out.println("### Cantiatat insuficient ###");
+        } else {
+            System.out.println("### Cantiatat insuficient ###");
+        }
     }
-    
+
     // Aquesta funció traspassa una quantitat d'un compte a un altre i comprova si és possible
     // *No retorna res
     // *Paràmetres d'entrada
@@ -57,18 +62,20 @@ package uf09_04;
     // double cant : quantitat de diners que es volen traspassar
     //
     public void traspassar(CompteBancari compte, double cant) {
-        if (saldo>=cant) {
+        if (saldo >= cant) {
             modificarSaldo(cant);
             compte.modificarSaldo(-cant);
-        }else System.out.println("### Cantiatat insuficient ###");
+        } else {
+            System.out.println("### Cantiatat insuficient ###");
+        }
     }
-    
+
     // Aquesta funció calcula i aplica els interessos al saldo
     // *No retorna res
     // *No té paràmetres d'entrada
     //
     abstract void calcularInteressos();
-    
+
     //  Aquesta funció mostra les dades del compte
     // *No retorna res
     // *No té paràmetres d'entrada
@@ -78,21 +85,22 @@ package uf09_04;
     public String getIBAN() {
         return IBAN;
     }
+
     public double getSaldo() {
         return saldo;
     }
+
     protected void setSaldo(double saldo) {
         this.saldo = saldo;
     }
+
     public double getINTERESANUALBASIC() {
         return INTERESANUALBASIC;
     }
+
     public double getVALORFIXE() {
         return VALORFIXE;
     }
-    
-    
-}
 
-//El IBAN seria final?
+}
 //calcular interesos

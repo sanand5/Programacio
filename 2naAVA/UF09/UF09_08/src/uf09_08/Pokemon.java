@@ -14,8 +14,7 @@ import java.util.Arrays;
 public class Pokemon {
     private String tipo;
     private String apodo;
-    private String DEFAPODO = "Sense asiganr"
-            + "";
+    private String DEFAPODO = "Sense asiganr";
     private String nomPokemon;
     private int numPokedex;
     private int vida;

@@ -22,7 +22,7 @@ public class Quadrat implements IFigura2D{
 
     @Override
     public double area() {
-        return costat*2;
+        return costat*costat;
     }
 
     @Override

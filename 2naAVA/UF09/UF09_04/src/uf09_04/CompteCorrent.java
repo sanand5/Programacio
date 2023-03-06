@@ -16,17 +16,13 @@ public class CompteCorrent extends CompteBancari {
 
     @Override
     void calcularInteressos() {
-        setSaldo(getSaldo()*getINTERESANUALBASIC());
-    }
-    
-    @Override
-    void mostrarDades() {
-        System.out.println("IBAN\t: "+getIBAN());
-        System.out.println("Saldo\t: "+getSaldo());
+        setSaldo(getSaldo() + (getSaldo() * (double) (getINTERESANUALBASIC() / 100)));
     }
 
-    
-    
-    
-    
+    @Override
+    void mostrarDades() {
+        System.out.println("IBAN\t: " + getIBAN());
+        System.out.println("Saldo\t: " + getSaldo());
+    }
+
 }
