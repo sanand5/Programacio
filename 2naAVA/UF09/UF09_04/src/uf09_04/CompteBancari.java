@@ -13,7 +13,7 @@ abstract class CompteBancari {
     private final String IBAN;
     private double saldo;
     private final double INTERESANUALBASIC = 2.5;
-    private final double VALORFIXE = 30000;
+    private final double VALORFIXE = 2000;
 
     public CompteBancari(String IBAN, double saldo) {
         this.IBAN = IBAN;
@@ -27,7 +27,7 @@ abstract class CompteBancari {
     //
     public void modificarSaldo(double cant) {
         if (Math.abs(cant) > VALORFIXE) {
-            System.out.println("### El valor no pot superar els 30000 ###");
+            System.out.println("### El valor no pot superar els 2000 ###");
         } else {
             saldo += cant;
         }
@@ -46,10 +46,10 @@ abstract class CompteBancari {
     // *No retorna res
     // *Paràmetres d'entrada
     // double cant : quantitat de diners que es volen retirar del saldo
-    //
+    // 
     public void retirar(double cant) {
-        if (saldo >= Math.abs(cant)) {
-            modificarSaldo(cant);
+        if (saldo >= cant) {
+            modificarSaldo(-cant);
         } else {
             System.out.println("### Cantiatat insuficient ###");
         }
@@ -63,8 +63,8 @@ abstract class CompteBancari {
     //
     public void traspassar(CompteBancari compte, double cant) {
         if (saldo >= cant) {
-            modificarSaldo(cant);
-            compte.modificarSaldo(-cant);
+            modificarSaldo(-cant);      
+            compte.modificarSaldo(cant);
         } else {
             System.out.println("### Cantiatat insuficient ###");
         }
@@ -103,4 +103,3 @@ abstract class CompteBancari {
     }
 
 }
-//calcular interesos

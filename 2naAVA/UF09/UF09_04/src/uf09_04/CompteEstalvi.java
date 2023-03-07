@@ -15,7 +15,6 @@ public class CompteEstalvi extends CompteBancari {
     public CompteEstalvi(String IBAN, double saldo) {
         super(IBAN, saldo);
     }
-    //setSaldo(getSaldo()*(getINTERES_ANUAL_BASIC() / 10));
 
     @Override
     void calcularInteressos() {

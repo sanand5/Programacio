@@ -11,38 +11,90 @@ import java.util.ArrayList;
  * @author sanand
  */
 public class Biblioteca {
-    String nom;
-    String ciutat;
-    ArrayList <Element> llista = new ArrayList<Element>();
+    private String nom;
+    private String ciutat;
+    private ArrayList <Elements> llista = new ArrayList<Elements>();
 
-    public Biblioteca(String nom, String ciutat) {
+    public Biblioteca(String nom, String ciutat, Elements... e) {
         this.nom = nom;
         this.ciutat = ciutat;
-    }
-    
-    public void afegir(Element... e) {
         for (int i = 0; i < e.length; i++) {
             llista.add(e[i]);
         }
     }
     
-    public void eliminar(Element... e) {
+    public void afegir(Elements... e) {
+        for (int i = 0; i < e.length; i++) {
+            llista.add(e[i]);
+        }
+    }
+    
+    public void eliminar(Elements... e) {
         for (int i = 0; i < e.length; i++) {
             llista.remove(e[i]);
         }
     }
     
-    public void eliminar(int a) {
+    public void eliminar(int... a) {
         llista.remove(a);
+        for (int i = 0; i < a.length; i++) {
+            llista.remove(a[i]);
+        }
     }
     
-    public void canviar(Element e, Biblioteca b) {// mes d'un
-        this.llista.remove(e);
-        b.llista.add(e);
-    }
-    
-    public void mostrarTot() {
+    public void canviar(Biblioteca b, Elements... e) {
+        for (int i = 0; i < e.length; i++) {
+            this.llista.remove(e[i]);
+            b.llista.add(e[i]);
+        }
+        
         
     }
     
+    public void mostrarTot() {
+        System.out.println("-- "+ nom +" --");
+        for (int i = 0; i < llista.size(); i++) {
+            llista.get(i).mostrar();
+        }
+    }
+    
+    public void mostrarDisponibles() {
+        for (int i = 0; i < llista.size(); i++) {
+            if (llista.get(i).getU() == null) {
+                llista.get(i).mostrar();
+            }
+        }
+    }
+
+    public String getNom() {
+        return nom;
+    }
+
+    public void setNom(String nom) {
+        this.nom = nom;
+    }
+
+    public String getCiutat() {
+        return ciutat;
+    }
+
+    public void setCiutat(String ciutat) {
+        this.ciutat = ciutat;
+    }
+
+    public ArrayList <Elements> getLlista() {
+        return llista;
+    }
+
+    public void setLlista(ArrayList <Elements> llista) {
+        this.llista = llista;
+    }
+    
+    
+    
 }
+
+/*
+Iterator
+casting
+*/

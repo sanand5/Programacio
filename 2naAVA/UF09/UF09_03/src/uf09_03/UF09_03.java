@@ -25,7 +25,6 @@ public class UF09_03 {
         h.insertarMascota(new Canari("Verde", false, "Tico", 1, "Enfermo", "15/02/2022", "Grande", false));
         h.insertarMascota(new Lloro("Amazonas", true, "Yako", 5, "Saludable", "12/09/2016", "Grande", true));
         h.insertarMascota(new Lloro("Africa", false, "Kiki", 4, "Enfermo", "10/12/2017", "Mediano", false));
-
         h.mostrarLlista();
 
         h.mostrarMascota(2);
