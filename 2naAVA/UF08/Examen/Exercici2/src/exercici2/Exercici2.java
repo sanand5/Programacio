@@ -23,7 +23,7 @@ public class Exercici2 {
         
         System.out.println(t2.toString());
         System.out.println("--Operació T1 i T2--");
-        Temps t3 = new Temps(t1, t2);
+        Temps t3 = Temps.sumarORestarObj(t1, t2, '+');
         System.out.println(t3.toString());
         System.out.println("--Incrementar T1--");
         t1.crementarsegons(70);

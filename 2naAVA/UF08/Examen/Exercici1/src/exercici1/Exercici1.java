@@ -20,11 +20,11 @@ public class Exercici1 {
         opciones[0]="FOL";
         opciones[1]="PROGRAMACIÓ";
         opciones[2]="BBDD";
-        Menu dam1 = new Menu("1 DAM", 3, opciones);
+        Menu dam1 = new Menu("1 DAM",  opciones);
         opciones[0]="ACCes a dades";
         opciones[1]="programacio multimedia";
         opciones[2]="FCT";
-        Menu dam2 = new Menu("2 DAM", 3, opciones);
+        Menu dam2 = new Menu("2 DAM",  opciones);
         dam1.triarOpcio();
         dam2.triarOpcio();
         Menu dam = new Menu("DAM", dam1, dam2);

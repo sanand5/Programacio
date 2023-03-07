@@ -1,0 +1,63 @@
+Antes de acabar el examen:
+	Comprobar que els metodes que tinguen que estar en privat que estiguen en privat
+	Tot el necesari ha de esatr encapsulat
+
+Els metodes abstract han de tindre els seus fills implementat ixe abstract
+Les clases que deriven de una interface has de ficar en ve de extends, implements
+
+Convertir de un String a un numero:
+	String strNumero = "123";
+	int numero = Integer.parseInt(strNumero);
+	String strNumero = "3.141592";
+	double numero = Double.parseDouble(strNumero);
+
+Convertir de un String a un numero:
+	int numero = 123;
+	String strNumero = Integer.toString(numero);
+	double numero = 3.141592;
+	String strNumero = Double.toString(numero);
+
+ArrayList
+	• int size(); retorna el nombre d'elements de la llista
+
+	• E get(int index); retorna una referència a l'element en la posició índex
+
+	• void clear(); elimina tots els elements de la llista. Estableix la grandària a zero
+
+	• boolean isEmpty(); retorna true si la llista no conté elements
+
+	• boolean add(E element); insereix element al final de la llista i retorna true
+
+	• void add(int index, E element); insereix element en la posició índex de la llista. Desplaça una posició tots els altres elements de la llista (no substitueix ni esborra altres elements)
+
+	• void set(int index, E element); substitueix l'element en la posició índex per element
+
+	• boolean contains(Object obj); cerca l'objecte obj en la llista i retorna true si existeix
+
+	• int indexOf(Object obj); cerca l'objecte obj en la llista, començant pel principi, i retorna l'índex on se troba. Retorna -1 si no existeix
+
+	• int lastIndexOf(Object obj); com indexOf() però cerca des del final de la llista
+
+	• E remove(int index); elimina l'element en la posició índex i el retorna
+
+	• boolean remove(Object obj); elimina la primera ocurrència d’obj en la llista. Retorna true si ho ha trobat i eliminat, false en un altre cas
+
+	• void remove(int index); Elimina l'objecte de la llista que es troba en la posició índex. És més ràpid que el mètode anterior, ja que no necessita recórrer tota la llista
+
+Iterator iter = llista.iterator();
+	• Els objectes Iterator tenen dos mètodes principals:
+		o hasNext(): Verifica si hi ha més elements a recòrrer
+		o next(): retorna l'objecte actual i avança al següent
+
+Una clase final no pot ser heretada
+Un metode final no pot ser sobreescrit
+
+Una classe abstracta és una classe que declara l'existència d'alguns mètodes però no la seua implementació
+almenys un mètode ha de ser abstracte
+No es pot instanciar
+
+Una classe pot implementar diverses interfícies (separades per comes)
+Una classe que implementa una interfície ha de proporcionar implementació per a tots i 
+cadascun dels mètodes definits en la interfície
+
+

@@ -21,18 +21,22 @@ public class Temps {
         normalitza();
     }
 
-    public Temps(Temps t1, Temps t2) {
-        this.hores = t1.hores + t2.hores;
-        this.minuts += t1.minuts + t2.minuts;
-        this.segons += t1.segons + t2.segons;
-        normalitza();
-    }
-
     public void normalitza() {
         int s = this.hores * 3600 + this.minuts * 60 + this.segons;
         this.hores = s / 3600;
         this.minuts = (s % 3600) / 60;
         this.segons = (s % 3600) % 60;
+    }
+    
+    public static Temps sumarORestarObj(Temps A, Temps B, char operador) {
+        System.out.println();
+        int operando = (operador == '-') ? -1 : 1;
+        Temps C = new Temps(A.hores, A.minuts, A.segons);
+        C.hores = A.hores+operando*B.hores;
+        C.minuts = A.minuts+operando*B.minuts;
+        C.segons = A.segons+operando*B.segons;
+        C.normalitza();
+        return C;
     }
 
     public void crementarhores(int hores) {

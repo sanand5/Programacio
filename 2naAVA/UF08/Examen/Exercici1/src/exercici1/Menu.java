@@ -14,21 +14,19 @@ import java.util.Scanner;
  */
 public class Menu {
 
-    private String titol;
-    private int nopcions;
-    private String[] opcionsArray = new String[nopcions];
+    private final String titol;
+    private String[] opcionsArray;
 
-    public Menu(String titol, int nopcions, String[] opcionsArray) {
+    public Menu(String titol, String[] opcionsArray) {
         this.titol = titol;
-        this.nopcions = nopcions;
         this.opcionsArray = opcionsArray;
 
     }
 
     public Menu(String titol, Menu m1, Menu m2) {
-        this.nopcions=m1.nopcions+m2.nopcions;
         this.titol = titol;
-        this.opcionsArray=combinar(m1, m2);
+        this.opcionsArray=new String[m1.opcionsArray.length+m2.opcionsArray.length];
+        combinar(m1, m2);
     }
 
     private int mostrarMenu() {
@@ -41,32 +39,32 @@ public class Menu {
         for (int i = 0; i < opcionsArray.length; i++) {
             System.out.printf("%d. %s%n", i + 1, opcionsArray[i]);
         }
-        System.out.println(nopcions+1+". Eixir");
+        System.out.println(this.opcionsArray.length+1+". Eixir");
         int opcio;
         do {
             System.out.print("?");
             opcio = sc.nextInt();
-        } while (opcio < 0 && opcio > nopcions);
+        } while (opcio < 0 || opcio > this.opcionsArray.length+1);
         return opcio;
     }
 
     public void triarOpcio() {
         do {
             int opcio = mostrarMenu();
-            if (opcio <= nopcions) {
+            if (opcio <= this.opcionsArray.length) {
                 System.out.println("Has triat la opcio " + opcio + " que és: " + opcionsArray[opcio - 1]);
-            } else if (opcio == nopcions+1) {
+            } else if (opcio == this.opcionsArray.length+1) {
                 break;
             }
         } while (true);
     }
 
     public String[] combinar(Menu m1, Menu m2) {
-        for (int i = 0; i < m1.opcionsArray.length + m2.opcionsArray.length; i++) {
+        for (int i = 0; i < opcionsArray.length; i++) {
             if (i < m1.opcionsArray.length) {
                 this.opcionsArray[i] = m1.opcionsArray[i];
             } else {
-                this.opcionsArray[i] = m2.opcionsArray[i];
+                this.opcionsArray[i] = m2.opcionsArray[i-m1.opcionsArray.length];
             }
         }
         return this.opcionsArray;
