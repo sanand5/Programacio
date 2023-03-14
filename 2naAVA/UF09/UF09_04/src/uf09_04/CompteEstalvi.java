@@ -10,7 +10,8 @@ package uf09_04;
  */
 public class CompteEstalvi extends CompteBancari {
 
-    private final double SALDOMINIM = 2000;
+    private final double SALDOMINIM = 3100;
+    private double interesanual;
 
     public CompteEstalvi(String IBAN, double saldo) {
         super(IBAN, saldo);
@@ -19,16 +20,24 @@ public class CompteEstalvi extends CompteBancari {
     @Override
     void calcularInteressos() {
         if (getSaldo() < SALDOMINIM) {
-            setSaldo(getSaldo() + (double) (getSaldo() * (double) (getINTERESANUALBASIC() / 100) / 2));
-        } else if (getSaldo() >= SALDOMINIM) {
-            setSaldo(getSaldo() + (double) (getSaldo() * (double) (getINTERESANUALBASIC() / 100) * 2));
+            modificarSaldo(getSaldo() * ((getINTERESANUALBASIC() / 2) / 100));
+        } else {
+            modificarSaldo(getSaldo() * ((getINTERESANUALBASIC() * 2) / 100));
         }
     }
 
     @Override
     void mostrarDades() {
-        System.out.println("IBAN\t: " + getIBAN());
-        System.out.println("Saldo\t: " + getSaldo());
+        /*
+        if (getSaldo() < SALDOMINIM) {
+            interesanual = getINTERESANUALBASIC() / 2;
+        } else {
+            interesanual = getINTERESANUALBASIC() * 2;
+        }
+        System.out.println("IBAN: " + getIBAN() + "   -   Saldo: " + getSaldo() + "€   -   Interes anual:   " + interesanual);
+        //Antenc que segons el enunciat fica que traga el interes anual basic, que seria 2.5 pero si vols que traga el interes aplicat sols has de descomentar el que esta comentat
+        */
+        System.out.println("IBAN: " + getIBAN() + "   -   Saldo: " + getSaldo() + "€   -   Interes anual:   " + getINTERESANUALBASIC()+"%");
     }
 
 }

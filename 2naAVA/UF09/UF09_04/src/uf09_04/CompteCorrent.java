@@ -21,8 +21,7 @@ public class CompteCorrent extends CompteBancari {
 
     @Override
     void mostrarDades() {
-        System.out.println("IBAN\t: " + getIBAN());
-        System.out.println("Saldo\t: " + getSaldo()+"€");
+        System.out.println("IBAN: " + getIBAN()+"   -   Saldo: " +getSaldo()+"€   -   Interes anual:   "+getINTERESANUALBASIC()+"%");
     }
 
 }
