@@ -21,10 +21,10 @@ public class Ex_03 {
         int V[] = {1, 2, 3};
         try {
             Scanner sc = new Scanner(System.in);
-            int x = sc.nextInt();
-            int y = sc.nextInt();
+            int x = 2;
+            int y = 0;
             int a = x/y;
-            int z = sc.nextInt();;
+            int z = 2;
             System.out.println(V[z]);
             
         } catch (ArrayIndexOutOfBoundsException e) {
@@ -33,8 +33,10 @@ public class Ex_03 {
             System.out.println("Has de introduir numeros");
         } catch (ArithmeticException e) {
             System.out.println("No pots dividir per 0");
+            System.out.println(e.getMessage());
+            e.printStackTrace();
         } catch (Exception e) {
-            System.out.println("Ah");
+            System.out.println("ah");
         }
     }
     
