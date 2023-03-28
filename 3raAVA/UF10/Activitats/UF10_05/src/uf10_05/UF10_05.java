@@ -20,7 +20,7 @@ public class UF10_05 {
         Scanner sc = new Scanner(System.in);
         for (int i = 0; i < 5; i++) {
             try {
-                System.out.println("\nIteració ["+i+"]\n"); //Descomenta aquesta linea per a saber en quina iteracio del bucle for estas
+                //System.out.println("\nIteració ["+i+"]\n"); //Descomenta aquesta linea per a saber en quina iteracio del bucle for estas
                 System.out.print("Donam un valor positiu: ");
                 int p = sc.nextInt();
                 imprimeixPositiu(p);
@@ -45,7 +45,6 @@ public class UF10_05 {
     //
     public static void imprimeixPositiu(int p) throws Exception {
         if (p<0) {
-            //System.out.println("### Error : Has d'introduir un valor positiu ###");
             throw new Exception("### Error : Has d'introduir un valor positiu ###");
         }else System.out.println("\tnum: "+p);
     }
