@@ -20,13 +20,11 @@ public class UF10_05 {
         Scanner sc = new Scanner(System.in);
         for (int i = 0; i < 5; i++) {
             try {
-                //System.out.println("\nIteració ["+i+"]\n"); //Descomenta aquesta linea per a saber en quina iteracio del bucle for estas
+                //System.out.println("\nIteració ["+i+"]\n"); //Descomenta aquesta línia per a saber en quina iteració del bucle for estàs
                 System.out.print("Donam un valor positiu: ");
-                int p = sc.nextInt();
-                imprimeixPositiu(p);
+                imprimeixPositiu(sc.nextInt());
                 System.out.print("Donam un valor negatiu: ");
-                int n = sc.nextInt();
-                imprimeixNegatiu(n);
+                imprimeixNegatiu(sc.nextInt());
             } catch (InputMismatchException e) {
                 System.out.println("### Error : Has d'escriure un valor enter ###");
                 sc.next();
@@ -38,20 +36,20 @@ public class UF10_05 {
             
         }
     }
-    // Aquesta funcio crea i llansa un error de la clase ErrorSigne si el valor es negatiu
+    // Aquesta funció crea i llança un error de la classe ErrorSigne si el valor és negatiu
     // *No retorna res
-    // *Parametres de entrada
-    //      int p = fa referencia al numero intrduit per l'usuari
+    // *Paràmetres d'entrada
+    // int p = fa referència al número introduït per l'usuari
     //
     public static void imprimeixPositiu(int p) throws Exception {
         if (p<0) {
             throw new Exception("### Error : Has d'introduir un valor positiu ###");
         }else System.out.println("\tnum: "+p);
     }
-    // Aquesta funcio crea i llansa un error de la clase ErrorSigne si el valor es positiu o 0
+    // Aquesta funció crea i llança un error de la classe ErrorSigne si el valor és positiu o 0
     // *No retorna res
-    // *Parametres de entrada
-    //      int n = fa referencia al numero intrduit per l'usuari
+    // *Paràmetres d'entrada
+    // int n = fa referència al número introduït per l'usuari
     //
     public static void imprimeixNegatiu(int n) throws Exception {
         if (n>=0) {
