@@ -15,8 +15,14 @@ public class Jugadors extends Personatges{
         super(nom, x, y, velocitat);
         this.trets = trets;
     }
-    
-    public static void disparar(Enemics enemic) {
-        
+    public void disparar(Enemics enemic) {
+        try {
+            if (trets<=0) throw new SenseBales();
+            trets--;
+            enemic.decrementarVida();
+            throw new DisparEnemic(enemic);
+        } catch (SenseBales | EnemicJaMort | DisparEnemic e) {
+            System.out.println(e);
+        }
     }
 }

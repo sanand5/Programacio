@@ -22,4 +22,10 @@ public class Enemics extends Personatges{
         System.out.println("Punts de vida: "+vida);
     }
     
+    public void decrementarVida() throws EnemicJaMort {
+        if (vida>0) {
+            vida--;
+        }else throw new EnemicJaMort();
+    }
+    
 }
