@@ -8,52 +8,60 @@ package uf10_obligatoria;
  *
  * @author Andreuet
  */
-class LlimitDePantalla extends Exception{
-    Personatges persona;
-    int posicio;
-    String direccio;
+class LlimitDePantalla extends Exception {
+
+    private Personatges persona;
+    private int posicio;
+    private String direccio;
 
     public LlimitDePantalla(Personatges persona, int posicio, String direccio) {
-        this.persona=persona;
+        this.persona = persona;
         this.posicio = posicio;
         this.direccio = direccio;
     }
-    
+
+    @Override
+    public String toString() {
+        return "*** LimitDePantalla {No es pot col·locar/moure a " + persona.getNom() + " fins a la posició " + posicio + " " + direccio + "}";
+    }
+
 }
-class SenseBales extends Exception{
+
+class SenseBales extends Exception {
 
     @Override
     public String toString() {
         return "*** SenseBales {No pots disparar. T'has quedat sense trets disponibles}";
     }
-    
+
 }
-class EnemicJaMort extends Exception{
+
+class EnemicJaMort extends Exception {
 
     @Override
     public String toString() {
         return "*** EnemicMort {L'enemic ja estava mort}";
     }
-    
+
 }
-class DisparEnemic extends Exception{
-    Enemics enemic;
+
+class DisparEnemic extends Exception {
+
     String msg;
 
+    // Es el constructor de la excepcio
+    // Segons la vida del jugador trau un misatge o un altre
     public DisparEnemic(Enemics enemic) {
-        this.enemic = enemic;
-        if (enemic.vida>0) {
-            msg="Enemic "+enemic.nom+" tocat!!! Vida restant: "+enemic.vida;
-        }else msg="Enemic Snoke ha estat eliminat!!!";
+        if (enemic.getVida() > 0) {
+            msg = "Enemic " + enemic.getNom() + " tocat!!! Vida restant: " + enemic.getVida();
+        } else {
+            msg = "Enemic " + enemic.getNom() + " ha estat eliminat!!!";
+        }
     }
 
     @Override
     public String toString() {
         return msg;
     }
-    
-    
-    
-    
-    
+
 }

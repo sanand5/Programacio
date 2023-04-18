@@ -8,10 +8,11 @@ package uf10_obligatoria;
  *
  * @author Andreuet
  */
-public class Enemics extends Personatges{
-    int vida;
+public class Enemics extends Personatges {
 
-    public Enemics(int vida, String nom, int x, int y, int velocitat) {
+    private int vida;
+
+    public Enemics(String nom, int x, int y, int velocitat, int vida) {
         super(nom, x, y, velocitat);
         this.vida = vida;
     }
@@ -19,13 +20,27 @@ public class Enemics extends Personatges{
     @Override
     public void mostrar() {
         super.mostrar();
-        System.out.println("Punts de vida: "+vida);
+        System.out.println("Punts de vida: " + vida);
     }
-    
-    public void decrementarVida() throws EnemicJaMort {
-        if (vida>0) {
-            vida--;
-        }else throw new EnemicJaMort();
+
+    // Aquesta funció decrementa la vida de l'enemic si és possible
+    // *No retorna res
+    // *No té paràmetres d'entrada
+    //
+    public void decrementarVida() {
+        try {
+            if (vida > 0) {
+                vida--;
+            } else {
+                throw new EnemicJaMort();
+            }
+        } catch (EnemicJaMort e) {
+            System.out.println(e);
+        }
     }
-    
+
+    public int getVida() {
+        return vida;
+    }
+
 }
