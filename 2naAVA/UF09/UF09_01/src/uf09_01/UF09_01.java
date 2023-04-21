@@ -17,12 +17,21 @@ public class UF09_01 {
      * @param args the command line arguments
      */
     
+    
+    /**
+     * @param aliments: Esta funcion muestra el contenido de la lista aliments
+     */
     public static void mostrarConIter(ArrayList aliments) {
         Iterator iter = aliments.iterator();
         while (iter.hasNext()) {
             System.out.println(iter.next());
         }
     }
+
+    /**
+     *
+     * @param args
+     */
     public static void main(String[] args) {
         // TODO code application logic here
         Aliment a1 = new Aliment("Botifarra", 3);
