@@ -5,6 +5,7 @@
 package uf11_02;
 
 import java.util.Map;
+import java.util.Scanner;
 import java.util.TreeMap;
 
 /**
@@ -18,6 +19,7 @@ public class UF11_02 {
      */
     public static void main(String[] args) {
         // TODO code application logic here
+        Scanner sc = new Scanner(System.in);
         Map<String, String> m = new TreeMap<>();
         m.put("manzana", "poma");
         m.put("pera", "pera");
@@ -46,6 +48,9 @@ public class UF11_02 {
             int min = 0, max = m.size();
             int random = (int) (Math.random() * (max - min + 1) + min);
             System.out.println(m.get(random));
+            if (m.get(random).contains(sc.nextLine())) {
+                System.out.println("Correcte!");
+            }else System.out.println("Resposta incorrecta. La resposta correcta és "+m.entrySet().);
             
         }
 
