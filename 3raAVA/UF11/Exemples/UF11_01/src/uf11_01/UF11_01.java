@@ -4,9 +4,9 @@
  */
 package uf11_01;
 
+import java.util.HashMap;
 import java.util.Map;
 import java.util.Scanner;
-import java.util.TreeMap;
 
 /**
  *
@@ -20,7 +20,7 @@ public class UF11_01 {
     public static void main(String[] args) {
         // TODO code application logic here
         Scanner sc = new Scanner(System.in);
-        Map<String,String> m = new TreeMap<>();
+        Map<String,String> m = new HashMap<>();
         m.put("Andreu Sanz", "ELPANAROBOCOP");
         m.put("Pau", "0000");
         m.put("Ana Raquel", "2004Rivas_#");
@@ -31,7 +31,7 @@ public class UF11_01 {
             System.out.print("Pass?");
             String pass = sc.nextLine();
             if (m.containsKey(log)) {
-                if (m.get(log).contains(pass)) {
+                if (m.get(log).equals(pass)) {
                     System.out.println("Ha accedit a l'àrea restringida");
                     break;
                 } else {

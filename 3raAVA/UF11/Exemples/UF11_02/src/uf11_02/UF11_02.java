@@ -4,9 +4,13 @@
  */
 package uf11_02;
 
+import java.util.ArrayList;
+import java.util.Dictionary;
+import java.util.HashMap;
+import java.util.HashSet;
 import java.util.Map;
 import java.util.Scanner;
-import java.util.TreeMap;
+import java.util.Set;
 
 /**
  *
@@ -20,7 +24,7 @@ public class UF11_02 {
     public static void main(String[] args) {
         // TODO code application logic here
         Scanner sc = new Scanner(System.in);
-        Map<String, String> m = new TreeMap<>();
+        Map<String, String> m = new HashMap<>();
         m.put("manzana", "poma");
         m.put("pera", "pera");
         m.put("naranja", "taronja");
@@ -43,17 +47,14 @@ public class UF11_02 {
         m.put("judía", "mongeta");
         m.put("guisante", "pèsol");
         m.put("calabaza", "carabassa");
-        
+        ArrayList <String> dic = new ArrayList<>(m.keySet());
+        Set<Integer> n = new HashSet<>();
+        while (n.size()<5) n.add((int) (Math.random() * (n.size() - 1 + 1) + 1));
         for (int i = 0; i < 4; i++) {
-            int min = 0, max = m.size();
-            int random = (int) (Math.random() * (max - min + 1) + min);
-            System.out.println(m.get(random));
+            System.out.println(m.get(n));
             if (m.get(random).contains(sc.nextLine())) {
                 System.out.println("Correcte!");
-            }else System.out.println("Resposta incorrecta. La resposta correcta és "+m.entrySet().);
-            
+            }else System.out.println("Resposta incorrecta. La resposta correcta és "+m.entrySet().toString());   
         }
-
     }
-
 }
