@@ -21,7 +21,12 @@ public class Ex3 {
         File fitxer = new File("build.xml");
         File direct = new File("build");
         Date d = new Date(fitxer.lastModified());
+        Date d2 = new Date(direct.lastModified());
         System.out.println(d);
+        System.out.println(d2);
+        System.out.println(fitxer.length());
+        
     }
     
 }
+
