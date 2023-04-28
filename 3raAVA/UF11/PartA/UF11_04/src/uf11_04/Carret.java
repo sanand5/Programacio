@@ -16,23 +16,52 @@ import java.util.Set;
  */
 public class Carret {
     Set<Element> carr = new HashSet<>();
-    public void agrega(Element e) {
-        Element[] miArray = new Element[carr.size()];
-        carr.toArray(miArray);
-        String[] miVariableArray = new String[miArray.length];
-        for (int i = 0; i < miArray.length; i++) {
-        miVariableArray[i] = miArray[i].getNomProd();
+    public void agrega(Element el) {        
+        for (Element e : carr) { //alomillor es pot fer de laltra manera ()->{}
+            if (e.getNomProd().equals(el.getNomProd())) {
+                e.setCant(el.getCant());
+                return;
+            }
         }
+        carr.add(el);
+        
+        
+        
+        
 
 
         
-        carr.add(e);
+        carr.add(el);
     }
     public int numElements() {
-        return 0;
+        int num=0;
+        for (Element e : carr) {
+            num+=e.getCant();
+            
+        }
+        return num;
     }
     public double importTotal() {
-        return 0;
+        double num=0;
+        for (Element e : carr) {
+            num+=e.getPreu();
+            
+        }
+        return num;
     }
+
+    @Override
+    public String toString() {
+        StringBuilder sb = new StringBuilder();
+        sb.append("CARRET\n");
+        for (Element e : carr) {
+            sb.append(String.format("%-30s %.2f€ %5d%n", e.getNomProd(), e.getPreu(), e.getCant()));
+            
+            
+            
+        }
+        return sb.toString();
+    }
+    
     
 }

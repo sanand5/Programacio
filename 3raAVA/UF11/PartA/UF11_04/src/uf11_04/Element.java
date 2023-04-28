@@ -52,7 +52,7 @@ public class Element {
      * @param cant the cant to set
      */
     public void setCant(int cant) {
-        this.cant = cant;
+        this.cant += cant;
     }
     
 }
