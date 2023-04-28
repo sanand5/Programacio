@@ -18,30 +18,34 @@ public class Carret {
     Set<Element> carr = new HashSet<>();
     ArrayList<Element> carrr = new ArrayList<>();
     
-    public void agrega(Element el) {        
+    /**
+     * Agrega un element al carret o modifica la seua cantitat.
+     * @param element Element que es vol afegir al carret.
+     */
+    public void agrega(Element element) {        
         for (Element e : carr) { //alomillor es pot fer de l'altra manera ()->{}
-            if (e.getNomProd().equals(el.getNomProd())) {
-                e.setCant(el.getCant());
+            if (e.getNomProd().equals(element.getNomProd())) {
+                e.sumarCant(element.getCant());
                 return;
             }
         }
-        carr.add(el);
+        carr.add(element);
     }
-
-    
-    
-    
     
     public void agregaa(Element e) {
         for (Element element : carrr) {
             if (element.getNomProd().equals(e)) {
-                element.setCant(e.getCant());
+                element.sumarCant(e.getCant());
                 return;
             }
         }
         carr.add(e);
         
     }
+    /**
+     * Conta el numero de elements que hi ha al carret.
+     * @return El numero de elements que hi han al carret.
+     */
     public int numElements() {
         int num=0;
         for (Element e : carr) {
@@ -50,13 +54,17 @@ public class Carret {
         }
         return num;
     }
+    /**
+     * Calcula el preu total del carret.
+     * @return El preu del carret.
+     */
     public double importTotal() {
-        double num=0;
+        double preu=0;
         for (Element e : carr) {
-            num+=e.getPreu();
+            preu+=e.getPreu();
             
         }
-        return num;
+        return preu;
     }
 
     @Override
@@ -65,9 +73,6 @@ public class Carret {
         sb.append("CARRET\n");
         for (Element e : carr) {
             sb.append(String.format("%-30s %.2f€ %5d%n", e.getNomProd(), e.getPreu(), e.getCant()));
-            
-            
-            
         }
         return sb.toString();
     }

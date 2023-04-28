@@ -13,6 +13,12 @@ public class Element {
     private double preu;
     private int cant;
 
+    /**
+     *
+     * @param nomProd Nom del producte.
+     * @param preu Preu del producte.
+     * @param cant Cantitat del producte que es vol afegir al carret.
+     */
     public Element(String nomProd, double preu, int cant) {
         this.nomProd = nomProd;
         if (preu>=0 && cant > 0) {
@@ -22,32 +28,33 @@ public class Element {
     }
 
     /**
-     * @return the nomProd
+     * @return  Nom del producte.
      */
     public String getNomProd() {
         return nomProd;
     }
 
     /**
-     * @return the preu
+     *
+     * @return Preu del Producte.
      */
     public double getPreu() {
         return preu;
     }
 
-    
-    
     /**
-     * @return the cant
+     *
+     * @return Cantitat del producte en el carret.
      */
     public int getCant() {
         return cant;
     }
 
     /**
-     * @param cant the cant to set
+     * Suma la cantitat a un element.
+     * @param cant La cantitat de elements que es vol afegir al carret.
      */
-    public void setCant(int cant) {
+    public void sumarCant(int cant) {
         if (cant>0) {
             this.cant += cant;
         }
