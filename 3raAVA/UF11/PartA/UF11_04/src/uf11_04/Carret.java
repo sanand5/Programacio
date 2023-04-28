@@ -16,22 +16,31 @@ import java.util.Set;
  */
 public class Carret {
     Set<Element> carr = new HashSet<>();
+    ArrayList<Element> carrr = new ArrayList<>();
+    
     public void agrega(Element el) {        
-        for (Element e : carr) { //alomillor es pot fer de laltra manera ()->{}
+        for (Element e : carr) { //alomillor es pot fer de l'altra manera ()->{}
             if (e.getNomProd().equals(el.getNomProd())) {
                 e.setCant(el.getCant());
                 return;
             }
         }
         carr.add(el);
-        
-        
-        
-        
+    }
 
-
+    
+    
+    
+    
+    public void agregaa(Element e) {
+        for (Element element : carrr) {
+            if (element.getNomProd().equals(e)) {
+                element.setCant(e.getCant());
+                return;
+            }
+        }
+        carr.add(e);
         
-        carr.add(el);
     }
     public int numElements() {
         int num=0;

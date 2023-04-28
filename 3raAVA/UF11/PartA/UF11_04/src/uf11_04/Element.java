@@ -15,8 +15,10 @@ public class Element {
 
     public Element(String nomProd, double preu, int cant) {
         this.nomProd = nomProd;
-        this.preu = preu;
-        this.cant = cant;
+        if (preu>=0 && cant > 0) {
+            this.preu = preu;
+            this.cant = cant;
+        }
     }
 
     /**
@@ -33,14 +35,8 @@ public class Element {
         return preu;
     }
 
-    /**
-     * @param preu the preu to set
-     */
-    public void setPreu(double preu) {
-        this.preu = preu;
-        
-    }
-
+    
+    
     /**
      * @return the cant
      */
@@ -52,7 +48,9 @@ public class Element {
      * @param cant the cant to set
      */
     public void setCant(int cant) {
-        this.cant += cant;
+        if (cant>0) {
+            this.cant += cant;
+        }
     }
     
 }
