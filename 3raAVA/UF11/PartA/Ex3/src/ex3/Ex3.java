@@ -4,10 +4,8 @@
  */
 package ex3;
 
-import java.awt.Font;
-import java.util.HashMap;
-import java.util.Map;
-import java.util.Scanner;
+import java.io.File;
+import java.util.Date;
 
 /**
  *
@@ -20,24 +18,15 @@ public class Ex3 {
      */
     public static void main(String[] args) {
         // TODO code application logic here
-        Map<Integer,String> m = new HashMap<>();
-        m.put(354, "Andreu Sanz");
-        m.put(684, "Pau Sanz");
-        m.put(954, "Ana Raquel");
-        m.put(864, "Cristhian Rafael");
-        System.out.print("n?");
-        Scanner sc = new Scanner(System.in);
-        int n = sc.nextInt();
-        if (!m.containsKey(n)) {
-            System.out.println("No");
-        }else System.out.printf("El codi %d correspon a %s", n, m.get(n));
+        File fitxer = new File("build.xml");
+        File direct = new File("build");
+        Date d = new Date(fitxer.lastModified());
+        Date d2 = new Date(direct.lastModified());
+        System.out.println(d);
+        System.out.println(d2);
+        System.out.println(fitxer.length());
+        
     }
-    public static void fun(Map<Integer,String> m) {
-        System.out.println("Codi\tNom");
-        System.out.println("-----\t-------");
-        for (Map.Entry<Integer,String> lista : m.entrySet()) {
-            System.out.printf("%s \t%s ", lista.getKey(),lista.getValue());
-            System.out.println("");
-        }
-    }
+    
 }
+
