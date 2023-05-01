@@ -10,7 +10,7 @@ package uf11_04;
  */
 public class Element {
     private final String nomProd;
-    private double preu;
+    private final double preu;
     private int cant;
 
     /**
@@ -20,11 +20,10 @@ public class Element {
      * @param cant Cantitat del producte que es vol afegir al carret.
      */
     public Element(String nomProd, double preu, int cant) {
-        this.nomProd = nomProd;
-        if (preu>=0 && cant > 0) {
-            this.preu = preu;
-            this.cant = cant;
-        }
+        this.nomProd = nomProd;      
+        this.preu = preu;
+        this.cant = cant;
+        
     }
 
     /**
@@ -37,17 +36,12 @@ public class Element {
         }
     }
     
-    /**
-     * @return  Nom del producte.
-     */
+    
     public String getNomProd() {
         return nomProd;
     }
 
-    /**
-     *
-     * @return Preu del Producte.
-     */
+    
     public double getPreu() {
         return preu;
     }

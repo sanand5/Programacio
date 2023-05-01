@@ -4,7 +4,7 @@
  */
 package uf11_04;
 
-import java.util.ArrayList;
+
 import java.util.HashSet;
 import java.util.Set;
 
@@ -18,7 +18,6 @@ public class Carret {
     
     /**
      * Agrega un element al carret o modifica la seua cantitat.
-     *
      * @param element Element que es vol afegir al carret.
      */
     public void agrega(Element element) {
@@ -33,7 +32,6 @@ public class Carret {
 
     /**
      * Conta el numero de elements que hi ha al carret.
-     *
      * @return El numero de elements que hi han al carret.
      */
     public int numElements() {
@@ -47,7 +45,6 @@ public class Carret {
 
     /**
      * Calcula el preu total del carret.
-     *
      * @return El preu del carret.
      */
     public double importTotal() {
