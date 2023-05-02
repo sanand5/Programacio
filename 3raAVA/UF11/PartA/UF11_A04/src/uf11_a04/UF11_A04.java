@@ -30,10 +30,8 @@ public class UF11_A04 {
         dir.renameTo(new File("Documents/LesMesuesCoses",dir.getName()));
         
         
-        for (int i = 65; i <= 90; i++) {
-            dir = new File("Documents/Alfabet", String.valueOf((char)i)); 
-            dir.mkdir();
-            
+        for (char i = 'A'; i <= 'Z'; i++) {
+            new File("Documents/Alfabet", String.valueOf((char)i)).mkdir();
         }
     }
     
