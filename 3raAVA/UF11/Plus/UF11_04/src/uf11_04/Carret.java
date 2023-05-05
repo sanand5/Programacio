@@ -38,7 +38,6 @@ public class Carret {
         int num = 0;
         for (Element e : carr) {
             num += e.getCant();
-
         }
         return num;
     }
@@ -50,14 +49,15 @@ public class Carret {
     public double importTotal() {
         double preu = 0;
         for (Element e : carr) {
-            preu += e.getPreu();
+            //preu += e.getPreu(); //Aso es lo que havia ficat jo antes
+            preu += e.getPreu()*e.getCant();
 
         }
         return preu;
     }
 
     @Override
-    public String toString() {
+    public String toString() { //Es pot fer meés sencill
         StringBuilder sb = new StringBuilder();
         sb.append("               EL MEU CARRET\n");        
         String format = "| %-20s | %10s | %8s |\n";
