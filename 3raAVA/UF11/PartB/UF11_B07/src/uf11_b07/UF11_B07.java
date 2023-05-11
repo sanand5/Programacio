@@ -22,61 +22,88 @@ import java.util.TreeMap;
  */
 public class UF11_B07 {
 
+    /**
+     * Realitza els calculs per a obtindre les estadistiques de un archiu
+     * @param path fa referencia a la ruta del archiu que es vol fer el reconter
+     */
     public static void estadistiques(String path) {
         final int FIRST = 10;
         Scanner sc = new Scanner(System.in);
-        File f = new File("DocumentsB/Llibres/"+path);
-        Scanner rc = null;
         try {
-            rc = new Scanner(f);
-        } catch (FileNotFoundException e) {
-            System.out.println(e);
-        }
+            File book = new File("DocumentsB/Llibres/"+path);
+            Scanner rc = new Scanner(book);
+            if (!rc.hasNextLine()) throw new Exception("***Err : The file is empty");
+            
+            
 
-        int nLines = 0;
-        int nWords = 0;
-        int nCharacters = 0;
-        ArrayList<String> doc = new ArrayList<>();
-        Set<String> noRpt = new HashSet<>();
-        Map<String, Integer> pdm = new TreeMap<>();
-        while (rc.hasNextLine()) {
-            nLines++;
-            String[] words = rc.nextLine().split(" ");
-
-            nWords += words.length;
-            for (String wrd : words) {
-                doc.add(wrd);
-                noRpt.add(wrd);
-                String[] chr = wrd.split("");
-                nCharacters += chr.length;
+            int nLines = 0;
+            int nWords = 0;
+            int nCharacters = 0;
+            ArrayList<String> doc = new ArrayList<>();      // ArrayList de tot el document separat per paraules
+            Set<String> noRpt = new HashSet<>();            // HashSet de paraules sense repetir
+            while (rc.hasNextLine()) { // Reconta les paraules, linies i caracters
+                nLines++;
+                String[] words = rc.nextLine().split(" ");
+                nWords += words.length;
+                for (String wrd : words) { // Reconta caracters i clava les paraules en les llistes
+                    doc.add(wrd);
+                    noRpt.add(wrd);
+                    String[] chr = wrd.split("");
+                    nCharacters += chr.length;
+                }
             }
+            if (noRpt.size()<10) throw new Exception("***Err : It is necessary that the file has at least 10 words");
 
-        }
-        for (String str : noRpt) {
-            pdm.put(str, Collections.frequency(doc, str));
-        }
-        ArrayList<Map.Entry<String, Integer>> list = new ArrayList<>(pdm.entrySet());
-        list.sort(Map.Entry.comparingByValue(Comparator.reverseOrder()));
+            ArrayList<Map.Entry<String, Integer>> podium = top10(noRpt, doc);
 
-        System.out.println("Llibre : " + f.getName());
-        System.out.println("Línies totals : " + nLines);
-        System.out.println("Nombre de paraules : " + nWords);
-        System.out.println("Nombre de caracters : " + nCharacters);
-        System.out.println("Les "+FIRST+" paraules mes comunes són : \n");
-        System.out.printf("%15s%20s%n", "Paraules", "Vegades");
 
-        for (int i = 0; i < FIRST; i++) {
-            System.out.printf(" %-30s%-20s%n", list.get(i).getKey(), list.get(i).getValue());
+            System.out.println("Llibre : " + book.getName());
+            System.out.println("Línies totals : " + nLines);
+            System.out.println("Nombre de paraules : " + nWords);
+            System.out.println("Nombre de caracters : " + nCharacters);
+            System.out.println("Les "+FIRST+" paraules mes comunes són : \n");
+            System.out.printf("\t%s\t%s%n", "Paraules", "Vegades");
+
+            for (int i = 0; i < FIRST; i++) {
+                System.out.printf("\t'%s'\t\t%s%n", podium.get(i).getKey(), podium.get(i).getValue());
+            }
+            sc.close();
+            rc.close();
+        } catch (FileNotFoundException e) {
+            System.out.println("****Err : Incorrect path");
+        } catch (Exception e) {
+            System.out.println(e.getMessage());
         }
-        sc.close();
-        rc.close();
     }
+    
+    /**
+     * Calcula el numero de vegades que es repetixe les paraules i les ordena en ordre ascendent 
+     * @param noRpt fa referencia a un Set de les paraules del archiu sense repetir-se
+     * @param doc fa referencia a un ArrayList amb totes les paraules del document
+     * @return ArrayList de maps que esta ordenada de major a menor
+     */
+    public static ArrayList top10(Set<String> noRpt, ArrayList<String> doc) {
+        Map<String, Integer> contRpt = new TreeMap<>(); // Mapa de paraules + vegades repetit
+        for (String str : noRpt) {
+            contRpt.put(str, Collections.frequency(doc, str));
+        }
+        
+        ArrayList<Map.Entry<String, Integer>> podium = new ArrayList<>(contRpt.entrySet());
+        podium.sort(Map.Entry.comparingByValue(Comparator.reverseOrder()));
+        return podium;
+    }
+    
     public static void main(String[] args) {
         // TODO code application logic here
         File llibres = new File ("DocumentsB/Llibres");
         String[] llibre = llibres.list();
+        estadistiques(llibre[4]);
+        
         for (String llibre1 : llibre) {
-            estadistiques(llibre1);
+            //estadistiques(llibre1);
+            System.out.println(llibre1);
         }
+
+        
     }
 }
