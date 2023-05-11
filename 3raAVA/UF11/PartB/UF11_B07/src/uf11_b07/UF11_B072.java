@@ -20,7 +20,7 @@ import java.util.TreeMap;
  *
  * @author Andreuet
  */
-public class UF11_B07 {
+public class UF11_B072 {
 
     /**
      * Realitza els calculs per a obtindre les estadistiques de un archiu
@@ -54,7 +54,7 @@ public class UF11_B07 {
             }
             if (noRpt.size()<10) throw new Exception("***Err : It is necessary that the file has at least 10 words");
 
-            ArrayList<Map.Entry<String, Integer>> podium = top10(noRpt, doc);
+            String V[][] = top10(noRpt, doc);
 
 
             System.out.println("Llibre : " + book.getName());
@@ -63,14 +63,16 @@ public class UF11_B07 {
             System.out.println("Nombre de caracters : " + nCharacters);
             System.out.println("Les "+FIRST+" paraules mes comunes són : \n");
             System.out.printf("\t%s\t%s%n", "Paraules", "Vegades");
-
-            for (int i = 0; i < FIRST; i++) {
-                System.out.printf("\t'%s'\t\t%s%n", podium.get(i).getKey(), podium.get(i).getValue());
+            
+            for (int i = 0; i < V.length; i++) {
+                System.out.printf("\t'%s'\t\t%s%n", V[i][1], V[i][0]);
             }
             sc.close();
             rc.close();
         } catch (FileNotFoundException e) {
             System.out.println("****Err : Incorrect path");
+        } catch (IndexOutOfBoundsException e){
+            System.out.println(e.getMessage());
         } catch (Exception e) {
             System.out.println(e.getMessage());
         }
@@ -82,16 +84,11 @@ public class UF11_B07 {
      * @param doc fa referencia a un ArrayList amb totes les paraules del document
      * @return ArrayList de maps que esta ordenada de major a menor
      */
-    public static ArrayList top10(Set<String> noRpt, ArrayList<String> doc) {
-        Map<String, Integer> contRpt = new TreeMap<>(); // Mapa de paraules + vegades repetit
-        System.out.println(noRpt.size());
-        for (String str : noRpt) {
-            contRpt.put(str, Collections.frequency(doc, str));
+    public static String[][] top10(Set<String> noRpt, ArrayList<String> doc) {
+        ArrayList<String> ordenat = new ArrayList<>();
+        for (int i = 0; i < noRpt.size(); i++) {
+            
         }
-        
-        ArrayList<Map.Entry<String, Integer>> podium = new ArrayList<>(contRpt.entrySet());
-        podium.sort(Map.Entry.comparingByValue(Comparator.reverseOrder()));
-        return podium;
     }
     
     public static void main(String[] args) {
