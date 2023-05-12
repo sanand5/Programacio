@@ -9,15 +9,18 @@ import java.io.FileNotFoundException;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.HashSet;
+import java.util.List;
 import java.util.Map;
 import java.util.Scanner;
 import java.util.Set;
 import java.util.TreeMap;
+
+
 /**
  *
  * @author Andreuet
  */
-public class UF11_B07 {
+public class UF11_B07_v2 {
 
     /**
      * Realitza els calculs per a obtindre les estadistiques de un archiu
@@ -51,7 +54,7 @@ public class UF11_B07 {
             }
         }
         if (noRpt.size()<10) throw new Exception("***Err : It is necessary that the file has at least 10 words");
-        ArrayList<Map.Entry<String, Integer>> podium = top10(noRpt, doc);
+        List<Map.Entry<String, Integer>> podium = top10(noRpt, doc);
         
         System.out.println("Llibre : " + book.getName());
         System.out.println("Línies totals : " + nLines);
@@ -71,19 +74,17 @@ public class UF11_B07 {
      * Calcula el numero de vegades que es repetixe les paraules i les ordena en ordre ascendent 
      * @param noRpt fa referencia a un Set de les paraules del archiu sense repetir-se
      * @param doc fa referencia a un ArrayList amb totes les paraules del document
-     * @return ArrayList de maps que esta ordenada de major a menor
+     * @return List de maps que esta ordenada de major a menor
      */
-    public static ArrayList<Map.Entry<String, Integer>> top10(Set<String> noRpt, ArrayList<String> doc) {
+    public static List<Map.Entry<String, Integer>> top10(Set<String> noRpt, ArrayList<String> doc) {
         Map<String, Integer> contRpt = new TreeMap<>(); // Mapa de paraules + vegades repetit
         for (String str : noRpt) {
             contRpt.put(str, Collections.frequency(doc, str));
         }
         ArrayList<Map.Entry<String, Integer>> ranking = new ArrayList<>(contRpt.entrySet());
         ranking.sort(Map.Entry.comparingByValue(Collections.reverseOrder()));
-        return ranking;
-        /*
-        Realment top10 no me dona les 10 paraules mes comunes sino que ordena les paraules i despres imprimixc les deu mes comunes en la funcio estadistiques
-        */
+        return ranking.subList(0, 10);
+        
     }
     
     public static void main(String[] args) {
