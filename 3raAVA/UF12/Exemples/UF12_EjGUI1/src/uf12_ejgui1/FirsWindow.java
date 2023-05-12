@@ -4,6 +4,13 @@
  */
 package uf12_ejgui1;
 
+import java.io.BufferedReader;
+import java.io.File;
+import java.io.FileReader;
+import java.io.IOException;
+import javax.swing.JFileChooser;
+import javax.swing.JOptionPane;
+
 /**
  *
  * @author sanand
@@ -26,80 +33,109 @@ public class FirsWindow extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jPanelPrincipal = new javax.swing.JPanel();
-        jLabelEtiquet = new javax.swing.JLabel();
-        jTextFieldCamp = new javax.swing.JTextField();
-        jButtonMeSirve = new javax.swing.JButton();
+        jFileChooser1 = new javax.swing.JFileChooser();
+        jPanel1 = new javax.swing.JPanel();
+        jButton3 = new javax.swing.JButton();
+        jScrollPane1 = new javax.swing.JScrollPane();
+        jTextArea1 = new javax.swing.JTextArea();
+        jButton1 = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
-        jLabelEtiquet.setText("Etiquet");
-
-        jTextFieldCamp.setText("Camp");
-        jTextFieldCamp.addActionListener(new java.awt.event.ActionListener() {
+        jButton3.setText("Examinar");
+        jButton3.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jTextFieldCampActionPerformed(evt);
+                jButton3ActionPerformed(evt);
             }
         });
 
-        jButtonMeSirve.setText("MeSirve");
-        jButtonMeSirve.addActionListener(new java.awt.event.ActionListener() {
+        jTextArea1.setColumns(20);
+        jTextArea1.setRows(5);
+        jScrollPane1.setViewportView(jTextArea1);
+
+        jButton1.setText("Guardar");
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButtonMeSirveActionPerformed(evt);
+                jButton1ActionPerformed(evt);
             }
         });
 
-        javax.swing.GroupLayout jPanelPrincipalLayout = new javax.swing.GroupLayout(jPanelPrincipal);
-        jPanelPrincipal.setLayout(jPanelPrincipalLayout);
-        jPanelPrincipalLayout.setHorizontalGroup(
-            jPanelPrincipalLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanelPrincipalLayout.createSequentialGroup()
-                .addGroup(jPanelPrincipalLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanelPrincipalLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                        .addComponent(jTextFieldCamp, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGroup(jPanelPrincipalLayout.createSequentialGroup()
-                            .addGap(160, 160, 160)
-                            .addComponent(jLabelEtiquet)
-                            .addGap(8, 8, 8)))
-                    .addGroup(jPanelPrincipalLayout.createSequentialGroup()
-                        .addGap(149, 149, 149)
-                        .addComponent(jButtonMeSirve)))
-                .addContainerGap(134, Short.MAX_VALUE))
+        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
+        jPanel1.setLayout(jPanel1Layout);
+        jPanel1Layout.setHorizontalGroup(
+            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                .addContainerGap(92, Short.MAX_VALUE)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 615, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(14, 14, 14))
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addGap(121, 121, 121)
+                .addComponent(jButton3)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(jButton1)
+                .addGap(135, 135, 135))
         );
-        jPanelPrincipalLayout.setVerticalGroup(
-            jPanelPrincipalLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanelPrincipalLayout.createSequentialGroup()
-                .addGap(55, 55, 55)
-                .addComponent(jLabelEtiquet)
-                .addGap(27, 27, 27)
-                .addComponent(jTextFieldCamp, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(52, 52, 52)
-                .addComponent(jButtonMeSirve)
-                .addContainerGap(99, Short.MAX_VALUE))
+        jPanel1Layout.setVerticalGroup(
+            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGap(99, 99, 99)
+                        .addComponent(jButton3)
+                        .addGap(26, 26, 26))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                        .addContainerGap()
+                        .addComponent(jButton1)
+                        .addGap(34, 34, 34)))
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 313, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(75, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanelPrincipal, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanelPrincipal, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jTextFieldCampActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextFieldCampActionPerformed
+    private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jTextFieldCampActionPerformed
+        int seleccion=jFileChooser1.showOpenDialog(this);
+        if (seleccion == JFileChooser.APPROVE_OPTION) {
+            File fichero=jFileChooser1.getSelectedFile();
+            try {
+                BufferedReader in=new BufferedReader(new FileReader(fichero.getAbsolutePath()));
+                String frase;
+                frase= in.readLine();
+                while (frase!=null) {
+                    jTextArea1.setText(jTextArea1.getText()+frase+"\n");
+                    frase=in.readLine();
+                }
+                in.close();
+            } catch(IOException e) {
+                JOptionPane.showMessageDialog(this, "Error al leer el fichero");
+            }
+        }
+    }//GEN-LAST:event_jButton3ActionPerformed
 
-    private void jButtonMeSirveActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonMeSirveActionPerformed
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         // TODO add your handling code here:
-        System.out.println("hola");
-    }//GEN-LAST:event_jButtonMeSirveActionPerformed
+        int seleccion=jFileChooser1.showOpenDialog(this);
+        if (seleccion == JFileChooser.APPROVE_OPTION) {
+            try {
+                
+            } catch(IOException e) {
+                JOptionPane.showMessageDialog(this, "Error al leer el fichero");
+            }
+        }
+    }//GEN-LAST:event_jButton1ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -137,9 +173,11 @@ public class FirsWindow extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton jButtonMeSirve;
-    private javax.swing.JLabel jLabelEtiquet;
-    private javax.swing.JPanel jPanelPrincipal;
-    private javax.swing.JTextField jTextFieldCamp;
+    private javax.swing.JButton jButton1;
+    private javax.swing.JButton jButton3;
+    private javax.swing.JFileChooser jFileChooser1;
+    private javax.swing.JPanel jPanel1;
+    private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JTextArea jTextArea1;
     // End of variables declaration//GEN-END:variables
 }
