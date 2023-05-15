@@ -1,0 +1,22 @@
+List : 
+	- Ordenats
+	- Es permet duplicats i null
+
+	LinkedList
+		- ràpid per a agregar/eliminar
+		- lent si accedim a un element
+	ArrayList
+		- ràpid per a accedir a un element específic
+		- lent si agreguem/eliminem elements
+Set : HashSet, TreeSet
+	- cap element duplicat
+	- no es poden trobar per índex
+Queue : FIFO
+Stack : LIFO
+Map : HashMap, treeMap
+	- keySet(): Retorna un conjunt (set) amb totes les claus
+	- values(): Retorna una col·lecció amb tots els valors	- entrySet(): Retorna una col·lecció amb tots els parells (clau, valor)
+
+
+ArrayList<Map.Entry<String, Integer>> ranking = new ArrayList<>(contRpt.entrySet());
+ranking.sort(Map.Entry.comparingByValue(Collections.reverseOrder()));Collections.frequency
