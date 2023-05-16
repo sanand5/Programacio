@@ -7,9 +7,12 @@ package uf12_ejgui1;
 import java.io.BufferedReader;
 import java.io.File;
 import java.io.FileReader;
+import java.io.FileWriter;
 import java.io.IOException;
+import java.util.Scanner;
 import javax.swing.JFileChooser;
 import javax.swing.JOptionPane;
+import javax.swing.JTextField;
 
 /**
  *
@@ -35,28 +38,28 @@ public class FirsWindow extends javax.swing.JFrame {
 
         jFileChooser1 = new javax.swing.JFileChooser();
         jPanel1 = new javax.swing.JPanel();
-        jButton3 = new javax.swing.JButton();
+        ExaminarJButton = new javax.swing.JButton();
         jScrollPane1 = new javax.swing.JScrollPane();
-        jTextArea1 = new javax.swing.JTextArea();
-        jButton1 = new javax.swing.JButton();
+        CampoDeTexo = new javax.swing.JTextArea();
+        GuardarJButton = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
-        jButton3.setText("Examinar");
-        jButton3.addActionListener(new java.awt.event.ActionListener() {
+        ExaminarJButton.setText("Examinar");
+        ExaminarJButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton3ActionPerformed(evt);
+                ExaminarJButtonActionPerformed(evt);
             }
         });
 
-        jTextArea1.setColumns(20);
-        jTextArea1.setRows(5);
-        jScrollPane1.setViewportView(jTextArea1);
+        CampoDeTexo.setColumns(20);
+        CampoDeTexo.setRows(5);
+        jScrollPane1.setViewportView(CampoDeTexo);
 
-        jButton1.setText("Guardar");
-        jButton1.addActionListener(new java.awt.event.ActionListener() {
+        GuardarJButton.setText("Guardar");
+        GuardarJButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton1ActionPerformed(evt);
+                GuardarJButtonActionPerformed(evt);
             }
         });
 
@@ -70,9 +73,9 @@ public class FirsWindow extends javax.swing.JFrame {
                 .addGap(14, 14, 14))
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addGap(121, 121, 121)
-                .addComponent(jButton3)
+                .addComponent(ExaminarJButton)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(jButton1)
+                .addComponent(GuardarJButton)
                 .addGap(135, 135, 135))
         );
         jPanel1Layout.setVerticalGroup(
@@ -81,11 +84,11 @@ public class FirsWindow extends javax.swing.JFrame {
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGap(99, 99, 99)
-                        .addComponent(jButton3)
+                        .addComponent(ExaminarJButton)
                         .addGap(26, 26, 26))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
                         .addContainerGap()
-                        .addComponent(jButton1)
+                        .addComponent(GuardarJButton)
                         .addGap(34, 34, 34)))
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 313, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(75, Short.MAX_VALUE))
@@ -105,7 +108,7 @@ public class FirsWindow extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
+    private void ExaminarJButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ExaminarJButtonActionPerformed
         // TODO add your handling code here:
         int seleccion=jFileChooser1.showOpenDialog(this);
         if (seleccion == JFileChooser.APPROVE_OPTION) {
@@ -115,7 +118,7 @@ public class FirsWindow extends javax.swing.JFrame {
                 String frase;
                 frase= in.readLine();
                 while (frase!=null) {
-                    jTextArea1.setText(jTextArea1.getText()+frase+"\n");
+                    CampoDeTexo.setText(CampoDeTexo.getText()+frase+"\n");
                     frase=in.readLine();
                 }
                 in.close();
@@ -123,19 +126,24 @@ public class FirsWindow extends javax.swing.JFrame {
                 JOptionPane.showMessageDialog(this, "Error al leer el fichero");
             }
         }
-    }//GEN-LAST:event_jButton3ActionPerformed
+    }//GEN-LAST:event_ExaminarJButtonActionPerformed
 
-    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+    private void GuardarJButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_GuardarJButtonActionPerformed
         // TODO add your handling code here:
-        int seleccion=jFileChooser1.showOpenDialog(this);
+        int seleccion=jFileChooser1.showSaveDialog(this);
         if (seleccion == JFileChooser.APPROVE_OPTION) {
-            try {
-                
-            } catch(IOException e) {
-                JOptionPane.showMessageDialog(this, "Error al leer el fichero");
-            }
+        File fichero=jFileChooser1.getSelectedFile();
+        try {
+            FileWriter fw = new FileWriter(fichero);
+            fw.write(CampoDeTexo.getText()+"\n");
+            fw.close();
+
+        } catch(IOException e) {
+            JOptionPane.showMessageDialog(this, "Error al leer el fichero");
         }
-    }//GEN-LAST:event_jButton1ActionPerformed
+        }
+       
+    }//GEN-LAST:event_GuardarJButtonActionPerformed
 
     /**
      * @param args the command line arguments
@@ -173,11 +181,11 @@ public class FirsWindow extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton jButton1;
-    private javax.swing.JButton jButton3;
+    private javax.swing.JTextArea CampoDeTexo;
+    private javax.swing.JButton ExaminarJButton;
+    private javax.swing.JButton GuardarJButton;
     private javax.swing.JFileChooser jFileChooser1;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JTextArea jTextArea1;
     // End of variables declaration//GEN-END:variables
 }
