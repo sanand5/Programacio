@@ -37,6 +37,10 @@ public class uf12_02 extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
+        jPanel1.setBackground(new java.awt.Color(255, 153, 255));
+
+        AjTextField.setBackground(new java.awt.Color(153, 204, 255));
+        AjTextField.setFont(new java.awt.Font("Andika", 0, 13)); // NOI18N
         AjTextField.setText("A");
         AjTextField.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -44,8 +48,11 @@ public class uf12_02 extends javax.swing.JFrame {
             }
         });
 
+        BjTextField.setBackground(new java.awt.Color(0, 204, 153));
+        BjTextField.setFont(new java.awt.Font("Gargi", 2, 13)); // NOI18N
         BjTextField.setText("B");
 
+        PorjButton.setBackground(new java.awt.Color(102, 255, 102));
         PorjButton.setText("*");
         PorjButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -53,6 +60,8 @@ public class uf12_02 extends javax.swing.JFrame {
             }
         });
 
+        masjButton.setBackground(new java.awt.Color(255, 0, 51));
+        masjButton.setFont(new java.awt.Font("Ani", 0, 13)); // NOI18N
         masjButton.setText("+");
         masjButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -60,6 +69,7 @@ public class uf12_02 extends javax.swing.JFrame {
             }
         });
 
+        menosjButton.setBackground(new java.awt.Color(51, 102, 255));
         menosjButton.setText("-");
         menosjButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -67,6 +77,7 @@ public class uf12_02 extends javax.swing.JFrame {
             }
         });
 
+        dividirjButton.setBackground(new java.awt.Color(51, 51, 51));
         dividirjButton.setText("/");
         dividirjButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -74,8 +85,14 @@ public class uf12_02 extends javax.swing.JFrame {
             }
         });
 
+        resultatjLabel.setBackground(new java.awt.Color(255, 255, 0));
+        resultatjLabel.setFont(new java.awt.Font("Pagul", 1, 13)); // NOI18N
+        resultatjLabel.setForeground(new java.awt.Color(255, 255, 0));
+        resultatjLabel.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         resultatjLabel.setText("Resultat");
         resultatjLabel.setToolTipText("");
+        resultatjLabel.setAlignmentX(0.5F);
+        resultatjLabel.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
         resultatjLabel.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
@@ -125,7 +142,7 @@ public class uf12_02 extends javax.swing.JFrame {
                 .addComponent(PorjButton, javax.swing.GroupLayout.PREFERRED_SIZE, 58, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(70, 70, 70)
                 .addComponent(resultatjLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 62, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(131, Short.MAX_VALUE))
+                .addContainerGap(128, Short.MAX_VALUE))
             .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(jPanel1Layout.createSequentialGroup()
                     .addGap(119, 119, 119)

@@ -85,8 +85,8 @@ public class Extrauprojectes2 {
         // TODO code application logic here
         
         //path = "/Users/Andreuet/Documents/1DAM/Programacio/3raAVA/jk";
-        File origen = new File ("/Users/Andreuet/Documents/1DAM/Programacio/3raAVA/UF11");
-        File desti = new File ("/Users/Andreuet/Documents/1DAM/copia");
+        File origen = new File ("/home/sanand/Documents/1DAM/Programacio/3raAVA/UF11/");
+        File desti = new File ("/home/sanand/Documents/1DAM/COPIA");
         desti.mkdir();
         try {
             if (!origen.exists()) {
