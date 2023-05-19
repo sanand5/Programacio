@@ -8,7 +8,8 @@ import javax.swing.JRadioButton;
  */
 /**
  *
- * @author sanand id : calculadora
+ * @author sanand 
+ * id : calculadora
  */
 public class uf12_03 extends javax.swing.JFrame {
 
@@ -88,7 +89,7 @@ public class uf12_03 extends javax.swing.JFrame {
             }
         });
 
-        jRadioButton1.setText("jRadioButton1");
+        jRadioButton1.setText("Sumatorio");
         jRadioButton1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jRadioButton1ActionPerformed(evt);
