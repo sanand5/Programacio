@@ -24,6 +24,7 @@ public class extrauprojectes extends javax.swing.JFrame {
      */
     public extrauprojectes() {
         initComponents();
+        this.setLocationRelativeTo(this);
     }
 
     /**

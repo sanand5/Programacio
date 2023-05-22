@@ -2,7 +2,7 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
  */
-package uf12_08v2;
+package uf12_Burgerv2;
 
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -13,13 +13,13 @@ import javax.swing.plaf.basic.BasicBorders;
  *
  * @author Andreuet
  */
-public class UF12_08_ventanaSalsas extends UF12_08_ventana2 {
+public class UF12_Burger_ventanaSalsas extends UF12_Burger_ventana2 {
 
     int qchup, bbcoa, mostassa, thai;
     /**
      * Creates new form UF12_08
      */
-    public UF12_08_ventanaSalsas() {
+    public UF12_Burger_ventanaSalsas() {
         initComponents();
         this.setLocationRelativeTo(this);
         
@@ -231,14 +231,22 @@ public class UF12_08_ventanaSalsas extends UF12_08_ventana2 {
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(UF12_08_ventanaSalsas.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(UF12_Burger_ventanaSalsas.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(UF12_08_ventanaSalsas.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(UF12_Burger_ventanaSalsas.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(UF12_08_ventanaSalsas.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(UF12_Burger_ventanaSalsas.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(UF12_08_ventanaSalsas.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(UF12_Burger_ventanaSalsas.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
         //</editor-fold>
         //</editor-fold>
         //</editor-fold>
@@ -251,7 +259,7 @@ public class UF12_08_ventanaSalsas extends UF12_08_ventana2 {
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new UF12_08_ventanaSalsas().setVisible(true);
+                new UF12_Burger_ventanaSalsas().setVisible(true);
             }
         });
     }

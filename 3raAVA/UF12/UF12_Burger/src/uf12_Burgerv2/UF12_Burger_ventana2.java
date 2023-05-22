@@ -2,7 +2,7 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
  */
-package uf12_08v2;
+package uf12_Burgerv2;
 
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -13,13 +13,13 @@ import javax.swing.plaf.basic.BasicBorders;
  *
  * @author Andreuet
  */
-public class UF12_08_ventana2 extends UF12_08v2  {
+public class UF12_Burger_ventana2 extends UF12_Burgerv2  {
 
     int hmb, fmg, ppt;
     /**
      * Creates new form UF12_08
      */
-    public UF12_08_ventana2() {
+    public UF12_Burger_ventana2() {
         initComponents();
         this.setLocationRelativeTo(this);
         
@@ -182,7 +182,7 @@ public class UF12_08_ventana2 extends UF12_08v2  {
     }
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         // TODO add your handling code here:
-        UF12_08v2 menu = new UF12_08v2();
+        UF12_Burgerv2 menu = new UF12_Burgerv2();
         menu.setVisible(true);
         this.dispose();
     }//GEN-LAST:event_jButton1ActionPerformed
@@ -194,7 +194,7 @@ public class UF12_08_ventana2 extends UF12_08v2  {
 
     private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
         // TODO add your handling code here:
-        UF12_08_ventanaSalsas menu = new UF12_08_ventanaSalsas();
+        UF12_Burger_ventanaSalsas menu = new UF12_Burger_ventanaSalsas();
         menu.setVisible(true);
         
     }//GEN-LAST:event_jButton4ActionPerformed

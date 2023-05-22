@@ -51,6 +51,10 @@ public class uf12_07 extends javax.swing.JFrame {
             }
         });
 
+        cpujProgressBar.setStringPainted(true);
+
+        ramjProgressBar.setStringPainted(true);
+
         javax.swing.GroupLayout CPUjLabelLayout = new javax.swing.GroupLayout(CPUjLabel);
         CPUjLabel.setLayout(CPUjLabelLayout);
         CPUjLabelLayout.setHorizontalGroup(

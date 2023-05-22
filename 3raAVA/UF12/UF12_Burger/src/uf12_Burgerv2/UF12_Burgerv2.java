@@ -2,7 +2,7 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
  */
-package uf12_08v2;
+package uf12_Burgerv2;
 
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -12,18 +12,18 @@ import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.JSpinner;
 import javax.swing.plaf.basic.BasicBorders;
-import static uf12_08.UF12_08.sumarnum;
+import static uf12_Burger.UF12_Burger.sumarnum;
 
 /**
  *
  * @author Andreuet
  */
-public class UF12_08v2 extends javax.swing.JFrame {
+public class UF12_Burgerv2 extends javax.swing.JFrame {
 
     /**
-     * Creates new form UF12_08
+     * Creates new form UF12_Burger
      */
-    public UF12_08v2() {
+    public UF12_Burgerv2() {
         initComponents();
         this.setLocationRelativeTo(this);
         
@@ -238,7 +238,7 @@ public class UF12_08v2 extends javax.swing.JFrame {
             /*
             
             
-            preu += (int)UF12_08_ventana2.get.getValue() * 2
+            preu += (int)UF12_Burger_ventana2.get.getValue() * 2
                     + ((int) chessjSpinner.getValue()
                     + (int) qchupjSpinner.getValue()
                     + (int) bbcoajSpinner.getValue()
@@ -268,7 +268,7 @@ public class UF12_08v2 extends javax.swing.JFrame {
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
         // TODO add your handling code here:
-        UF12_08_ventana2 frame = new UF12_08_ventana2();
+        UF12_Burger_ventana2 frame = new UF12_Burger_ventana2();
         frame.setVisible(true);
         this.dispose();
     }//GEN-LAST:event_jButton2ActionPerformed
@@ -296,21 +296,23 @@ public class UF12_08v2 extends javax.swing.JFrame {
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(UF12_08v2.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(UF12_Burgerv2.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(UF12_08v2.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(UF12_Burgerv2.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(UF12_08v2.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(UF12_Burgerv2.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(UF12_08v2.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(UF12_Burgerv2.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
+        //</editor-fold>
+        //</editor-fold>
         //</editor-fold>
         //</editor-fold>
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new UF12_08v2().setVisible(true);
+                new UF12_Burgerv2().setVisible(true);
             }
         });
     }
