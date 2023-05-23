@@ -68,7 +68,7 @@
                               <Component id="lblMenuBasico" alignment="0" min="-2" pref="407" max="-2" attributes="0"/>
                               <Component id="lblBebida" alignment="0" min="-2" pref="62" max="-2" attributes="0"/>
                               <Component id="lblOpExtra" alignment="0" min="-2" max="-2" attributes="0"/>
-                              <Component id="panBebida" alignment="0" pref="427" max="32767" attributes="0"/>
+                              <Component id="panBebida" alignment="0" pref="464" max="32767" attributes="0"/>
                               <Group type="102" alignment="0" attributes="0">
                                   <Group type="103" groupAlignment="0" attributes="0">
                                       <Component id="panHamburguesa" alignment="0" min="-2" max="-2" attributes="0"/>
@@ -88,7 +88,7 @@
                           </Group>
                       </Group>
                       <Group type="102" alignment="0" attributes="0">
-                          <EmptySpace min="-2" pref="42" max="-2" attributes="0"/>
+                          <EmptySpace min="-2" pref="47" max="-2" attributes="0"/>
                           <Group type="103" groupAlignment="1" attributes="0">
                               <Component id="jrbDomicilio" min="-2" max="-2" attributes="0"/>
                               <Group type="103" alignment="1" groupAlignment="0" attributes="0">
@@ -137,9 +137,9 @@
                   </Group>
                   <EmptySpace max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="1" max="-2" attributes="0">
-                      <Component id="panHamburguesa" alignment="0" max="32767" attributes="0"/>
-                      <Component id="panPan" alignment="1" max="32767" attributes="0"/>
-                      <Component id="panPatatas" alignment="0" max="32767" attributes="0"/>
+                      <Component id="panHamburguesa" alignment="0" pref="134" max="32767" attributes="0"/>
+                      <Component id="panPan" alignment="1" pref="134" max="32767" attributes="0"/>
+                      <Component id="panPatatas" alignment="0" pref="134" max="32767" attributes="0"/>
                   </Group>
                   <EmptySpace type="unrelated" max="-2" attributes="0"/>
                   <Component id="lblBebida" min="-2" max="-2" attributes="0"/>
@@ -235,7 +235,7 @@
                       <Component id="jrbTernera" min="-2" max="-2" attributes="0"/>
                       <EmptySpace type="unrelated" max="-2" attributes="0"/>
                       <Component id="jrbVegana" min="-2" max="-2" attributes="0"/>
-                      <EmptySpace pref="9" max="32767" attributes="0"/>
+                      <EmptySpace max="32767" attributes="0"/>
                   </Group>
               </Group>
             </DimensionLayout>
@@ -305,7 +305,7 @@
                           <Component id="jrbIntegral" alignment="0" min="-2" max="-2" attributes="0"/>
                           <Component id="jrbCenteno" alignment="0" min="-2" max="-2" attributes="0"/>
                       </Group>
-                      <EmptySpace pref="54" max="32767" attributes="0"/>
+                      <EmptySpace pref="48" max="32767" attributes="0"/>
                   </Group>
               </Group>
             </DimensionLayout>
@@ -380,7 +380,7 @@
                           <Component id="jrbGajo" alignment="0" min="-2" max="-2" attributes="0"/>
                           <Component id="jrbCaseras" alignment="0" min="-2" max="-2" attributes="0"/>
                       </Group>
-                      <EmptySpace pref="26" max="32767" attributes="0"/>
+                      <EmptySpace pref="16" max="32767" attributes="0"/>
                   </Group>
               </Group>
             </DimensionLayout>
@@ -552,7 +552,7 @@
                           <Component id="cbxExtraPatatas" alignment="0" min="-2" max="-2" attributes="0"/>
                           <Component id="cbxHamburguesaDoble" alignment="0" min="-2" max="-2" attributes="0"/>
                       </Group>
-                      <EmptySpace pref="28" max="32767" attributes="0"/>
+                      <EmptySpace max="32767" attributes="0"/>
                   </Group>
               </Group>
             </DimensionLayout>
@@ -565,7 +565,7 @@
                       <Component id="cbxExtraQueso" min="-2" max="-2" attributes="0"/>
                       <EmptySpace type="unrelated" max="-2" attributes="0"/>
                       <Component id="cbxExtraPatatas" min="-2" max="-2" attributes="0"/>
-                      <EmptySpace pref="21" max="32767" attributes="0"/>
+                      <EmptySpace pref="10" max="32767" attributes="0"/>
                   </Group>
               </Group>
             </DimensionLayout>

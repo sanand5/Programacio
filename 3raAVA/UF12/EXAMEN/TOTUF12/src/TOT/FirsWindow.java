@@ -39,11 +39,14 @@ public class FirsWindow extends javax.swing.JFrame {
     private void initComponents() {
 
         jFileChooser1 = new javax.swing.JFileChooser();
+        jTextField1 = new javax.swing.JTextField();
         jPanel1 = new javax.swing.JPanel();
         ExaminarJButton = new javax.swing.JButton();
         jScrollPane1 = new javax.swing.JScrollPane();
         CampoDeTexo = new javax.swing.JTextArea();
         GuardarJButton = new javax.swing.JButton();
+
+        jTextField1.setText("jTextField1");
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -71,25 +74,27 @@ public class FirsWindow extends javax.swing.JFrame {
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
                 .addContainerGap(92, Short.MAX_VALUE)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 615, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(14, 14, 14))
-            .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(121, 121, 121)
-                .addComponent(ExaminarJButton)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(GuardarJButton)
-                .addGap(135, 135, 135))
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 615, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(14, 14, 14))
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGap(29, 29, 29)
+                        .addComponent(ExaminarJButton)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(GuardarJButton)
+                        .addGap(135, 135, 135))))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(99, 99, 99)
+                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addComponent(ExaminarJButton)
                         .addGap(26, 26, 26))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                        .addContainerGap()
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGap(31, 91, Short.MAX_VALUE)
                         .addComponent(GuardarJButton)
                         .addGap(34, 34, 34)))
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 313, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -110,10 +115,26 @@ public class FirsWindow extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
+    private void GuardarJButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_GuardarJButtonActionPerformed
+        // TODO add your handling code here:
+        int seleccion=jFileChooser1.showSaveDialog(this);
+        if (seleccion == JFileChooser.APPROVE_OPTION) {
+            File fichero=jFileChooser1.getSelectedFile();
+            try {
+                FileWriter fw = new FileWriter(fichero);
+                fw.write(CampoDeTexo.getText()+"\n");
+                fw.close();
+
+            } catch(IOException e) {
+                JOptionPane.showMessageDialog(this, "Error al leer el fichero");
+            }
+        }
+
+    }//GEN-LAST:event_GuardarJButtonActionPerformed
+
     private void ExaminarJButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ExaminarJButtonActionPerformed
         // TODO add your handling code here:
         int seleccion=jFileChooser1.showOpenDialog(this); // important
-        System.out.println(seleccion);
         if (seleccion == JFileChooser.APPROVE_OPTION) {
             File fichero=jFileChooser1.getSelectedFile();
             try {
@@ -130,23 +151,6 @@ public class FirsWindow extends javax.swing.JFrame {
             }
         }
     }//GEN-LAST:event_ExaminarJButtonActionPerformed
-
-    private void GuardarJButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_GuardarJButtonActionPerformed
-        // TODO add your handling code here:
-        int seleccion=jFileChooser1.showSaveDialog(this);
-        if (seleccion == JFileChooser.APPROVE_OPTION) {
-        File fichero=jFileChooser1.getSelectedFile();
-        try {
-            FileWriter fw = new FileWriter(fichero);
-            fw.write(CampoDeTexo.getText()+"\n");
-            fw.close();
-
-        } catch(IOException e) {
-            JOptionPane.showMessageDialog(this, "Error al leer el fichero");
-        }
-        }
-       
-    }//GEN-LAST:event_GuardarJButtonActionPerformed
 
     /**
      * @param args the command line arguments
@@ -190,5 +194,6 @@ public class FirsWindow extends javax.swing.JFrame {
     private javax.swing.JFileChooser jFileChooser1;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JTextField jTextField1;
     // End of variables declaration//GEN-END:variables
 }

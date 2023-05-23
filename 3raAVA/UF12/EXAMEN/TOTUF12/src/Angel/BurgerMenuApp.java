@@ -133,7 +133,7 @@ public class BurgerMenuApp extends javax.swing.JFrame {
                 .addComponent(jrbTernera)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(jrbVegana)
-                .addContainerGap(9, Short.MAX_VALUE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         lblPan.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
@@ -161,7 +161,7 @@ public class BurgerMenuApp extends javax.swing.JFrame {
                     .addComponent(jrbNormal)
                     .addComponent(jrbIntegral)
                     .addComponent(jrbCenteno))
-                .addContainerGap(54, Short.MAX_VALUE))
+                .addContainerGap(48, Short.MAX_VALUE))
         );
         panPanLayout.setVerticalGroup(
             panPanLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -200,7 +200,7 @@ public class BurgerMenuApp extends javax.swing.JFrame {
                     .addComponent(jrbFritas)
                     .addComponent(jrbGajo)
                     .addComponent(jrbCaseras))
-                .addContainerGap(26, Short.MAX_VALUE))
+                .addContainerGap(16, Short.MAX_VALUE))
         );
         panPatatasLayout.setVerticalGroup(
             panPatatasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -287,7 +287,7 @@ public class BurgerMenuApp extends javax.swing.JFrame {
                     .addComponent(cbxExtraQueso)
                     .addComponent(cbxExtraPatatas)
                     .addComponent(cbxHamburguesaDoble))
-                .addContainerGap(28, Short.MAX_VALUE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         panOpExtraLayout.setVerticalGroup(
             panOpExtraLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -298,7 +298,7 @@ public class BurgerMenuApp extends javax.swing.JFrame {
                 .addComponent(cbxExtraQueso)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(cbxExtraPatatas)
-                .addContainerGap(21, Short.MAX_VALUE))
+                .addContainerGap(10, Short.MAX_VALUE))
         );
 
         lblSalsas.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
@@ -417,7 +417,7 @@ public class BurgerMenuApp extends javax.swing.JFrame {
                             .addComponent(lblMenuBasico, javax.swing.GroupLayout.PREFERRED_SIZE, 407, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(lblBebida, javax.swing.GroupLayout.PREFERRED_SIZE, 62, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(lblOpExtra)
-                            .addComponent(panBebida, javax.swing.GroupLayout.DEFAULT_SIZE, 427, Short.MAX_VALUE)
+                            .addComponent(panBebida, javax.swing.GroupLayout.DEFAULT_SIZE, 464, Short.MAX_VALUE)
                             .addGroup(panPrincipalLayout.createSequentialGroup()
                                 .addGroup(panPrincipalLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addComponent(panHamburguesa, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -431,7 +431,7 @@ public class BurgerMenuApp extends javax.swing.JFrame {
                                     .addComponent(panPatatas, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                                     .addComponent(lblPatatas)))))
                     .addGroup(panPrincipalLayout.createSequentialGroup()
-                        .addGap(42, 42, 42)
+                        .addGap(47, 47, 47)
                         .addGroup(panPrincipalLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                             .addComponent(jrbDomicilio)
                             .addGroup(panPrincipalLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -467,9 +467,9 @@ public class BurgerMenuApp extends javax.swing.JFrame {
                     .addComponent(lblPatatas))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(panPrincipalLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                    .addComponent(panHamburguesa, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(panPan, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(panPatatas, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addComponent(panHamburguesa, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 134, Short.MAX_VALUE)
+                    .addComponent(panPan, javax.swing.GroupLayout.DEFAULT_SIZE, 134, Short.MAX_VALUE)
+                    .addComponent(panPatatas, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 134, Short.MAX_VALUE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(lblBebida)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
