@@ -39,12 +39,15 @@ public class extrauprojectes extends javax.swing.JFrame {
         jFilechooser = new javax.swing.JFileChooser();
         fileOrigenjLabel = new javax.swing.JLabel();
         filedestijLabel = new javax.swing.JLabel();
+        buttonGroup1 = new javax.swing.ButtonGroup();
         jPanel1 = new javax.swing.JPanel();
         origenjButton = new javax.swing.JButton();
         origenjLabel = new javax.swing.JLabel();
         destijLabel = new javax.swing.JLabel();
         destijButton = new javax.swing.JButton();
         generarjButton = new javax.swing.JButton();
+        jRadioButtonForm = new javax.swing.JRadioButton();
+        jRadioButtonJava = new javax.swing.JRadioButton();
 
         fileOrigenjLabel.setText("jLabel1");
 
@@ -77,6 +80,23 @@ public class extrauprojectes extends javax.swing.JFrame {
             }
         });
 
+        buttonGroup1.add(jRadioButtonForm);
+        jRadioButtonForm.setText(".form");
+        jRadioButtonForm.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jRadioButtonFormActionPerformed(evt);
+            }
+        });
+
+        buttonGroup1.add(jRadioButtonJava);
+        jRadioButtonJava.setSelected(true);
+        jRadioButtonJava.setText(".java");
+        jRadioButtonJava.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jRadioButtonJavaActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
@@ -85,20 +105,25 @@ public class extrauprojectes extends javax.swing.JFrame {
                 .addGap(23, 23, 23)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addComponent(origenjButton)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(destijButton))
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(jPanel1Layout.createSequentialGroup()
+                                .addComponent(origenjButton)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 51, Short.MAX_VALUE)
+                                .addComponent(destijButton))
+                            .addGroup(jPanel1Layout.createSequentialGroup()
+                                .addGap(54, 54, 54)
+                                .addComponent(origenjLabel)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addComponent(destijLabel)
+                                .addGap(50, 50, 50)))
+                        .addGap(26, 26, 26))
                     .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(54, 54, 54)
-                        .addComponent(origenjLabel)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(destijLabel)
-                        .addGap(50, 50, 50))
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(126, 126, 126)
+                        .addComponent(jRadioButtonJava)
+                        .addGap(37, 37, 37)
                         .addComponent(generarjButton)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 123, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addGap(26, 26, 26))
+                        .addGap(29, 29, 29)
+                        .addComponent(jRadioButtonForm)
+                        .addGap(63, 63, 63))))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -112,7 +137,10 @@ public class extrauprojectes extends javax.swing.JFrame {
                     .addComponent(origenjButton)
                     .addComponent(destijButton))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(generarjButton)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(generarjButton)
+                    .addComponent(jRadioButtonForm)
+                    .addComponent(jRadioButtonJava))
                 .addGap(97, 97, 97))
         );
 
@@ -159,13 +187,24 @@ public class extrauprojectes extends javax.swing.JFrame {
             if (!origen.exists()) {
                 throw new FileNotFoundException();
             }
-            buscar2(origen, desti, ".java");
+            if (jRadioButtonJava.isSelected()) {
+                buscar2(origen, desti, ".java");
+                
+            }else buscar2(origen, desti, ".form");
             System.out.println("Tot bé :)");
         } catch (FileNotFoundException e) {
             System.out.println("***Err : El fitcher no eistei");
         }
 
     }//GEN-LAST:event_generarjButtonActionPerformed
+
+    private void jRadioButtonFormActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jRadioButtonFormActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jRadioButtonFormActionPerformed
+
+    private void jRadioButtonJavaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jRadioButtonJavaActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jRadioButtonJavaActionPerformed
 
     public static void buscar2(File f, File d, String extensio) {
         for (File lf : f.listFiles()) {
@@ -213,12 +252,15 @@ public class extrauprojectes extends javax.swing.JFrame {
         FileWriter fw = new FileWriter(copia, true);
         while (sc.hasNextLine()) {
             String line = sc.nextLine();
+            /*
+            
             if (line.contains("important") || line.contains("Important") || line.contains("IMPORTANT")) {
                 important = "*";
             }
             if (line.contains("id :") || line.contains("Id :") || line.contains("ID :") || line.contains("id:") || line.contains("Id:") || line.contains("ID:")) {
                 id = "_" + line.split(": ")[1].replace(" ", "-");
             }
+            */
             fw.write(line + "\n");
         }
         copia.renameTo(new File(copia.getParent(), important + nom + id + extensio));
@@ -262,6 +304,7 @@ public class extrauprojectes extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.ButtonGroup buttonGroup1;
     private javax.swing.JButton destijButton;
     private javax.swing.JLabel destijLabel;
     private javax.swing.JLabel fileOrigenjLabel;
@@ -269,6 +312,8 @@ public class extrauprojectes extends javax.swing.JFrame {
     private javax.swing.JButton generarjButton;
     private javax.swing.JFileChooser jFilechooser;
     private javax.swing.JPanel jPanel1;
+    private javax.swing.JRadioButton jRadioButtonForm;
+    private javax.swing.JRadioButton jRadioButtonJava;
     private javax.swing.JButton origenjButton;
     private javax.swing.JLabel origenjLabel;
     // End of variables declaration//GEN-END:variables

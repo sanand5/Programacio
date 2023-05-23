@@ -4,6 +4,12 @@
  */
 package extrauprojectes;
 
+import java.io.File;
+import java.io.FileNotFoundException;
+import java.io.FileWriter;
+import java.io.IOException;
+import java.util.Scanner;
+
 /**
  *
  * @author Andreuet
@@ -13,10 +19,10 @@ public class proves {
     /**
      * @param args the command line arguments
      */
-    public static void main(String[] args) {
+    public static void main(String[] args) throws FileNotFoundException, IOException {
         // TODO code application logic here
-        String f = "hola.hhh";
-        System.out.println(f.split("\\.")[0]);
+
+        }
     }
     
 }
