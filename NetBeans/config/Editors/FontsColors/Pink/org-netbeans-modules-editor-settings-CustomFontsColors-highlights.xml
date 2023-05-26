@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE fontscolors
+PUBLIC "-//NetBeans//DTD Editor Fonts and Colors settings 1.1//EN"
+       "http://www.netbeans.org/dtds/EditorFontsColors-1_1.dtd">
+<fontscolors>
+ <fontcolor name="block-search" default="default" foreColor="ff000000" bgColor="ffe0e8f1"/>
+ <fontcolor name="nbeditor-bracesMatching-match" default="default" bgColor="fff3ff0f"/>
+ <fontcolor name="nbeditor-bracesMatching-match-multichar" default="default" bgColor="fff3ff0f"/>
+ <fontcolor name="nbeditor-bracesMatching-mismatch" default="default" bgColor="ffd83636"/>
+ <fontcolor name="nbeditor-bracesMatching-mismatch-multichar" default="default" bgColor="ffd83636"/>
+ <fontcolor name="highlight-caret-row" default="default" bgColor="ffe0e8f1"/>
+ <fontcolor name="highlight-search" default="default" foreColor="ff000000" bgColor="ffffb442"/>
+ <fontcolor name="line-number" default="default" foreColor="ff000000" bgColor="ffe9e8e2"/>
+ <fontcolor name="selection" default="default" bgColor="ffb0c5e3"/>
+ <fontcolor name="text-limit-line-color" default="default" foreColor="ffffa8a8">
+  <font/>
+ </fontcolor>
+</fontscolors>

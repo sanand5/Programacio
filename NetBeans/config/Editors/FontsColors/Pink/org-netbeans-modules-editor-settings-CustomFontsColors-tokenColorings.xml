@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE fontscolors
+PUBLIC "-//NetBeans//DTD Editor Fonts and Colors settings 1.1//EN"
+       "http://www.netbeans.org/dtds/EditorFontsColors-1_1.dtd">
+<fontscolors>
+ <fontcolor name="char" default="default" foreColor="ffbf005a"/>
+ <fontcolor name="comment" default="default" foreColor="ff969696"/>
+ <fontcolor name="default" default="default" foreColor="ffff80fb" bgColor="ffffffff">
+  <font name="Courier New" size="13"/>
+ </fontcolor>
+ <fontcolor name="entity-reference" default="default">
+  <font style="bold"/>
+ </fontcolor>
+ <fontcolor name="field" default="default" foreColor="ffff0028"/>
+ <fontcolor name="identifier" default="default"/>
+ <fontcolor name="keyword" default="default" foreColor="ff0000ff"/>
+ <fontcolor name="method" default="identifier" foreColor="ff00e3d5"/>
+ <fontcolor name="number" default="default" foreColor="ffb1a000"/>
+ <fontcolor name="operator" default="default" foreColor="ffff00df"/>
+ <fontcolor name="separator" default="default" foreColor="ff000000"/>
+ <fontcolor name="string" default="default" foreColor="ff00e32b"/>
+ <fontcolor name="url" default="default" underline="ff0000ff"/>
+ <fontcolor name="error" default="default" waveUnderlined="ffff0000"/>
+ <fontcolor name="warning" default="default" waveUnderlined="ffffff00"/>
+</fontscolors>

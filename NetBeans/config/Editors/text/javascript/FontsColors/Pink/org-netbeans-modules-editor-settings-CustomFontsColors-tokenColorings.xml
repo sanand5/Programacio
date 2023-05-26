@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE fontscolors
+PUBLIC "-//NetBeans//DTD Editor Fonts and Colors settings 1.1//EN"
+       "http://www.netbeans.org/dtds/EditorFontsColors-1_1.dtd">
+<fontscolors>
+ <fontcolor name="mod-class" default="default"/>
+ <fontcolor name="mod-global" default="field"/>
+ <fontcolor name="IDENTIFIER" default="identifier"/>
+ <fontcolor name="keyword" default="keyword"/>
+ <fontcolor name="mod-method" default="default">
+  <font style="bold"/>
+ </fontcolor>
+ <fontcolor name="FLOAT_LITERAL" default="number"/>
+ <fontcolor name="ANY_OPERATOR" default="operator"/>
+ <fontcolor name="mod-regexp" default="default" foreColor="ff9933cc"/>
+ <fontcolor name="mark-occurrences" default="default" foreColor="ff000000" bgColor="ffeceba3"/>
+</fontscolors>
