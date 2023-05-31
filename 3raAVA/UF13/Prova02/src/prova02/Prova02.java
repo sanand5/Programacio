@@ -23,9 +23,10 @@ public class Prova02 {
             Statement stmt = conn.createStatement(ResultSet.TYPE_SCROLL_SENSITIVE, ResultSet.CONCUR_UPDATABLE);
             ResultSet rs = stmt.executeQuery("SELECT * FROM venedors");
             int numcolumns = rs.getMetaData().getColumnCount();
-            rs.last();
+            rs.moveToInsertRow();
             rs.updateString("nom", "Paca JIJI");
             rs.updateRow();
+            
             rs.beforeFirst();
             while (rs.next()) {
                 for (int i = 1; i <= rs.getMetaData().getColumnCount(); i++) {
