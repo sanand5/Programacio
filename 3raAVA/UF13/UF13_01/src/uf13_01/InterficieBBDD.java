@@ -48,12 +48,12 @@ public class InterficieBBDD {
             if (!actiu) {
                 while (rs.next()) {
                     if (rs.getBoolean("actiu")) {
-                        res += rs.getDouble("preu");
+                        res += rs.getInt("preu");
                     }
                 }
             } else {
                 while (rs.next()) {
-                    res += rs.getDouble("preu");
+                    res += rs.getInt("preu");
                 }
             }
             rs.close();
@@ -84,7 +84,7 @@ public class InterficieBBDD {
             rs.updateDate("data", Date.valueOf(LocalDate.now()));
             rs.updateInt("total", total);
             rs.insertRow();
-            System.out.println("\nTOTALS s'ha acctualitzat amb un total de: " + total);
+            System.out.print("\nTOTALS s'ha acctualitzat amb un total de: " + total);
             rs.close();
             stmt.close();
         } catch (SQLException e) {
