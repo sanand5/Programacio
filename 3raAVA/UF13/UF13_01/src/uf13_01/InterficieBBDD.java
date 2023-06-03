@@ -4,34 +4,35 @@
  */
 package uf13_01;
 
-import com.mysql.cj.jdbc.result.ResultSetMetaData;
-
 import java.sql.*;
+import java.time.LocalDate;
+
 /**
  *
  * @author sanand
  */
 public class InterficieBBDD {
 
-    // Conexión a la base de datos
     private static Connection conn = null;
-    
+
     public InterficieBBDD(Connection conn) {
-        this.conn = conn;
+        InterficieBBDD.conn = conn;
     }
 
     /**
-     * Esta funció suma tots els preus dels productes actius
+     * Aquesta funció suma tots els preus dels productes actius.
+     *
      * @return La suma dels preus dels productes
-     * @see #suma(boolean) 
+     * @see #suma(boolean)
      */
     public int suma() {
         return suma(false);
     }
 
     /**
-     * Esta funció suma els preus dels productes
-     * @param actiu : segons el seu valor la funcio sumara uns valors o tots 
+     * Aquesta funció suma els preus dels productes.
+     *
+     * @param actiu Segons el seu valor, la funció sumarà uns valors o tots.
      * <ul>
      * <li>true : suma tots els valors</li>
      * <li>false : suma sols els valors actius</li>
@@ -44,103 +45,113 @@ public class InterficieBBDD {
         try {
             Statement stmt = conn.createStatement(ResultSet.TYPE_SCROLL_SENSITIVE, ResultSet.CONCUR_UPDATABLE);
             ResultSet rs = stmt.executeQuery("SELECT * FROM productes");
-            
-
             if (!actiu) {
                 while (rs.next()) {
                     if (rs.getBoolean("actiu")) {
-                        res+=rs.getDouble("preu");
+                        res += rs.getDouble("preu");
                     }
                 }
-            }else{
+            } else {
                 while (rs.next()) {
-                    res+=rs.getDouble("preu");
+                    res += rs.getDouble("preu");
                 }
             }
-            
             rs.close();
             stmt.close();
-            
-
-        } catch (Exception x) {
-            System.out.println(x);
+        } catch (SQLException e) {
+            System.out.println("### Error: Error en la Base de Dades ###");
+            System.out.println(e.getMessage());
+        } catch (Exception e) {
+            System.out.println("### Error: Error desonegut ###");
+            System.out.println(e.getMessage());
         }
-        
+
         return res;
     }
 
     /**
-     * Esta funcio insereix el preu total del producte i la data actual a la taula totals
-     * @param total : fa referencia al valor total dels productes
+     * Aquesta funció insereix el preu total del producte i la data actual a la
+     * taula "totals".
+     *
+     * @param total Fa referencia al valor total dels productes
      */
     public void inserir(int total) {
         try {
             Statement stmt = conn.createStatement(ResultSet.TYPE_SCROLL_SENSITIVE, ResultSet.CONCUR_UPDATABLE);
             ResultSet rs = stmt.executeQuery("SELECT * FROM totals");
-            
+
             rs.moveToInsertRow();
-            rs.updateDate("data", new Date(1));
+            rs.updateDate("data", Date.valueOf(LocalDate.now()));
             rs.updateInt("total", total);
             rs.insertRow();
-
-            
-            
+            System.out.println("\nTOTALS s'ha acctualitzat amb un total de: " + total);
             rs.close();
             stmt.close();
-            
-
-        } catch (Exception x) {
-            System.out.println(x);
+        } catch (SQLException e) {
+            System.out.println("### Error: Error en la Base de Dades ###");
+            System.out.println(e.getMessage());
+        } catch (Exception e) {
+            System.out.println("### Error: Error desonegut ###");
+            System.out.println(e.getMessage());
         }
     }
 
-    
     /**
      * Mostra la taula de productes
-     * @see #mostrar(java.lang.String, java.lang.String) 
      */
     public void mostrarProductes() {
-        mostrar("productes", "PRODUCTES DEL MAGATZEM");
-    }
-
-    /**
-     * Mostra la taula total
-     */
-    public void mostrarTotals() {
-        mostrar("totals", "TAULA TOTALS");
-    }
-
-    /**
-     * Mostra una taula
-     * @param tabla : fa referencia a la taula que es demana
-     * @param text : fa referència al titol de dalt de la taula
-     */
-    public void mostrar(String tabla, String text) {
         try {
             Statement stmt = conn.createStatement(ResultSet.TYPE_SCROLL_SENSITIVE, ResultSet.CONCUR_UPDATABLE);
-            ResultSet rs = stmt.executeQuery("SELECT * FROM "+tabla);
-            System.out.println("\n|----- "+text);
-            ResultSetMetaData md = (ResultSetMetaData) rs.getMetaData();
-            for (int i = 1; i <= md.getColumnCount(); i++) {
-                System.out.printf("| %-6s", md.getColumnName(i));
-            }
-            System.out.println();
+            ResultSet rs = stmt.executeQuery("SELECT * FROM productes");
+            System.out.println("\n|----- PRODUCTES DEL MAGATZEM");
+            System.out.printf("| %-6s", "ID");
+            System.out.printf("| %-11s", "Nom");
+            System.out.printf("| %-8s", "Preu");
+            System.out.printf("| %s\n", "Actiu");
             while (rs.next()) {
-                for (int i = 1; i <= md.getColumnCount(); i++) {
-                    System.out.printf("| %-6s", rs.getString(i));
-                }
-                System.out.println();
+                System.out.printf("| %-6s", rs.getInt(1));
+                System.out.printf("| %-11s", rs.getString(2));
+                System.out.printf("| %-8s", rs.getInt(3));
+                System.out.printf("| %s\n", rs.getInt(4));
             }
             rs.close();
             stmt.close();
 
-        } catch (Exception x) {
-            System.out.println(x);
+        } catch (SQLException e) {
+            System.out.println("### Error: Error en la Base de Dades ###");
+            System.out.println(e.getMessage());
+        } catch (Exception e) {
+            System.out.println("### Error: Error desonegut ###");
+            System.out.println(e.getMessage());
         }
     }
+
+    /**
+     * Mostra la taula del preu total
+     */
+    public void mostrarTotals() {
+        try {
+            Statement stmt = conn.createStatement(ResultSet.TYPE_SCROLL_SENSITIVE, ResultSet.CONCUR_UPDATABLE);
+            ResultSet rs = stmt.executeQuery("SELECT * FROM totals");
+            System.out.println("\n|----- TAULA TOTALS");
+            System.out.printf("| %-6s", "ID");
+            System.out.printf("| %-11s", "Data");
+            System.out.printf("| %-8s\n", "Total");
+            while (rs.next()) {
+                System.out.printf("| %-6s", rs.getInt(1));
+                System.out.printf("| %-11s", rs.getDate(2));
+                System.out.printf("| %s\n", rs.getInt(3));
+            }
+
+            rs.close();
+            stmt.close();
+        } catch (SQLException e) {
+            System.out.println("### Error: Error en la Base de Dades ###");
+            System.out.println(e.getMessage());
+        } catch (Exception e) {
+            System.out.println("### Error: Error desonegut ###");
+            System.out.println(e.getMessage());
+        }
+    }
+
 }
-/*
-Exepcions
-Revisar comentaris
-correu
-*/
