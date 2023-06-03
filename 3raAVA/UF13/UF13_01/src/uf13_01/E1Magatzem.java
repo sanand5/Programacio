@@ -31,6 +31,7 @@ public class E1Magatzem {
             magatzem.mostrarProductes();
             
             System.out.print("\n##2 Actualitzem TOTALS només amb els productes actius ##");
+            
             magatzem.inserir(magatzem.suma());
             magatzem.mostrarTotals();
             
